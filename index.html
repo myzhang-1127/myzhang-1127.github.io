@@ -1,9 +1,51 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"/><title>Doc compare</title></head>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Boost.Accumulators — documentation compare</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 44rem; margin: 2rem auto; line-height: 1.55; padding: 0 1rem; color: #222; }
+    h1 { font-size: 1.35rem; }
+    table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
+    th, td { border: 1px solid #ccc; padding: 0.65rem 0.75rem; text-align: left; vertical-align: top; }
+    th { background: #f6f6f6; }
+    a.button { display: inline-block; margin-top: 0.35rem; padding: 0.45rem 0.85rem; background: #0b5cad; color: #fff; text-decoration: none; border-radius: 4px; font-size: 0.95rem; }
+    a.button.secondary { background: #444; }
+    .note { font-size: 0.88rem; color: #555; margin-top: 1.5rem; }
+  </style>
+</head>
 <body>
-<h1>Documentation comparisons</h1>
-<ul>
-  <li><a href="doc-compare/accumulators/legacy/">Legacy (qbk → BoostBook)</a></li>
-  <li><a href="doc-compare/accumulators/antora/">Modern (Antora / AsciiDoc)</a></li>
-</ul>
-</body></html>
+  <h1>Boost.Accumulators — documentation comparison</h1>
+  <p>Compare the <strong>official Boost.org HTML</strong> with the <strong>Antora / AsciiDoc</strong> site built from this repository.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Option</th>
+        <th>Content</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>before</strong></td>
+        <td>
+          Official reference: <code>accumulators.html</code> on boost.org (latest).
+          <br/>
+          <a class="button" href="accumulators/before/">Open “before” hub</a>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>after</strong> (modern)</td>
+        <td>
+          Optimized Antora output (AsciiDoc pipeline).
+          <br/>
+          <a class="button secondary" href="accumulators/after/accumulators/index.html">Open Antora home</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="note">The official page cannot be embedded in an iframe from this domain (<code>X-Frame-Options: SAMEORIGIN</code> on boost.org). Use two tabs or two windows for side-by-side viewing.</p>
+</body>
+</html>

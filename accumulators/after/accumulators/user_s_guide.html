@@ -118,7 +118,7 @@
       <ul class="nav-list">
         <ul class="nav-list">
         <li class="" data-depth="1">
-            <a class="nav-link" href="index.html">Boost.Accumulators</a>
+            <a class="nav-link" href="index.html">Chapter 1. Boost.Accumulators</a>
         </li>
               <li class="" data-depth="1">
             <a class="nav-link" href="preface.html">Preface</a>
@@ -172,7 +172,21 @@
     <h1 class="page">User&#8217;s Guide</h1>
   <div id="preamble">
 <div class="sectionbody">
-<div id="accumulators.user_s_guide" class="paragraph">
+<div id="accumulators.user_s_guide" class="sidebarblock accumulators-mini-toc">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#accumulators.user_s_guide.the_accumulators_framework">The Accumulators Framework</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library">The Statistical Accumulators Library</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
 <p>This section describes how to use the Boost.Accumulators framework to create new accumulators and how to use the existing statistical accumulators to perform incremental statistical computation. For detailed information regarding specific components in Boost.Accumulators, check the <a href="reference.html#accumulators_framework_reference" class="xref page">Reference</a> section.</p>
 </div>
 </div>
@@ -226,24 +240,53 @@ Moment: 9.635</code></pre>
 <div class="sect1">
 <h2 id="accumulators.user_s_guide.the_accumulators_framework"><a class="anchor" href="#accumulators.user_s_guide.the_accumulators_framework"></a>The Accumulators Framework</h2>
 <div class="sectionbody">
+<div class="sidebarblock accumulators-mini-toc">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#accumulators.user_s_guide.the_accumulators_framework.using___accumulator_set___">Using <code>accumulator_set&lt;&gt;</code></a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_accumulators_framework.extracting_results">Extracting Results</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_accumulators_framework.passing_optional_parameters">Passing Optional Parameters</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_accumulators_framework.weighted_samples">Weighted Samples</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_accumulators_framework.numeric_operators_sub_library">Numeric Operators Sub-Library</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework">Extending the Accumulators Framework</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_accumulators_framework.concepts">Concepts</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>The Accumulators Framework is framework for performing incremental calculations. Usage of the framework follows the following pattern:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Users build a computational object, called an <em><code>accumulator_set&lt;&gt;</code></em>, by selecting the computations in which they are interested, or authoring their own computational primitives which fit within the framework.</p>
+<p>Users build a computational object, called an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>, by selecting the computations in which they are interested, or authoring their own computational primitives which fit within the framework.</p>
 </li>
 <li>
-<p>Users push data into the <em><code>accumulator_set&lt;&gt;</code></em> object one sample at a time.</p>
+<p>Users push data into the <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> object one sample at a time.</p>
 </li>
 <li>
-<p>The <em><code>accumulator_set&lt;&gt;</code></em> computes the requested quantities in the most efficient method possible, resolving dependencies between requested calculations, possibly caching intermediate results.</p>
+<p>The <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> computes the requested quantities in the most efficient method possible, resolving dependencies between requested calculations, possibly caching intermediate results.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The Accumulators Framework defines the utilities needed for defining primitive computational elements, called <em>accumulators</em>. It also provides the <em><code>accumulator_set&lt;&gt;</code></em> type, described above.</p>
+<p>The Accumulators Framework defines the utilities needed for defining primitive computational elements, called <em>accumulators</em>. It also provides the <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> type, described above.</p>
 </div>
 </div>
 </div>
@@ -257,7 +300,7 @@ Moment: 9.635</code></pre>
 <dl>
 <dt class="hdlist1">Sample</dt>
 <dd>
-<p><a id="sample_type"></a> A datum that is pushed into an <em><code>accumulator_set&lt;&gt;</code></em>. The type of the sample is the <em>sample type</em>.</p>
+<p><a id="sample_type"></a> A datum that is pushed into an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>. The type of the sample is the <em>sample type</em>.</p>
 </dd>
 <dt class="hdlist1">Weight</dt>
 <dd>
@@ -265,7 +308,7 @@ Moment: 9.635</code></pre>
 </dd>
 <dt class="hdlist1">Feature</dt>
 <dd>
-<p>An abstract primitive computational entity. When defining an <em><code>accumulator_set&lt;&gt;</code></em>, users specify the features in which they are interested, and the <em><code>accumulator_set&lt;&gt;</code></em> figures out which <em>accumulators</em> would best provide those features. Features may depend on other features. If they do, the accumulator set figures out which accumulators to add to satisfy the dependencies.</p>
+<p>An abstract primitive computational entity. When defining an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>, users specify the features in which they are interested, and the <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> figures out which <em>accumulators</em> would best provide those features. Features may depend on other features. If they do, the accumulator set figures out which accumulators to add to satisfy the dependencies.</p>
 </dd>
 <dt class="hdlist1">Accumulator</dt>
 <dd>
@@ -277,7 +320,7 @@ Moment: 9.635</code></pre>
 </dd>
 <dt class="hdlist1">Extractor</dt>
 <dd>
-<p>A function or function object that can be used to extract a result from an <em><code>accumulator_set&lt;&gt;</code></em>.</p>
+<p>A function or function object that can be used to extract a result from an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>.</p>
 </dd>
 </dl>
 </div>
@@ -303,39 +346,39 @@ Moment: 9.635</code></pre>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><code>accumulator_set&lt;&gt;</code></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This is the most important type in the Accumulators Framework. It is a collection of accumulators. A datum pushed into an <em><code>accumulator_set&lt;&gt;</code></em> is forwarded to each accumulator, in an order determined by the dependency relationships between the accumulators. Computational results can be extracted from an accumulator at any time.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This is the most important type in the Accumulators Framework. It is a collection of accumulators. A datum pushed into an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> is forwarded to each accumulator, in an order determined by the dependency relationships between the accumulators. Computational results can be extracted from an accumulator at any time.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="reference.html#doxygen.accumulators_framework_reference.structboost_1_1accumulators_1_1depends__on" class="xref page">depends_on&lt;&gt;</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="reference.html#doxygen.accumulators_framework_reference.depends__on_8hpp" class="xref page"><em><code>depends_on&lt;&gt;</code></em></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Used to specify which other features a feature depends on.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="reference.html#doxygen.accumulators_framework_reference.structboost_1_1accumulators_1_1feature__of" class="xref page">feature_of&lt;&gt;</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="reference.html#doxygen.accumulators_framework_reference.depends__on_8hpp" class="xref page"><em><code>feature_of&lt;&gt;</code></em></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Trait used to tell the Accumulators Framework that, for the purpose of feature-based dependency resolution, one feature should be treated the same as another.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="reference.html#doxygen.accumulators_framework_reference.structboost_1_1accumulators_1_1as__feature" class="xref page">as_feature&lt;&gt;</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Used to create an alias for a feature. For example, if there are two features, fast_X and accurate_X, they can be mapped to X(fast) and X(accurate) with <a href="reference.html#doxygen.accumulators_framework_reference.structboost_1_1accumulators_1_1as__feature" class="xref page">as_feature&lt;&gt;</a>. This is just syntactic sugar.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="reference.html#doxygen.accumulators_framework_reference.depends__on_8hpp" class="xref page"><em><code>as_feature&lt;&gt;</code></em></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used to create an alias for a feature. For example, if there are two features, fast_X and accurate_X, they can be mapped to X(fast) and X(accurate) with <a href="reference.html#doxygen.accumulators_framework_reference.depends__on_8hpp" class="xref page"><em><code>as_feature&lt;&gt;</code></em></a>. This is just syntactic sugar.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><code>features&lt;&gt;</code></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">An <a href="../../libs/mpl/index.html">MPL</a> sequence. We can use <em><code>features&lt;&gt;</code></em> as the second template parameter when declaring an <em><code>accumulator_set&lt;&gt;</code></em>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="reference.html#doxygen.accumulators_framework_reference.features_8hpp" class="xref page"><em><code>features&lt;&gt;</code></em></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An <a href="../../libs/mpl/index.html">MPL</a> sequence. We can use <a href="reference.html#doxygen.accumulators_framework_reference.features_8hpp" class="xref page"><em><code>features&lt;&gt;</code></em></a> as the second template parameter when declaring an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><code>external&lt;&gt;</code></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Used when declaring an <em><code>accumulator_set&lt;&gt;</code></em>. If the weight type is specified with <em><code>external&lt;&gt;</code></em>, then the weight accumulators are assumed to reside in a separate accumulator set which will be passed in with a named parameter.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="reference.html#doxygen.accumulators_framework_reference.external__accumulator_8hpp" class="xref page"><em><code>external&lt;&gt;</code></em></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used when declaring an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>. If the weight type is specified with <a href="reference.html#doxygen.accumulators_framework_reference.external__accumulator_8hpp" class="xref page"><em><code>external&lt;&gt;</code></em></a>, then the weight accumulators are assumed to reside in a separate accumulator set which will be passed in with a named parameter.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><code>extractor&lt;&gt;</code></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A class template useful for creating an extractor function object. It is parameterized on a feature, and it has member functions for extracting from an <em><code>accumulator_set&lt;&gt;</code></em> the result corresponding to that feature.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A class template useful for creating an extractor function object. It is parameterized on a feature, and it has member functions for extracting from an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> the result corresponding to that feature.</p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_accumulators_framework.using___accumulator_set___"><a class="anchor" href="#accumulators.user_s_guide.the_accumulators_framework.using___accumulator_set___"></a>Using <code>accumulator_set&lt;&gt;</code></h3>
 <div class="paragraph">
-<p>Our tour of the <em><code>accumulator_set&lt;&gt;</code></em> class template begins with the forward declaration:</p>
+<p>Our tour of the <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> class template begins with the forward declaration:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -363,7 +406,7 @@ struct accumulator_set;</code></pre>
 </dl>
 </div>
 <div class="paragraph">
-<p>For example, the following line declares an <em><code>accumulator_set&lt;&gt;</code></em> that will accept a sequence of doubles one at a time and calculate the min and mean:</p>
+<p>For example, the following line declares an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> that will accept a sequence of doubles one at a time and calculate the min and mean:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -371,7 +414,7 @@ struct accumulator_set;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Notice that we use the <em><code>features&lt;&gt;</code></em> template to specify a list of features to be calculated. <em><code>features&lt;&gt;</code></em> is an MPL sequence of features.</p>
+<p>Notice that we use the <a href="reference.html#doxygen.accumulators_framework_reference.features_8hpp" class="xref page"><em><code>features&lt;&gt;</code></em></a> template to specify a list of features to be calculated. <a href="reference.html#doxygen.accumulators_framework_reference.features_8hpp" class="xref page"><em><code>features&lt;&gt;</code></em></a> is an MPL sequence of features.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -388,7 +431,7 @@ struct accumulator_set;</code></pre>
 </table>
 </div>
 <div class="paragraph">
-<p>Once we have defined an <em><code>accumulator_set&lt;&gt;</code></em>, we can then push data into it, and it will calculate the quantities you requested, as shown below.</p>
+<p>Once we have defined an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>, we can then push data into it, and it will calculate the quantities you requested, as shown below.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -399,7 +442,7 @@ acc(3.4);</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Since <em><code>accumulator_set&lt;&gt;</code></em> defines its accumulate function to be the function call operator, we might be tempted to use an <em><code>accumulator_set&lt;&gt;</code></em> as a UnaryFunction to a standard algorithm such as <code>std::for_each</code>. That&#8217;s fine as long as we keep in mind that the standard algorithms take UnaryFunction objects by value, which involves making a copy of the <em><code>accumulator_set&lt;&gt;</code></em> object. Consider the following:</p>
+<p>Since <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> defines its accumulate function to be the function call operator, we might be tempted to use an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> as a UnaryFunction to a standard algorithm such as <code>std::for_each</code>. That&#8217;s fine as long as we keep in mind that the standard algorithms take UnaryFunction objects by value, which involves making a copy of the <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> object. Consider the following:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -414,7 +457,7 @@ acc = std::for_each( data.begin(), data.end(), acc );</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Notice how we must assign the return value of <code>std::for_each</code> back to the <em><code>accumulator_set&lt;&gt;</code></em>. This works, but some accumulators are not cheap to copy. For example, the <em><code>tail</code></em> and <em><code>tail_variate&lt;&gt;</code></em> accumulators must store a <code>std::vector&lt;&gt;</code>, so copying these accumulators involves a dynamic allocation. We might be better off in this case passing the accumulator by reference, with the help of <code>boost::bind()</code> and <code>boost::ref()</code>. See below:</p>
+<p>Notice how we must assign the return value of <code>std::for_each</code> back to the <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>. This works, but some accumulators are not cheap to copy. For example, the <a href="reference.html#doxygen.statistics_library_reference.tail_8hpp" class="xref page"><em><code>tail</code></em></a> and <a href="reference.html#doxygen.statistics_library_reference.tail__variate_8hpp" class="xref page"><em><code>tail_variate&lt;&gt;</code></em></a> accumulators must store a <code>std::vector&lt;&gt;</code>, so copying these accumulators involves a dynamic allocation. We might be better off in this case passing the accumulator by reference, with the help of <code>boost::bind()</code> and <code>boost::ref()</code>. See below:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -450,7 +493,7 @@ std::for_each( data.begin(), data.end(), bind&lt;void&gt;( ref(acc), _1 ) );</co
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_accumulators_framework.extracting_results"><a class="anchor" href="#accumulators.user_s_guide.the_accumulators_framework.extracting_results"></a>Extracting Results</h3>
 <div class="paragraph">
-<p>Once we have declared an <em><code>accumulator_set&lt;&gt;</code></em> and pushed data into it, we need to be able to extract results from it. For each feature we can add to an <em><code>accumulator_set&lt;&gt;</code></em>, there is a corresponding extractor for fetching its result. Usually, the extractor has the same name as the feature, but in a different namespace. For example, if we accumulate the <code>tag::min</code> and <code>tag::max</code> features, we can extract the results with the <code>min</code> and <code>max</code> extractors, as follows:</p>
+<p>Once we have declared an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> and pushed data into it, we need to be able to extract results from it. For each feature we can add to an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>, there is a corresponding extractor for fetching its result. Usually, the extractor has the same name as the feature, but in a different namespace. For example, if we accumulate the <code>tag::min</code> and <code>tag::max</code> features, we can extract the results with the <code>min</code> and <code>max</code> extractors, as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -482,7 +525,7 @@ std::cout &lt;&lt; '(' &lt;&lt; min( acc ) &lt;&lt; ", " &lt;&lt; max( acc ) &lt
 </table>
 </div>
 <div class="paragraph">
-<p>Another way to extract a result from an <em><code>accumulator_set&lt;&gt;</code></em> is with the <code>extract_result()</code> function. This can be more convenient if there isn&#8217;t an extractor object handy for a certain feature. The line above which displays results could equally be written as:</p>
+<p>Another way to extract a result from an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> is with the <code>extract_result()</code> function. This can be more convenient if there isn&#8217;t an extractor object handy for a certain feature. The line above which displays results could equally be written as:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -507,10 +550,10 @@ std::cout &lt;&lt; '(' &lt;&lt; min_( acc ) &lt;&lt; ", " &lt;&lt; max_( acc ) &
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_accumulators_framework.passing_optional_parameters"><a class="anchor" href="#accumulators.user_s_guide.the_accumulators_framework.passing_optional_parameters"></a>Passing Optional Parameters</h3>
 <div class="paragraph">
-<p>Some accumulators need initialization parameters. In addition, perhaps some auxiliary information needs to be passed into the <em><code>accumulator_set&lt;&gt;</code></em> along with each sample. Boost.Accumulators handles these cases with named parameters from the <a href="../../libs/parameter/index.html">Boost.Parameter</a> library.</p>
+<p>Some accumulators need initialization parameters. In addition, perhaps some auxiliary information needs to be passed into the <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> along with each sample. Boost.Accumulators handles these cases with named parameters from the <a href="../../libs/parameter/index.html">Boost.Parameter</a> library.</p>
 </div>
 <div class="paragraph">
-<p>For example, consider the <em><code>tail</code></em> and <em><code>tail_variate&lt;&gt;</code></em> features. <em><code>tail</code></em> keeps an ordered list of the largest <code>N</code> samples, where <code>N</code> can be specified at construction time. Also, the <em><code>tail_variate&lt;&gt;</code></em> feature, which depends on <em><code>tail</code></em>, keeps track of some data that is covariate with the <code>N</code> samples tracked by <em><code>tail</code></em>. The code below shows how this all works, and is described in more detail below.</p>
+<p>For example, consider the <a href="reference.html#doxygen.statistics_library_reference.tail_8hpp" class="xref page"><em><code>tail</code></em></a> and <a href="reference.html#doxygen.statistics_library_reference.tail__variate_8hpp" class="xref page"><em><code>tail_variate&lt;&gt;</code></em></a> features. <a href="reference.html#doxygen.statistics_library_reference.tail_8hpp" class="xref page"><em><code>tail</code></em></a> keeps an ordered list of the largest <code>N</code> samples, where <code>N</code> can be specified at construction time. Also, the <a href="reference.html#doxygen.statistics_library_reference.tail__variate_8hpp" class="xref page"><em><code>tail_variate&lt;&gt;</code></em></a> feature, which depends on <a href="reference.html#doxygen.statistics_library_reference.tail_8hpp" class="xref page"><em><code>tail</code></em></a>, keeps track of some data that is covariate with the <code>N</code> samples tracked by <a href="reference.html#doxygen.statistics_library_reference.tail_8hpp" class="xref page"><em><code>tail</code></em></a>. The code below shows how this all works, and is described in more detail below.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -542,13 +585,13 @@ std::copy( my_tail_variate( acc ).begin(), my_tail_variate( acc ).end(), iout );
 </div>
 </div>
 <div class="paragraph">
-<p>There are several things to note about the code above. First, notice that we didn&#8217;t have to request that the <em><code>tail</code></em> feature be calculated. That is implicit because the <em><code>tail_variate&lt;&gt;</code></em> feature depends on the <em><code>tail</code></em> feature. Next, notice how the <code>acc</code> object is initialized: <code>acc( tag::tail&lt;left&gt;::cache_size = 2 )</code>. Here, <code>cache_size</code> is a named parameter. It is used to tell the <em><code>tail</code></em> and <em><code>tail_variate&lt;&gt;</code></em> accumulators how many samples and covariates to store. Conceptually, every construction parameter is made available to every accumulator in an accumulator set.</p>
+<p>There are several things to note about the code above. First, notice that we didn&#8217;t have to request that the <a href="reference.html#doxygen.statistics_library_reference.tail_8hpp" class="xref page"><em><code>tail</code></em></a> feature be calculated. That is implicit because the <a href="reference.html#doxygen.statistics_library_reference.tail__variate_8hpp" class="xref page"><em><code>tail_variate&lt;&gt;</code></em></a> feature depends on the <a href="reference.html#doxygen.statistics_library_reference.tail_8hpp" class="xref page"><em><code>tail</code></em></a> feature. Next, notice how the <code>acc</code> object is initialized: <code>acc( tag::tail&lt;left&gt;::cache_size = 2 )</code>. Here, <code>cache_size</code> is a named parameter. It is used to tell the <a href="reference.html#doxygen.statistics_library_reference.tail_8hpp" class="xref page"><em><code>tail</code></em></a> and <a href="reference.html#doxygen.statistics_library_reference.tail__variate_8hpp" class="xref page"><em><code>tail_variate&lt;&gt;</code></em></a> accumulators how many samples and covariates to store. Conceptually, every construction parameter is made available to every accumulator in an accumulator set.</p>
 </div>
 <div class="paragraph">
 <p>We also use a named parameter to pass covariate data into the accumulator set along with the samples. As with the constructor parameters, all parameters to the accumulate function are made available to all the accumulators in the set. In this case, only the accumulator for the <code>my_tail_variate</code> feature would be interested in the value of the <code>covariate1</code> named parameter.</p>
 </div>
 <div class="paragraph">
-<p>We can make one final observation about the example above. Since <em><code>tail</code></em> and <em><code>tail_variate&lt;&gt;</code></em> are multi-valued features, the result we extract for them is represented as an iterator range. That is why we can say <code>tail( acc ).begin()</code> and <code>tail( acc ).end()</code>.</p>
+<p>We can make one final observation about the example above. Since <a href="reference.html#doxygen.statistics_library_reference.tail_8hpp" class="xref page"><em><code>tail</code></em></a> and <a href="reference.html#doxygen.statistics_library_reference.tail__variate_8hpp" class="xref page"><em><code>tail_variate&lt;&gt;</code></em></a> are multi-valued features, the result we extract for them is represented as an iterator range. That is why we can say <code>tail( acc ).begin()</code> and <code>tail( acc ).end()</code>.</p>
 </div>
 <div class="paragraph">
 <p>Even the extractors can accept named parameters. In a bit, we&#8217;ll see a situation where that is useful.</p>
@@ -560,7 +603,7 @@ std::copy( my_tail_variate( acc ).begin(), my_tail_variate( acc ).end(), iout );
 <p>Some accumulators, statistical accumulators in particular, deal with data that are <em>weighted</em>. Each sample pushed into the accumulator has an associated weight, by which the sample is conceptually multiplied. The Statistical Accumulators Library provides an assortment of these weighted statistical accumulators. And many unweighted statistical accumulators have weighted variants. For instance, the weighted variant of the <code>sum</code> accumulator is called <code>weighted_sum</code>, and is calculated by accumulating all the samples multiplied by their weights.</p>
 </div>
 <div class="paragraph">
-<p>To declare an <em><code>accumulator_set&lt;&gt;</code></em> that accepts weighted samples, you must specify the type of the weight parameter as the 3rd template parameter, as follows:</p>
+<p>To declare an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> that accepts weighted samples, you must specify the type of the weight parameter as the 3rd template parameter, as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -570,7 +613,7 @@ accumulator_set&lt; int, features&lt; tag::sum &gt;, int &gt; acc;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>When you specify a weight, all the accumulators in the set are replaced with their weighted equivalents. For example, the above <em><code>accumulator_set&lt;&gt;</code></em> declaration is equivalent to the following:</p>
+<p>When you specify a weight, all the accumulators in the set are replaced with their weighted equivalents. For example, the above <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> declaration is equivalent to the following:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -634,6 +677,29 @@ std::cout &lt;&lt; sum(acc) &lt;&lt; std::endl;</code></pre>
 </div>
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework"><a class="anchor" href="#accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework"></a>Extending the Accumulators Framework</h3>
+<div class="sidebarblock accumulators-mini-toc">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework.defining_a_new_accumulator"><em>Defining a New Accumulator</em></a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework.defining_a_new_feature"><em>Defining a New Feature</em></a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework.defining_a_new_extractor"><em>Defining a New Extractor</em></a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework.controlling_dependencies"><em>Controlling Dependencies</em></a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework.operators_ex"><em>Specializing Numeric Operators</em></a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>This section describes how to extend the Accumulators Framework by defining new accumulators, features and extractors. Also covered are how to control the dependency resolution of features within an accumulator set.</p>
 </div>
@@ -702,7 +768,7 @@ private:
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework.defining_a_new_accumulator.accessing_other_accumulators_in_the_set"><a class="anchor" href="#accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework.defining_a_new_accumulator.accessing_other_accumulators_in_the_set"></a>Accessing Other Accumulators in the Set</h3>
 <div class="paragraph">
-<p>Some accumulators depend on other accumulators within the same accumulator set. In those cases, it is necessary to be able to access those other accumulators. To make this possible, the <em><code>accumulator_set&lt;&gt;</code></em> passes a reference to itself when invoking the member functions of its contained accumulators. It can be accessed by using the special <code>accumulator</code> key with the argument pack. Consider how we might implement <code>mean_accumulator</code>:</p>
+<p>Some accumulators depend on other accumulators within the same accumulator set. In those cases, it is necessary to be able to access those other accumulators. To make this possible, the <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> passes a reference to itself when invoking the member functions of its contained accumulators. It can be accessed by using the special <code>accumulator</code> key with the argument pack. Consider how we might implement <code>mean_accumulator</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -722,7 +788,7 @@ struct mean_accumulator : accumulator_base
 </div>
 </div>
 <div class="paragraph">
-<p><code>mean</code> depends on the <code>sum</code> and <code>count</code> accumulators. (We&#8217;ll see in the next section how to specify these dependencies.) The result of the mean accumulator is merely the result of the sum accumulator divided by the result of the count accumulator. Consider how we write that: <code>sum(args[accumulator]) / count(args[accumulator])</code>. The expression <code>args[accumulator]</code> evaluates to a reference to the <em><code>accumulator_set&lt;&gt;</code></em> that contains this <code>mean_accumulator</code>. It also contains the <code>sum</code> and <code>count</code> accumulators, and we can access their results with the extractors defined for those features: <code>sum</code> and <code>count</code>.</p>
+<p><code>mean</code> depends on the <code>sum</code> and <code>count</code> accumulators. (We&#8217;ll see in the next section how to specify these dependencies.) The result of the mean accumulator is merely the result of the sum accumulator divided by the result of the count accumulator. Consider how we write that: <code>sum(args[accumulator]) / count(args[accumulator])</code>. The expression <code>args[accumulator]</code> evaluates to a reference to the <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> that contains this <code>mean_accumulator</code>. It also contains the <code>sum</code> and <code>count</code> accumulators, and we can access their results with the extractors defined for those features: <code>sum</code> and <code>count</code>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -739,7 +805,7 @@ struct mean_accumulator : accumulator_base
 </table>
 </div>
 <div class="paragraph">
-<p>All the member functions that accept an argument pack have access to the enclosing <em><code>accumulator_set&lt;&gt;</code></em> via the <code>accumulator</code> key, including the constructor. The accumulators within the set are constructed in an order determined by their interdependencies. As a result, it is safe for an accumulator to access one on which it depends during construction.</p>
+<p>All the member functions that accept an argument pack have access to the enclosing <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> via the <code>accumulator</code> key, including the constructor. The accumulators within the set are constructed in an order determined by their interdependencies. As a result, it is safe for an accumulator to access one on which it depends during construction.</p>
 </div>
 </div>
 <div class="sect2">
@@ -754,7 +820,7 @@ struct mean_accumulator : accumulator_base
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework.defining_a_new_accumulator.droppable_accumulators"><a class="anchor" href="#accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework.defining_a_new_accumulator.droppable_accumulators"></a>Droppable Accumulators</h3>
 <div class="paragraph">
-<p>The term "droppable" refers to an accumulator that can be removed from the <em><code>accumulator_set&lt;&gt;</code></em>. You can request that an accumulator be made droppable by using the <em><code>droppable&lt;&gt;</code></em> class template.</p>
+<p>The term "droppable" refers to an accumulator that can be removed from the <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>. You can request that an accumulator be made droppable by using the <a href="reference.html#doxygen.accumulators_framework_reference.droppable__accumulator_8hpp" class="xref page"><em><code>droppable&lt;&gt;</code></em></a> class template.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -871,7 +937,7 @@ std::cout &lt;&lt; sum(acc) &lt;&lt; ' '
 <div class="sect3">
 <h4 id="accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework.defining_a_new_feature"><a class="anchor" href="#accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework.defining_a_new_feature"></a><em>Defining a New Feature</em></h4>
 <div class="paragraph">
-<p>Once we have implemented an accumulator, we must define a feature for it so that users can specify the feature when declaring an <em><code>accumulator_set&lt;&gt;</code></em>. We typically put the features into a nested namespace, so that later we can define an extractor of the same name. All features must satisfy the <a href="#accumulators.user_s_guide.the_accumulators_framework.concepts.feature_concept">Feature Concept</a>. Using <em><code>depends_on&lt;&gt;</code></em> makes satisfying the concept simple. Below is an example of a feature definition.</p>
+<p>Once we have implemented an accumulator, we must define a feature for it so that users can specify the feature when declaring an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>. We typically put the features into a nested namespace, so that later we can define an extractor of the same name. All features must satisfy the <a href="#accumulators.user_s_guide.the_accumulators_framework.concepts.feature_concept">Feature Concept</a>. Using <a href="reference.html#doxygen.accumulators_framework_reference.depends__on_8hpp" class="xref page"><em><code>depends_on&lt;&gt;</code></em></a> makes satisfying the concept simple. Below is an example of a feature definition.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -889,7 +955,7 @@ struct mean                         // Features should inherit from
 </div>
 </div>
 <div class="paragraph">
-<p>The only two things we must do to define the <code>mean</code> feature is to specify the dependencies with <em><code>depends_on&lt;&gt;</code></em> and define the nested <code>impl</code> typedef. Even features that have no dependencies should inherit from <em><code>depends_on&lt;&gt;</code></em>. The nested <code>impl</code> type must be an <a href="../../libs/mpl/doc/refmanual/lambda-expression.html">MPL Lambda Expression</a>. The result of <code>mpl::apply&lt; impl, sample-type, weight-type &gt;::type</code> must be be the type of the accumulator that implements this feature. The use of <a href="../../libs/mpl/index.html">MPL</a> placeholders like <code>mpl::_1</code> make it especially easy to make a template such as <code>mean_accumulator&lt;&gt;</code> an <a href="../../libs/mpl/doc/refmanual/lambda-expression.html">MPL Lambda Expression</a>. Here, <code>mpl::_1</code> will be replaced with the sample type. Had we used <code>mpl::_2</code>, it would have been replaced with the weight type.</p>
+<p>The only two things we must do to define the <code>mean</code> feature is to specify the dependencies with <a href="reference.html#doxygen.accumulators_framework_reference.depends__on_8hpp" class="xref page"><em><code>depends_on&lt;&gt;</code></em></a> and define the nested <code>impl</code> typedef. Even features that have no dependencies should inherit from <a href="reference.html#doxygen.accumulators_framework_reference.depends__on_8hpp" class="xref page"><em><code>depends_on&lt;&gt;</code></em></a>. The nested <code>impl</code> type must be an <a href="../../libs/mpl/doc/refmanual/lambda-expression.html">MPL Lambda Expression</a>. The result of <code>mpl::apply&lt; impl, sample-type, weight-type &gt;::type</code> must be be the type of the accumulator that implements this feature. The use of <a href="../../libs/mpl/index.html">MPL</a> placeholders like <code>mpl::_1</code> make it especially easy to make a template such as <code>mean_accumulator&lt;&gt;</code> an <a href="../../libs/mpl/doc/refmanual/lambda-expression.html">MPL Lambda Expression</a>. Here, <code>mpl::_1</code> will be replaced with the sample type. Had we used <code>mpl::_2</code>, it would have been replaced with the weight type.</p>
 </div>
 <div class="paragraph">
 <p>What about accumulator types that are not templates? If you have a <code>foo_accumulator</code> which is a plain struct and not a template, you could turn it into an <a href="../../libs/mpl/doc/refmanual/lambda-expression.html">MPL Lambda Expression</a> using <code>mpl::always&lt;&gt;</code>, like this:</p>
@@ -921,7 +987,7 @@ struct impl
 <p>Here, <code>impl</code> is a binary <a href="../../libs/mpl/doc/refmanual/metafunction-class.html">MPL Metafunction Class</a>, which is a kind of <a href="../../libs/mpl/doc/refmanual/lambda-expression.html">MPL Lambda Expression</a>. The nested <code>apply&lt;&gt;</code> template is part of the metafunction class protocol and tells MPL how to build the accumulator type given the sample and weight types.</p>
 </div>
 <div class="paragraph">
-<p>All features must also provide a nested <code>is_weight_accumulator</code> typedef. It must be either <code>mpl::true_</code> or <code>mpl::false_</code>. <em><code>depends_on&lt;&gt;</code></em> provides a default of <code>mpl::false_</code> for all features that inherit from it, but that can be overridden (or hidden, technically speaking) in the derived type. When the feature represents an accumulation of information about the weights instead of the samples, we can mark this feature as such with <code>typedef mpl::true_ is_weight_accumulator;</code>. The weight accumulators are made external if the weight type is specified using the <em><code>external&lt;&gt;</code></em> template.</p>
+<p>All features must also provide a nested <code>is_weight_accumulator</code> typedef. It must be either <code>mpl::true_</code> or <code>mpl::false_</code>. <a href="reference.html#doxygen.accumulators_framework_reference.depends__on_8hpp" class="xref page"><em><code>depends_on&lt;&gt;</code></em></a> provides a default of <code>mpl::false_</code> for all features that inherit from it, but that can be overridden (or hidden, technically speaking) in the derived type. When the feature represents an accumulation of information about the weights instead of the samples, we can mark this feature as such with <code>typedef mpl::true_ is_weight_accumulator;</code>. The weight accumulators are made external if the weight type is specified using the <a href="reference.html#doxygen.accumulators_framework_reference.external__accumulator_8hpp" class="xref page"><em><code>external&lt;&gt;</code></em></a> template.</p>
 </div>
 </div>
 <div class="sect3">
@@ -944,7 +1010,7 @@ using extract::mean;                    // Pull the extractor into the
 </div>
 </div>
 <div class="paragraph">
-<p>Once defined, the <code>mean</code> extractor can be used to extract the result of the <code>tag::mean</code> feature from an <em><code>accumulator_set&lt;&gt;</code></em>.</p>
+<p>Once defined, the <code>mean</code> extractor can be used to extract the result of the <code>tag::mean</code> feature from an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>.</p>
 </div>
 <div class="paragraph">
 <p>Parameterized features complicate this simple picture. Consider the <code>moment</code> feature, for calculating the <code>N</code>-th moment, where <code>N</code> is specified as a template parameter:</p>
@@ -983,7 +1049,7 @@ using extract::moment;                  // Pull the extractor into the
 </div>
 </div>
 <div class="paragraph">
-<p>The return type deserves some explanation. Every <em><code>accumulator_set&lt;&gt;</code></em> type is actually a unary <a href="../../libs/mpl/doc/refmanual/metafunction-class.html">MPL Metafunction Class</a>. When you <code>mpl::apply&lt;&gt;</code> an <em><code>accumulator_set&lt;&gt;</code></em> and a feature, the result is the type of the accumulator within the set that implements that feature. And every accumulator provides a nested <code>result_type</code> typedef that tells what its return type is. The extractor simply delegates its work to the <code>extract_result()</code> function.</p>
+<p>The return type deserves some explanation. Every <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> type is actually a unary <a href="../../libs/mpl/doc/refmanual/metafunction-class.html">MPL Metafunction Class</a>. When you <code>mpl::apply&lt;&gt;</code> an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> and a feature, the result is the type of the accumulator within the set that implements that feature. And every accumulator provides a nested <code>result_type</code> typedef that tells what its return type is. The extractor simply delegates its work to the <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>extract_result()</code></em></a> function.</p>
 </div>
 </div>
 <div class="sect3">
@@ -995,7 +1061,7 @@ using extract::moment;                  // Pull the extractor into the
 <p><strong>Aliasing feature dependencies with <code>feature_of&lt;&gt;</code></strong></p>
 </div>
 <div class="paragraph">
-<p>Imagine that you would like to implement the hypothetical <em>fubar</em> statistic, and that you know two ways to calculate fubar on a bunch of samples: an accurate but slow calculation and an approximate but fast calculation. You might opt to make the accurate calculation the default, so you implement two accumulators and call them <code>impl::fubar_impl</code> and <code>impl::fast_fubar_impl</code>. You would also define the <code>tag::fubar</code> and <code>tag::fast_fubar</code> features as described <a href="#accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework.defining_a_new_feature">above</a>. Now, you would like to inform the Accumulators Framework that these two features are the same from the point of view of dependency resolution. You can do that with <em><code>feature_of&lt;&gt;</code></em>, as follows:</p>
+<p>Imagine that you would like to implement the hypothetical <em>fubar</em> statistic, and that you know two ways to calculate fubar on a bunch of samples: an accurate but slow calculation and an approximate but fast calculation. You might opt to make the accurate calculation the default, so you implement two accumulators and call them <code>impl::fubar_impl</code> and <code>impl::fast_fubar_impl</code>. You would also define the <code>tag::fubar</code> and <code>tag::fast_fubar</code> features as described <a href="#accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework.defining_a_new_feature">above</a>. Now, you would like to inform the Accumulators Framework that these two features are the same from the point of view of dependency resolution. You can do that with <a href="reference.html#doxygen.accumulators_framework_reference.depends__on_8hpp" class="xref page"><em><code>feature_of&lt;&gt;</code></em></a>, as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1018,7 +1084,7 @@ using extract::moment;                  // Pull the extractor into the
 <p><strong>Registering feature variants with <code>as_feature&lt;&gt;</code></strong></p>
 </div>
 <div class="paragraph">
-<p>You may have noticed that some feature variants in the Accumulators Framework can be specified with a nicer syntax. For instance, instead of <code>tag::mean</code> and <code>tag::immediate_mean</code> you can specify them with <code>tag::mean(lazy)</code> and <code>tag::mean(immediate)</code> respectively. These are merely aliases, but the syntax makes the relationship between the two clearer. You can create these feature aliases with the <em><code>as_feature&lt;&gt;</code></em> trait. Given the fubar example above, you might decide to alias <code>tag::fubar(accurate)</code> with <code>tag::fubar</code> and <code>tag::fubar(fast)</code> with <code>tag::fast_fubar</code>. You would do that as follows:</p>
+<p>You may have noticed that some feature variants in the Accumulators Framework can be specified with a nicer syntax. For instance, instead of <code>tag::mean</code> and <code>tag::immediate_mean</code> you can specify them with <code>tag::mean(lazy)</code> and <code>tag::mean(immediate)</code> respectively. These are merely aliases, but the syntax makes the relationship between the two clearer. You can create these feature aliases with the <a href="reference.html#doxygen.accumulators_framework_reference.depends__on_8hpp" class="xref page"><em><code>as_feature&lt;&gt;</code></em></a> trait. Given the fubar example above, you might decide to alias <code>tag::fubar(accurate)</code> with <code>tag::fubar</code> and <code>tag::fubar(fast)</code> with <code>tag::fast_fubar</code>. You would do that as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1231,6 +1297,155 @@ using extract::moment;                  // Pull the extractor into the
 <div class="sect1">
 <h2 id="accumulators.user_s_guide.the_statistical_accumulators_library"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library"></a>The Statistical Accumulators Library</h2>
 <div class="sectionbody">
+<div class="sidebarblock accumulators-mini-toc">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.count">count</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.covariance">covariance</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.density">density</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.error_of_mean">error_of&lt;mean&gt;</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.extended_p_square">extended_p_square</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.extended_p_square_quantile">extended_p_square_quantile <em>and variants</em></a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.kurtosis">kurtosis</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.max">max</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.mean">mean <em>and variants</em></a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.median">median <em>and variants</em></a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.min">min</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.moment">moment</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.p_square_cumulative_distribution">p_square_cumulative_distribution</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.p_square_quantile">p_square_quantile <em>and variants</em></a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.peaks_over_threshold">peaks_over_threshold <em>and variants</em></a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.pot_quantile">pot_quantile <em>and variants</em></a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.pot_tail_mean">pot_tail_mean</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.rolling_count">rolling_count</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.rolling_sum">rolling_sum</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.rolling_mean">rolling_mean</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.rolling_moment">rolling_moment</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.rolling_variance">rolling_variance</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.skewness">skewness</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.sum">sum <em>and variants</em></a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.tail">tail</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.coherent_tail_mean">coherent_tail_mean</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.non_coherent_tail_mean">non_coherent_tail_mean</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.tail_quantile">tail_quantile</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.tail_variate">tail_variate</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.tail_variate_means">tail_variate_means <em>and variants</em></a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.variance">variance <em>and variants</em></a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_covariance">weighted_covariance</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_density">weighted_density</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_extended_p_square">weighted_extended_p_square</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_kurtosis">weighted_kurtosis</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_mean">weighted_mean <em>and variants</em></a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_median">weighted_median <em>and variants</em></a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_moment">weighted_moment</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_p_square_cumulative_distribution">weighted_p_square_cumulative_distribution</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_p_square_quantile">weighted_p_square_quantile <em>and variants</em></a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_peaks_over_threshold">weighted_peaks_over_threshold <em>and variants</em></a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_skewness">weighted_skewness</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_sum">weighted_sum <em>and variants</em></a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.non_coherent_weighted_tail_mean">non_coherent_weighted_tail_mean</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_tail_quantile">weighted_tail_quantile</a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_tail_variate_means">weighted_tail_variate_means <em>and variants</em></a></p>
+</li>
+<li>
+<p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_variance">weighted_variance <em>and variants</em></a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>The Statistical Accumulators Library defines accumulators for incremental statistical computations. It is built on top of <a href="#accumulators.user_s_guide.the_accumulators_framework">The Accumulator Framework</a>.</p>
 </div>
@@ -1282,11 +1497,8 @@ using extract::moment;                  // Pull the extractor into the
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/count.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.count_8hpp">boost/accumulators/statistics/count.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -1305,7 +1517,7 @@ assert(3 == count(acc));</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>count_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.count_8hpp" class="xref page"><em><code>count_impl</code></em></a></p>
 </li>
 </ul>
 </div>
@@ -1360,12 +1572,9 @@ assert(3 == count(acc));</code></pre>
 <div class="paragraph">
 <p><strong>Headers</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/covariance.hpp&gt;
-#include &lt;boost/accumulators/statistics/variates/covariate.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.covariance_8hpp">boost/accumulators/statistics/covariance.hpp</a>&gt;
+#include &lt;<a href="reference.html#doxygen.statistics_library_reference.covariate_8hpp">boost/accumulators/statistics/variates/covariate.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -1385,7 +1594,7 @@ assert(covariance(acc) == -1.75);</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>covariance_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.covariance_8hpp" class="xref page"><em><code>covariance_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.count"><code>count</code></a></p>
@@ -1399,7 +1608,7 @@ assert(covariance(acc) == -1.75);</code></pre>
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.density"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.density"></a>density</h3>
 <div class="paragraph">
-<p>The <code>tag::density</code> feature returns a histogram of the sample distribution. For more implementation details, see <em><code>density_impl</code></em>.</p>
+<p>The <code>tag::density</code> feature returns a histogram of the sample distribution. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.density_8hpp" class="xref page"><em><code>density_impl</code></em></a>.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -1451,11 +1660,8 @@ assert(covariance(acc) == -1.75);</code></pre>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/density.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.density_8hpp">boost/accumulators/statistics/density.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Note</strong></p>
 </div>
@@ -1468,7 +1674,7 @@ assert(covariance(acc) == -1.75);</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>density_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.density_8hpp" class="xref page"><em><code>density_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.count"><code>count</code></a></p>
@@ -1528,12 +1734,9 @@ assert(covariance(acc) == -1.75);</code></pre>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/error_of.hpp&gt;
-#include &lt;boost/accumulators/statistics/error_of_mean.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.error__of_8hpp">boost/accumulators/statistics/error_of.hpp</a>&gt;
+#include &lt;<a href="reference.html#doxygen.statistics_library_reference.error__of__mean_8hpp">boost/accumulators/statistics/error_of_mean.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -1552,7 +1755,7 @@ assert(0.057735 == error_of&lt;tag::mean&gt;(acc));</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>error_of_mean_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.error__of__mean_8hpp" class="xref page"><em><code>error_of_mean_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.count"><code>count</code></a></p>
@@ -1566,7 +1769,7 @@ assert(0.057735 == error_of&lt;tag::mean&gt;(acc));</code></pre>
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.extended_p_square"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.extended_p_square"></a>extended_p_square</h3>
 <div class="paragraph">
-<p>Multiple quantile estimation with the extended <code>P^2</code> algorithm. For further details, see <em><code>extended_p_square_impl</code></em>.</p>
+<p>Multiple quantile estimation with the extended <code>P^2</code> algorithm. For further details, see <a href="reference.html#doxygen.statistics_library_reference.extended__p__square_8hpp" class="xref page"><em><code>extended_p_square_impl</code></em></a>.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -1610,11 +1813,8 @@ assert(0.057735 == error_of&lt;tag::mean&gt;(acc));</code></pre>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/extended_p_square.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.extended__p__square_8hpp">boost/accumulators/statistics/extended_p_square.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -1644,7 +1844,7 @@ for (std::size_t i=3; i &lt; probs.size(); ++i)
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>extended_p_square_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.extended__p__square_8hpp" class="xref page"><em><code>extended_p_square_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.count"><code>count</code></a></p>
@@ -1655,7 +1855,7 @@ for (std::size_t i=3; i &lt; probs.size(); ++i)
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.extended_p_square_quantile"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.extended_p_square_quantile"></a>extended_p_square_quantile <em>and variants</em></h3>
 <div class="paragraph">
-<p>Quantile estimation using the extended <code>P^2</code> algorithm for weighted and unweighted samples. By default, the calculation is linear and unweighted, but quadratic and weighted variants are also provided. For further implementation details, see <em><code>extended_p_square_quantile_impl</code></em>.</p>
+<p>Quantile estimation using the extended <code>P^2</code> algorithm for weighted and unweighted samples. By default, the calculation is linear and unweighted, but quadratic and weighted variants are also provided. For further implementation details, see <a href="reference.html#doxygen.statistics_library_reference.extended__p__square__quantile_8hpp" class="xref page"><em><code>extended_p_square_quantile_impl</code></em></a>.</p>
 </div>
 <div class="paragraph">
 <p>All the variants share the <code>tag::quantile</code> feature and can be extracted using the <code>quantile()</code> extractor.</p>
@@ -1703,11 +1903,8 @@ unweighted variants depend on <code>extended_p_square</code></p>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/extended_p_square_quantile.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.extended__p__square__quantile_8hpp">boost/accumulators/statistics/extended_p_square_quantile.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -1775,7 +1972,7 @@ for (std::size_t i = 0; i &lt; probs.size() - 1; ++i)
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>extended_p_square_quantile_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.extended__p__square__quantile_8hpp" class="xref page"><em><code>extended_p_square_quantile_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.extended_p_square"><code>extended_p_square</code></a></p>
@@ -1789,7 +1986,7 @@ for (std::size_t i = 0; i &lt; probs.size() - 1; ++i)
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.kurtosis"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.kurtosis"></a>kurtosis</h3>
 <div class="paragraph">
-<p>The kurtosis of a sample distribution is defined as the ratio of the 4th central moment and the square of the 2nd central moment (the variance) of the samples, minus 3. The term <code>-3</code> is added in order to ensure that the normal distribution has zero kurtosis. For more implementation details, see <em><code>kurtosis_impl</code></em></p>
+<p>The kurtosis of a sample distribution is defined as the ratio of the 4th central moment and the square of the 2nd central moment (the variance) of the samples, minus 3. The term <code>-3</code> is added in order to ensure that the normal distribution has zero kurtosis. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.kurtosis_8hpp" class="xref page"><em><code>kurtosis_impl</code></em></a></p>
 </div>
 <div class="dlist">
 <dl>
@@ -1834,11 +2031,8 @@ for (std::size_t i = 0; i &lt; probs.size() - 1; ++i)
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/kurtosis.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.kurtosis_8hpp">boost/accumulators/statistics/kurtosis.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -1865,7 +2059,7 @@ BOOST_CHECK_CLOSE( kurtosis(acc), -1.39965397924, 1e-6 );</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>kurtosis_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.kurtosis_8hpp" class="xref page"><em><code>kurtosis_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.mean"><code>mean</code></a></p>
@@ -1921,11 +2115,8 @@ BOOST_CHECK_CLOSE( kurtosis(acc), -1.39965397924, 1e-6 );</code></pre>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/max.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.max_8hpp">boost/accumulators/statistics/max.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -1949,7 +2140,7 @@ BOOST_CHECK_EQUAL(2, (max)(acc));</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>max_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.max_8hpp" class="xref page"><em><code>max_impl</code></em></a></p>
 </li>
 </ul>
 </div>
@@ -1957,7 +2148,7 @@ BOOST_CHECK_EQUAL(2, (max)(acc));</code></pre>
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.mean"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.mean"></a>mean <em>and variants</em></h3>
 <div class="paragraph">
-<p>Calculates the mean of samples, weights or variates. The calculation is either lazy (in the result extractor), or immediate (in the accumulator). The lazy implementation is the default. For more implementation details, see <em><code>mean_impl</code></em> or. <em><code>immediate_mean_impl</code></em></p>
+<p>Calculates the mean of samples, weights or variates. The calculation is either lazy (in the result extractor), or immediate (in the accumulator). The lazy implementation is the default. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.mean_8hpp" class="xref page"><em><code>mean_impl</code></em></a> or. <a href="reference.html#doxygen.statistics_library_reference.mean_8hpp" class="xref page"><em><code>immediate_mean_impl</code></em></a></p>
 </div>
 <div class="dlist">
 <dl>
@@ -2007,11 +2198,8 @@ The lazy mean of variates depends on <code>sum_of_variates&lt;&gt;</code></p>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/mean.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.mean_8hpp">boost/accumulators/statistics/mean.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -2083,10 +2271,10 @@ BOOST_CHECK_CLOSE(5., (accumulators::mean_of_variates&lt;int, tag::covariate1&gt
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>mean_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.mean_8hpp" class="xref page"><em><code>mean_impl</code></em></a></p>
 </li>
 <li>
-<p><em><code>immediate_mean_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.mean_8hpp" class="xref page"><em><code>immediate_mean_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.count"><code>count</code></a></p>
@@ -2100,7 +2288,7 @@ BOOST_CHECK_CLOSE(5., (accumulators::mean_of_variates&lt;int, tag::covariate1&gt
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.median"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.median"></a>median <em>and variants</em></h3>
 <div class="paragraph">
-<p>Median estimation based on the <code>P^2</code> quantile estimator, the density estimator, or the <code>P^2</code> cumulative distribution estimator. For more implementation details, see <em><code>median_impl</code></em>, <em><code>with_density_median_impl</code></em>, and <em><code>with_p_square_cumulative_distribution_median_impl</code></em>.</p>
+<p>Median estimation based on the <code>P^2</code> quantile estimator, the density estimator, or the <code>P^2</code> cumulative distribution estimator. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.median_8hpp" class="xref page"><em><code>median_impl</code></em></a>, <a href="reference.html#doxygen.statistics_library_reference.median_8hpp" class="xref page"><em><code>with_density_median_impl</code></em></a>, and <a href="reference.html#doxygen.statistics_library_reference.median_8hpp" class="xref page"><em><code>with_p_square_cumulative_distribution_median_impl</code></em></a>.</p>
 </div>
 <div class="paragraph">
 <p>The three median accumulators all satisfy the <code>tag::median</code> feature, and can all be extracted with the <code>median()</code> extractor.</p>
@@ -2149,11 +2337,8 @@ BOOST_CHECK_CLOSE(5., (accumulators::mean_of_variates&lt;int, tag::covariate1&gt
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/median.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.median_8hpp">boost/accumulators/statistics/median.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -2191,13 +2376,13 @@ BOOST_CHECK_CLOSE(1., median(acc_cdist), 3.);</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>median_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.median_8hpp" class="xref page"><em><code>median_impl</code></em></a></p>
 </li>
 <li>
-<p><em><code>with_density_median_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.median_8hpp" class="xref page"><em><code>with_density_median_impl</code></em></a></p>
 </li>
 <li>
-<p><em><code>with_p_square_cumulative_distribution_median_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.median_8hpp" class="xref page"><em><code>with_p_square_cumulative_distribution_median_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.count"><code>count</code></a></p>
@@ -2256,11 +2441,8 @@ BOOST_CHECK_CLOSE(1., median(acc_cdist), 3.);</code></pre>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/min.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.min_8hpp">boost/accumulators/statistics/min.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -2284,7 +2466,7 @@ BOOST_CHECK_EQUAL(0, (min)(acc));</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>min_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.min_8hpp" class="xref page"><em><code>min_impl</code></em></a></p>
 </li>
 </ul>
 </div>
@@ -2334,11 +2516,8 @@ BOOST_CHECK_EQUAL(0, (min)(acc));</code></pre>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/moment.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.moment_8hpp">boost/accumulators/statistics/moment.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -2370,7 +2549,7 @@ BOOST_CHECK_CLOSE(1106., accumulators::moment&lt;5&gt;(acc2), 1e-5);</code></pre
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>moment_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.moment_8hpp" class="xref page"><em><code>moment_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.count"><code>count</code></a></p>
@@ -2381,7 +2560,7 @@ BOOST_CHECK_CLOSE(1106., accumulators::moment&lt;5&gt;(acc2), 1e-5);</code></pre
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.p_square_cumulative_distribution"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.p_square_cumulative_distribution"></a>p_square_cumulative_distribution</h3>
 <div class="paragraph">
-<p>Histogram calculation of the cumulative distribution with the <code>P^2</code> algorithm. For more implementation details, see <em><code>p_square_cumulative_distribution_impl</code></em></p>
+<p>Histogram calculation of the cumulative distribution with the <code>P^2</code> algorithm. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.p__square__cumul__dist_8hpp" class="xref page"><em><code>p_square_cumulative_distribution_impl</code></em></a></p>
 </div>
 <div class="dlist">
 <dl>
@@ -2430,11 +2609,8 @@ BOOST_CHECK_CLOSE(1106., accumulators::moment&lt;5&gt;(acc2), 1e-5);</code></pre
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/p_square_cumul_dist.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.p__square__cumul__dist_8hpp">boost/accumulators/statistics/p_square_cumul_dist.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -2474,7 +2650,7 @@ for (std::size_t i = 0; i &lt; histogram.size(); ++i)
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>p_square_cumulative_distribution_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.p__square__cumul__dist_8hpp" class="xref page"><em><code>p_square_cumulative_distribution_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.count"><code>count</code></a></p>
@@ -2485,7 +2661,7 @@ for (std::size_t i = 0; i &lt; histogram.size(); ++i)
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.p_square_quantile"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.p_square_quantile"></a>p_square_quantile <em>and variants</em></h3>
 <div class="paragraph">
-<p>Single quantile estimation with the <code>P^2</code> algorithm. For more implementation details, see <em><code>p_square_quantile_impl</code></em></p>
+<p>Single quantile estimation with the <code>P^2</code> algorithm. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.p__square__quantile_8hpp" class="xref page"><em><code>p_square_quantile_impl</code></em></a></p>
 </div>
 <div class="dlist">
 <dl>
@@ -2527,11 +2703,8 @@ for (std::size_t i = 0; i &lt; histogram.size(); ++i)
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/p_square_quantile.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.p__square__quantile_8hpp">boost/accumulators/statistics/p_square_quantile.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -2586,7 +2759,7 @@ BOOST_CHECK_CLOSE( p_square_quantile(acc8), 0.999, epsilon );</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>p_square_quantile_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.p__square__quantile_8hpp" class="xref page"><em><code>p_square_quantile_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.count"><code>count</code></a></p>
@@ -2597,7 +2770,7 @@ BOOST_CHECK_CLOSE( p_square_quantile(acc8), 0.999, epsilon );</code></pre>
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.peaks_over_threshold"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.peaks_over_threshold"></a>peaks_over_threshold <em>and variants</em></h3>
 <div class="paragraph">
-<p>Peaks Over Threshold method for quantile and tail mean estimation. For implementation details, see <em><code>peaks_over_threshold_impl</code></em> and <em><code>peaks_over_threshold_prob_impl</code></em>.</p>
+<p>Peaks Over Threshold method for quantile and tail mean estimation. For implementation details, see <a href="reference.html#doxygen.statistics_library_reference.peaks__over__threshold_8hpp" class="xref page"><em><code>peaks_over_threshold_impl</code></em></a> and <a href="reference.html#doxygen.statistics_library_reference.peaks__over__threshold_8hpp" class="xref page"><em><code>peaks_over_threshold_prob_impl</code></em></a>.</p>
 </div>
 <div class="paragraph">
 <p>Both <code>tag::peaks_over_threshold</code> and <code>tag::peaks_over_threshold_prob&lt;&gt;</code> satisfy the <code>tag::abstract_peaks_over_threshold</code> feature, and can be extracted with the <code>peaks_over_threshold()</code> extractor. The result is a 3-tuple representing the fit parameters <code>u_bar</code>, <code>beta_bar</code> and <code>xi_hat</code>.</p>
@@ -2649,11 +2822,8 @@ In addition, <code>tag::peaks_over_threshold_prob&lt;&gt;</code> depends on <cod
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/peaks_over_threshold.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.peaks__over__threshold_8hpp">boost/accumulators/statistics/peaks_over_threshold.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -2666,10 +2836,10 @@ In addition, <code>tag::peaks_over_threshold_prob&lt;&gt;</code> depends on <cod
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>peaks_over_threshold_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.peaks__over__threshold_8hpp" class="xref page"><em><code>peaks_over_threshold_impl</code></em></a></p>
 </li>
 <li>
-<p><em><code>peaks_over_threshold_prob_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.peaks__over__threshold_8hpp" class="xref page"><em><code>peaks_over_threshold_prob_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.count"><code>count</code></a></p>
@@ -2689,7 +2859,7 @@ In addition, <code>tag::peaks_over_threshold_prob&lt;&gt;</code> depends on <cod
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.pot_quantile"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.pot_quantile"></a>pot_quantile <em>and variants</em></h3>
 <div class="paragraph">
-<p>Quantile estimation based on Peaks over Threshold method (for both left and right tails). For implementation details, see <em><code>pot_quantile_impl</code></em>.</p>
+<p>Quantile estimation based on Peaks over Threshold method (for both left and right tails). For implementation details, see <a href="reference.html#doxygen.statistics_library_reference.pot__quantile_8hpp" class="xref page"><em><code>pot_quantile_impl</code></em></a>.</p>
 </div>
 <div class="paragraph">
 <p>Both <code>tag::pot_quantile&lt;left-or-right&gt;</code> and <code>tag::pot_quantile_prob&lt;left-or-right&gt;</code> satisfy the <code>tag::quantile</code> feature and can be extracted using the <code>quantile()</code> extractor.</p>
@@ -2737,11 +2907,8 @@ In addition, <code>tag::peaks_over_threshold_prob&lt;&gt;</code> depends on <cod
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/pot_quantile.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.pot__quantile_8hpp">boost/accumulators/statistics/pot_quantile.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -2807,7 +2974,7 @@ BOOST_CHECK_CLOSE( quantile(acc4, quantile_probability = alpha), 6.908, epsilon 
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>pot_quantile_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.pot__quantile_8hpp" class="xref page"><em><code>pot_quantile_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.peaks_over_threshold"><code>peaks_over_threshold</code></a></p>
@@ -2818,7 +2985,7 @@ BOOST_CHECK_CLOSE( quantile(acc4, quantile_probability = alpha), 6.908, epsilon 
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.pot_tail_mean"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.pot_tail_mean"></a>pot_tail_mean</h3>
 <div class="paragraph">
-<p>Estimation of the (coherent) tail mean based on the peaks over threshold method (for both left and right tails). For implementation details, see <em><code>pot_tail_mean_impl</code></em>.</p>
+<p>Estimation of the (coherent) tail mean based on the peaks over threshold method (for both left and right tails). For implementation details, see <a href="reference.html#doxygen.statistics_library_reference.pot__tail__mean_8hpp" class="xref page"><em><code>pot_tail_mean_impl</code></em></a>.</p>
 </div>
 <div class="paragraph">
 <p>Both <code>tag::pot_tail_mean&lt;left-or-right&gt;</code> and <code>tag::pot_tail_mean_prob&lt;left-or-right&gt;</code> satisfy the <code>tag::tail_mean</code> feature and can be extracted using the <code>tail_mean()</code> extractor.</p>
@@ -2866,11 +3033,8 @@ BOOST_CHECK_CLOSE( quantile(acc4, quantile_probability = alpha), 6.908, epsilon 
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/pot_tail_mean.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.pot__tail__mean_8hpp">boost/accumulators/statistics/pot_tail_mean.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -2885,7 +3049,7 @@ BOOST_CHECK_CLOSE( quantile(acc4, quantile_probability = alpha), 6.908, epsilon 
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>pot_tail_mean_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.pot__tail__mean_8hpp" class="xref page"><em><code>pot_tail_mean_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.peaks_over_threshold"><code>peaks_over_threshold</code></a></p>
@@ -2944,11 +3108,8 @@ BOOST_CHECK_CLOSE( quantile(acc4, quantile_probability = alpha), 6.908, epsilon 
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/rolling_count.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.rolling__count_8hpp">boost/accumulators/statistics/rolling_count.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -2980,7 +3141,7 @@ BOOST_CHECK_EQUAL(3u, rolling_count(acc));</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>rolling_count_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.rolling__count_8hpp" class="xref page"><em><code>rolling_count_impl</code></em></a></p>
 </li>
 </ul>
 </div>
@@ -3029,11 +3190,8 @@ BOOST_CHECK_EQUAL(3u, rolling_count(acc));</code></pre>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/rolling_sum.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.rolling__sum_8hpp">boost/accumulators/statistics/rolling_sum.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -3065,7 +3223,7 @@ BOOST_CHECK_EQUAL(12, rolling_sum(acc));</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>rolling_sum_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.rolling__sum_8hpp" class="xref page"><em><code>rolling_sum_impl</code></em></a></p>
 </li>
 </ul>
 </div>
@@ -3076,7 +3234,7 @@ BOOST_CHECK_EQUAL(12, rolling_sum(acc));</code></pre>
 <p>The rolling mean is the mean over the last <em>N</em> samples. It is computed by dividing the rolling sum by the rolling count.</p>
 </div>
 <div class="paragraph">
-<p>Lazy or iterative calculation of the mean over the last <em>N</em> samples. The lazy calculation is associated with the <code>tag::lazy_rolling_mean</code> feature, and the iterative calculation (which is the default) with the <code>tag::immediate_rolling_mean</code> feature. Both can be extracted using the <code>tag::rolling_mean()</code> extractor. For more implementation details, see <em><code>lazy_rolling_mean_impl</code></em> and <em><code>immediate_rolling_mean_impl</code></em></p>
+<p>Lazy or iterative calculation of the mean over the last <em>N</em> samples. The lazy calculation is associated with the <code>tag::lazy_rolling_mean</code> feature, and the iterative calculation (which is the default) with the <code>tag::immediate_rolling_mean</code> feature. Both can be extracted using the <code>tag::rolling_mean()</code> extractor. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.rolling__mean_8hpp" class="xref page"><em><code>lazy_rolling_mean_impl</code></em></a> and <a href="reference.html#doxygen.statistics_library_reference.rolling__mean_8hpp" class="xref page"><em><code>immediate_rolling_mean_impl</code></em></a></p>
 </div>
 <div class="dlist">
 <dl>
@@ -3120,11 +3278,8 @@ BOOST_CHECK_EQUAL(12, rolling_sum(acc));</code></pre>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/rolling_mean.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.rolling__mean_8hpp">boost/accumulators/statistics/rolling_mean.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -3152,10 +3307,10 @@ BOOST_CHECK_CLOSE( rolling_mean(acc), 5.0, 1e-6 );</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>lazy_rolling_mean_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.rolling__mean_8hpp" class="xref page"><em><code>lazy_rolling_mean_impl</code></em></a></p>
 </li>
 <li>
-<p><em><code>immediate_rolling_mean_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.rolling__mean_8hpp" class="xref page"><em><code>immediate_rolling_mean_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.rolling_count"><code>rolling_count</code></a></p>
@@ -3211,11 +3366,8 @@ BOOST_CHECK_CLOSE( rolling_mean(acc), 5.0, 1e-6 );</code></pre>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/rolling_moment.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.rolling__moment_8hpp">boost/accumulators/statistics/rolling_moment.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -3240,7 +3392,7 @@ BOOST_CHECK_CLOSE( rolling_moment&lt;2&gt;(acc), (16.0 + 25.0 + 36.0)/3, 1e-5 );
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>rolling_moment_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.rolling__moment_8hpp" class="xref page"><em><code>rolling_moment_impl</code></em></a></p>
 </li>
 </ul>
 </div>
@@ -3248,7 +3400,7 @@ BOOST_CHECK_CLOSE( rolling_moment&lt;2&gt;(acc), (16.0 + 25.0 + 36.0)/3, 1e-5 );
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.rolling_variance"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.rolling_variance"></a>rolling_variance</h3>
 <div class="paragraph">
-<p>Lazy or iterative calculation of the variance over the last <em>N</em> samples. The lazy calculation is associated with the <code>tag::lazy_rolling_variance</code> feature, and the iterative calculation with the <code>tag::immediate_rolling_variance</code> feature. Both can be extracted using the <code>tag::rolling_variance()</code> extractor. For more implementation details, see <em><code>lazy_rolling_variance_impl</code></em> and <em><code>immediate_rolling_variance_impl</code></em></p>
+<p>Lazy or iterative calculation of the variance over the last <em>N</em> samples. The lazy calculation is associated with the <code>tag::lazy_rolling_variance</code> feature, and the iterative calculation with the <code>tag::immediate_rolling_variance</code> feature. Both can be extracted using the <code>tag::rolling_variance()</code> extractor. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.rolling__variance_8hpp" class="xref page"><em><code>lazy_rolling_variance_impl</code></em></a> and <a href="reference.html#doxygen.statistics_library_reference.rolling__variance_8hpp" class="xref page"><em><code>immediate_rolling_variance_impl</code></em></a></p>
 </div>
 <div class="dlist">
 <dl>
@@ -3292,11 +3444,8 @@ BOOST_CHECK_CLOSE( rolling_moment&lt;2&gt;(acc), (16.0 + 25.0 + 36.0)/3, 1e-5 );
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/rolling_variance.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.rolling__variance_8hpp">boost/accumulators/statistics/rolling_variance.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -3327,10 +3476,10 @@ BOOST_CHECK_CLOSE( rolling_variance(acc), 8.41666666666667, 1e-10 ); // variance
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>lazy_rolling_variance_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.rolling__variance_8hpp" class="xref page"><em><code>lazy_rolling_variance_impl</code></em></a></p>
 </li>
 <li>
-<p><em><code>immediate_rolling_variance_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.rolling__variance_8hpp" class="xref page"><em><code>immediate_rolling_variance_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.rolling_count"><code>rolling_count</code></a></p>
@@ -3350,7 +3499,7 @@ BOOST_CHECK_CLOSE( rolling_variance(acc), 8.41666666666667, 1e-10 ); // variance
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.skewness"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.skewness"></a>skewness</h3>
 <div class="paragraph">
-<p>The skewness of a sample distribution is defined as the ratio of the 3rd central moment and the <code>3/2</code>-th power of the 2nd central moment (the variance) of the samples 3. For implementation details, see <em><code>skewness_impl</code></em>.</p>
+<p>The skewness of a sample distribution is defined as the ratio of the 3rd central moment and the <code>3/2</code>-th power of the 2nd central moment (the variance) of the samples 3. For implementation details, see <a href="reference.html#doxygen.statistics_library_reference.skewness_8hpp" class="xref page"><em><code>skewness_impl</code></em></a>.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -3394,11 +3543,8 @@ BOOST_CHECK_CLOSE( rolling_variance(acc), 8.41666666666667, 1e-10 ); // variance
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/skewness.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.skewness_8hpp">boost/accumulators/statistics/skewness.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -3424,7 +3570,7 @@ BOOST_CHECK_CLOSE( skewness(acc2), 0.406040288214, 1e-6 );</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>skewness_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.skewness_8hpp" class="xref page"><em><code>skewness_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.mean"><code>mean</code></a></p>
@@ -3487,12 +3633,9 @@ BOOST_CHECK_CLOSE( skewness(acc2), 0.406040288214, 1e-6 );</code></pre>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/sum.hpp&gt;
-#include &lt;boost/accumulators/statistics/sum_kahan.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.sum_8hpp">boost/accumulators/statistics/sum.hpp</a>&gt;
+#include &lt;<a href="reference.html#doxygen.statistics_library_reference.sum__kahan_8hpp">boost/accumulators/statistics/sum_kahan.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -3538,10 +3681,10 @@ BOOST_CHECK_EQUAL(1.0f, sum_kahan(acc));</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>sum_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.sum_8hpp" class="xref page"><em><code>sum_impl</code></em></a></p>
 </li>
 <li>
-<p><em><code>sum_kahan_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.sum__kahan_8hpp" class="xref page"><em><code>sum_kahan_impl</code></em></a></p>
 </li>
 </ul>
 </div>
@@ -3549,7 +3692,7 @@ BOOST_CHECK_EQUAL(1.0f, sum_kahan(acc));</code></pre>
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.tail"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.tail"></a>tail</h3>
 <div class="paragraph">
-<p>Tracks the largest or smallest <code>N</code> values. <code>tag::tail&lt;right&gt;</code> tracks the largest <code>N</code>, and <code>tag::tail&lt;left&gt;</code> tracks the smallest. The parameter <code>N</code> is specified with the <code>tag::tail&lt;left-or-right&gt;::cache_size</code> initialization parameter. For implementation details, see <em><code>tail_impl</code></em>.</p>
+<p>Tracks the largest or smallest <code>N</code> values. <code>tag::tail&lt;right&gt;</code> tracks the largest <code>N</code>, and <code>tag::tail&lt;left&gt;</code> tracks the smallest. The parameter <code>N</code> is specified with the <code>tag::tail&lt;left-or-right&gt;::cache_size</code> initialization parameter. For implementation details, see <a href="reference.html#doxygen.statistics_library_reference.tail_8hpp" class="xref page"><em><code>tail_impl</code></em></a>.</p>
 </div>
 <div class="paragraph">
 <p>Both <code>tag::tail&lt;left&gt;</code> and <code>tag::tail&lt;right&gt;</code> satisfy the <code>tag::abstract_tail</code> feature and can be extracted with the <code>tail()</code> extractor.</p>
@@ -3601,11 +3744,8 @@ BOOST_CHECK_EQUAL(1.0f, sum_kahan(acc));</code></pre>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/tail.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.tail_8hpp">boost/accumulators/statistics/tail.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -3618,7 +3758,7 @@ BOOST_CHECK_EQUAL(1.0f, sum_kahan(acc));</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>tail_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.tail_8hpp" class="xref page"><em><code>tail_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.tail_variate"><code>tail_variate</code></a></p>
@@ -3629,7 +3769,7 @@ BOOST_CHECK_EQUAL(1.0f, sum_kahan(acc));</code></pre>
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.coherent_tail_mean"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.coherent_tail_mean"></a>coherent_tail_mean</h3>
 <div class="paragraph">
-<p>Estimation of the coherent tail mean based on order statistics (for both left and right tails). The left coherent tail mean feature is <code>tag::coherent_tail_mean&lt;left&gt;</code>, and the right coherent tail mean feature is <code>tag::coherent_tail_mean&lt;right&gt;</code>. They both share the <code>tag::tail_mean</code> feature and can be extracted with the <code>tail_mean()</code> extractor. For more implementation details, see <em><code>coherent_tail_mean_impl</code></em></p>
+<p>Estimation of the coherent tail mean based on order statistics (for both left and right tails). The left coherent tail mean feature is <code>tag::coherent_tail_mean&lt;left&gt;</code>, and the right coherent tail mean feature is <code>tag::coherent_tail_mean&lt;right&gt;</code>. They both share the <code>tag::tail_mean</code> feature and can be extracted with the <code>tail_mean()</code> extractor. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.tail__mean_8hpp" class="xref page"><em><code>coherent_tail_mean_impl</code></em></a></p>
 </div>
 <div class="dlist">
 <dl>
@@ -3673,11 +3813,8 @@ BOOST_CHECK_EQUAL(1.0f, sum_kahan(acc));</code></pre>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/tail_mean.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.tail__mean_8hpp">boost/accumulators/statistics/tail_mean.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -3690,7 +3827,7 @@ BOOST_CHECK_EQUAL(1.0f, sum_kahan(acc));</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>coherent_tail_mean_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.tail__mean_8hpp" class="xref page"><em><code>coherent_tail_mean_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.count"><code>count</code></a></p>
@@ -3713,7 +3850,7 @@ BOOST_CHECK_EQUAL(1.0f, sum_kahan(acc));</code></pre>
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.non_coherent_tail_mean"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.non_coherent_tail_mean"></a>non_coherent_tail_mean</h3>
 <div class="paragraph">
-<p>Estimation of the (non-coherent) tail mean based on order statistics (for both left and right tails). The left non-coherent tail mean feature is <code>tag::non_coherent_tail_mean&lt;left&gt;</code>, and the right non-choherent tail mean feature is <code>tag::non_coherent_tail_mean&lt;right&gt;</code>. They both share the <code>tag::abstract_non_coherent_tail_mean</code> feature and can be extracted with the <code>non_coherent_tail_mean()</code> extractor. For more implementation details, see <em><code>non_coherent_tail_mean_impl</code></em></p>
+<p>Estimation of the (non-coherent) tail mean based on order statistics (for both left and right tails). The left non-coherent tail mean feature is <code>tag::non_coherent_tail_mean&lt;left&gt;</code>, and the right non-choherent tail mean feature is <code>tag::non_coherent_tail_mean&lt;right&gt;</code>. They both share the <code>tag::abstract_non_coherent_tail_mean</code> feature and can be extracted with the <code>non_coherent_tail_mean()</code> extractor. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.tail__mean_8hpp" class="xref page"><em><code>non_coherent_tail_mean_impl</code></em></a></p>
 </div>
 <div class="dlist">
 <dl>
@@ -3756,11 +3893,8 @@ BOOST_CHECK_EQUAL(1.0f, sum_kahan(acc));</code></pre>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/tail_mean.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.tail__mean_8hpp">boost/accumulators/statistics/tail_mean.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -3819,7 +3953,7 @@ BOOST_CHECK_CLOSE( tail_mean(acc3, quantile_probability = 0.001), 0.0005, 10 );<
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>non_coherent_tail_mean_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.tail__mean_8hpp" class="xref page"><em><code>non_coherent_tail_mean_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.count"><code>count</code></a></p>
@@ -3833,7 +3967,7 @@ BOOST_CHECK_CLOSE( tail_mean(acc3, quantile_probability = 0.001), 0.0005, 10 );<
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.tail_quantile"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.tail_quantile"></a>tail_quantile</h3>
 <div class="paragraph">
-<p>Tail quantile estimation based on order statistics (for both left and right tails). The left tail quantile feature is <code>tag::tail_quantile&lt;left&gt;</code>, and the right tail quantile feature is <code>tag::tail_quantile&lt;right&gt;</code>. They both share the <code>tag::quantile</code> feature and can be extracted with the <code>quantile()</code> extractor. For more implementation details, see <em><code>tail_quantile_impl</code></em></p>
+<p>Tail quantile estimation based on order statistics (for both left and right tails). The left tail quantile feature is <code>tag::tail_quantile&lt;left&gt;</code>, and the right tail quantile feature is <code>tag::tail_quantile&lt;right&gt;</code>. They both share the <code>tag::quantile</code> feature and can be extracted with the <code>quantile()</code> extractor. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.tail__quantile_8hpp" class="xref page"><em><code>tail_quantile_impl</code></em></a></p>
 </div>
 <div class="dlist">
 <dl>
@@ -3876,11 +4010,8 @@ BOOST_CHECK_CLOSE( tail_mean(acc3, quantile_probability = 0.001), 0.0005, 10 );<
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/tail_quantile.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.tail__quantile_8hpp">boost/accumulators/statistics/tail_quantile.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -3938,7 +4069,7 @@ BOOST_CHECK_CLOSE( quantile(acc3, quantile_probability  = 0.001), -3.090232, eps
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>tail_quantile_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.tail__quantile_8hpp" class="xref page"><em><code>tail_quantile_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.count"><code>count</code></a></p>
@@ -3952,7 +4083,7 @@ BOOST_CHECK_CLOSE( quantile(acc3, quantile_probability  = 0.001), -3.090232, eps
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.tail_variate"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.tail_variate"></a>tail_variate</h3>
 <div class="paragraph">
-<p>Tracks the covariates of largest or smallest <code>N</code> samples. <code>tag::tail_variate&lt;variate-type, variate-tag, right&gt;</code> tracks the covariate associated with <em>&lt;variate-tag&gt;</em> for the largest <code>N</code>, and <code>tag::tail_variate&lt;variate-type, variate-tag, left&gt;</code> for the smallest. The parameter <code>N</code> is specified with the <code>tag::tail&lt;left-or-right&gt;::cache_size</code> initialization parameter. For implementation details, see <em><code>tail_variate_impl</code></em>.</p>
+<p>Tracks the covariates of largest or smallest <code>N</code> samples. <code>tag::tail_variate&lt;variate-type, variate-tag, right&gt;</code> tracks the covariate associated with <em>&lt;variate-tag&gt;</em> for the largest <code>N</code>, and <code>tag::tail_variate&lt;variate-type, variate-tag, left&gt;</code> for the smallest. The parameter <code>N</code> is specified with the <code>tag::tail&lt;left-or-right&gt;::cache_size</code> initialization parameter. For implementation details, see <a href="reference.html#doxygen.statistics_library_reference.tail__variate_8hpp" class="xref page"><em><code>tail_variate_impl</code></em></a>.</p>
 </div>
 <div class="paragraph">
 <p>Both <code>tag::tail_variate&lt;variate-type, variate-tag, right&gt;</code> and <code>tag::tail_variate&lt;variate-type, variate-tag, left&gt;</code> satisfy the <code>tag::abstract_tail_variate</code> feature and can be extracted with the <code>tail_variate()</code> extractor.</p>
@@ -4004,11 +4135,8 @@ BOOST_CHECK_CLOSE( quantile(acc3, quantile_probability  = 0.001), -3.090232, eps
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/tail_variate.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.tail__variate_8hpp">boost/accumulators/statistics/tail_variate.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -4049,7 +4177,7 @@ CHECK_RANGE_EQUAL(tail_variate(acc), {5, 1, 4, 7});</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>tail_variate_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.tail__variate_8hpp" class="xref page"><em><code>tail_variate_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.tail"><code>tail</code></a></p>
@@ -4063,7 +4191,7 @@ CHECK_RANGE_EQUAL(tail_variate(acc), {5, 1, 4, 7});</code></pre>
 <p>Estimation of the absolute and relative tail variate means (for both left and right tails). The absolute tail variate means has the feature <code>tag::absolute_tail_variate_means&lt;left-or-right, variate-type, variate-tag&gt;</code> and the relative tail variate mean has the feature <code>tag::relative_tail_variate_means&lt;left-or-right, variate-type, variate-tag&gt;</code>. All absolute tail variate mean features share the <code>tag::abstract_absolute_tail_variate_means</code> feature and can be extracted with the <code>tail_variate_means()</code> extractor. All the relative tail variate mean features share the <code>tag::abstract_relative_tail_variate_means</code> feature and can be extracted with the <code>relative_tail_variate_means()</code> extractor.</p>
 </div>
 <div class="paragraph">
-<p>For more implementation details, see <em><code>tail_variate_means_impl</code></em></p>
+<p>For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.tail__variate__means_8hpp" class="xref page"><em><code>tail_variate_means_impl</code></em></a></p>
 </div>
 <div class="dlist">
 <dl>
@@ -4111,11 +4239,8 @@ CHECK_RANGE_EQUAL(tail_variate(acc), {5, 1, 4, 7});</code></pre>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/tail_variate_means.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.tail__variate__means_8hpp">boost/accumulators/statistics/tail_variate_means.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -4230,7 +4355,7 @@ BOOST_CHECK_EQUAL( *(tail_variate_means(acc4, quantile_probability = 0.1).begin(
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>tail_variate_means_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.tail__variate__means_8hpp" class="xref page"><em><code>tail_variate_means_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.non_coherent_tail_mean"><code>non_coherent_tail_mean</code></a></p>
@@ -4244,7 +4369,7 @@ BOOST_CHECK_EQUAL( *(tail_variate_means(acc4, quantile_probability = 0.1).begin(
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.variance"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.variance"></a>variance <em>and variants</em></h3>
 <div class="paragraph">
-<p>Lazy or iterative calculation of the variance. The lazy calculation is associated with the <code>tag::lazy_variance</code> feature, and the iterative calculation with the <code>tag::variance</code> feature. Both can be extracted using the <code>tag::variance()</code> extractor. For more implementation details, see <em><code>lazy_variance_impl</code></em> and <em><code>variance_impl</code></em></p>
+<p>Lazy or iterative calculation of the variance. The lazy calculation is associated with the <code>tag::lazy_variance</code> feature, and the iterative calculation with the <code>tag::variance</code> feature. Both can be extracted using the <code>tag::variance()</code> extractor. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.variance_8hpp" class="xref page"><em><code>lazy_variance_impl</code></em></a> and <a href="reference.html#doxygen.statistics_library_reference.variance_8hpp" class="xref page"><em><code>variance_impl</code></em></a></p>
 </div>
 <div class="dlist">
 <dl>
@@ -4288,11 +4413,8 @@ BOOST_CHECK_EQUAL( *(tail_variate_means(acc4, quantile_probability = 0.1).begin(
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/variance.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.variance_8hpp">boost/accumulators/statistics/variance.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -4332,10 +4454,10 @@ BOOST_CHECK_CLOSE(2., variance(acc2), 1e-5);</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>lazy_variance_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.variance_8hpp" class="xref page"><em><code>lazy_variance_impl</code></em></a></p>
 </li>
 <li>
-<p><em><code>variance_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.variance_8hpp" class="xref page"><em><code>variance_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.count"><code>count</code></a></p>
@@ -4352,7 +4474,7 @@ BOOST_CHECK_CLOSE(2., variance(acc2), 1e-5);</code></pre>
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.weighted_covariance"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_covariance"></a>weighted_covariance</h3>
 <div class="paragraph">
-<p>An iterative Monte Carlo estimator for the weighted covariance. The feature is specified as <code>tag::weighted_covariance&lt;variate-type, variate-tag&gt;</code> and is extracted with the <code>weighted_variate()</code> extractor. For more implementation details, see <em><code>weighted_covariance_impl</code></em></p>
+<p>An iterative Monte Carlo estimator for the weighted covariance. The feature is specified as <code>tag::weighted_covariance&lt;variate-type, variate-tag&gt;</code> and is extracted with the <code>weighted_variate()</code> extractor. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.weighted__covariance_8hpp" class="xref page"><em><code>weighted_covariance_impl</code></em></a></p>
 </div>
 <div class="dlist">
 <dl>
@@ -4407,11 +4529,8 @@ BOOST_CHECK_CLOSE(2., variance(acc2), 1e-5);</code></pre>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/weighted_covariance.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.weighted__covariance_8hpp">boost/accumulators/statistics/weighted_covariance.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -4434,7 +4553,7 @@ BOOST_CHECK_CLOSE(weighted_covariance(acc), -2.39, epsilon);</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>weighted_covariance_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.weighted__covariance_8hpp" class="xref page"><em><code>weighted_covariance_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.count"><code>count</code></a></p>
@@ -4451,7 +4570,7 @@ BOOST_CHECK_CLOSE(weighted_covariance(acc), -2.39, epsilon);</code></pre>
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.weighted_density"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_density"></a>weighted_density</h3>
 <div class="paragraph">
-<p>The <code>tag::weighted_density</code> feature returns a histogram of the weighted sample distribution. For more implementation details, see <em><code>weighted_density_impl</code></em>.</p>
+<p>The <code>tag::weighted_density</code> feature returns a histogram of the weighted sample distribution. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.weighted__density_8hpp" class="xref page"><em><code>weighted_density_impl</code></em></a>.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -4504,18 +4623,15 @@ BOOST_CHECK_CLOSE(weighted_covariance(acc), -2.39, epsilon);</code></pre>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/weighted_density.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.weighted__density_8hpp">boost/accumulators/statistics/weighted_density.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>See also</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>weighted_density_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.weighted__density_8hpp" class="xref page"><em><code>weighted_density_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.count"><code>count</code></a></p>
@@ -4535,7 +4651,7 @@ BOOST_CHECK_CLOSE(weighted_covariance(acc), -2.39, epsilon);</code></pre>
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.weighted_extended_p_square"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_extended_p_square"></a>weighted_extended_p_square</h3>
 <div class="paragraph">
-<p>Multiple quantile estimation with the extended <code>P^2</code> algorithm for weighted samples. For further details, see <em><code>weighted_extended_p_square_impl</code></em>.</p>
+<p>Multiple quantile estimation with the extended <code>P^2</code> algorithm for weighted samples. For further details, see <a href="reference.html#doxygen.statistics_library_reference.weighted__extended__p__square_8hpp" class="xref page"><em><code>weighted_extended_p_square_impl</code></em></a>.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -4580,11 +4696,8 @@ BOOST_CHECK_CLOSE(weighted_covariance(acc), -2.39, epsilon);</code></pre>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/weighted_extended_p_square.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.weighted__extended__p__square_8hpp">boost/accumulators/statistics/weighted_extended_p_square.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -4653,7 +4766,7 @@ for (std::size_t i = 0; i &lt; probs_normal1.size(); ++i)
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>weighted_extended_p_square_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.weighted__extended__p__square_8hpp" class="xref page"><em><code>weighted_extended_p_square_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.count"><code>count</code></a></p>
@@ -4667,7 +4780,7 @@ for (std::size_t i = 0; i &lt; probs_normal1.size(); ++i)
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.weighted_kurtosis"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_kurtosis"></a>weighted_kurtosis</h3>
 <div class="paragraph">
-<p>The kurtosis of a sample distribution is defined as the ratio of the 4th central moment and the square of the 2nd central moment (the variance) of the samples, minus 3. The term <code>-3</code> is added in order to ensure that the normal distribution has zero kurtosis. For more implementation details, see <em><code>weighted_kurtosis_impl</code></em></p>
+<p>The kurtosis of a sample distribution is defined as the ratio of the 4th central moment and the square of the 2nd central moment (the variance) of the samples, minus 3. The term <code>-3</code> is added in order to ensure that the normal distribution has zero kurtosis. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.weighted__kurtosis_8hpp" class="xref page"><em><code>weighted_kurtosis_impl</code></em></a></p>
 </div>
 <div class="dlist">
 <dl>
@@ -4715,11 +4828,8 @@ for (std::size_t i = 0; i &lt; probs_normal1.size(); ++i)
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/weighted_kurtosis.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.weighted__kurtosis_8hpp">boost/accumulators/statistics/weighted_kurtosis.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -4746,7 +4856,7 @@ BOOST_CHECK_CLOSE( weighted_kurtosis(acc2), 0.58137026432, 1e-6 );</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>weighted_kurtosis_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.weighted__kurtosis_8hpp" class="xref page"><em><code>weighted_kurtosis_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_mean"><code>weighted_mean</code></a></p>
@@ -4760,7 +4870,7 @@ BOOST_CHECK_CLOSE( weighted_kurtosis(acc2), 0.58137026432, 1e-6 );</code></pre>
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.weighted_mean"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_mean"></a>weighted_mean <em>and variants</em></h3>
 <div class="paragraph">
-<p>Calculates the weighted mean of samples or variates. The calculation is either lazy (in the result extractor), or immediate (in the accumulator). The lazy implementation is the default. For more implementation details, see <em><code>weighted_mean_impl</code></em> or. <em><code>immediate_weighted_mean_impl</code></em></p>
+<p>Calculates the weighted mean of samples or variates. The calculation is either lazy (in the result extractor), or immediate (in the accumulator). The lazy implementation is the default. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.weighted__mean_8hpp" class="xref page"><em><code>weighted_mean_impl</code></em></a> or. <a href="reference.html#doxygen.statistics_library_reference.weighted__mean_8hpp" class="xref page"><em><code>immediate_weighted_mean_impl</code></em></a></p>
 </div>
 <div class="dlist">
 <dl>
@@ -4806,11 +4916,8 @@ The lazy mean of variates depends on <code>weighted_sum_of_variates&lt;&gt;</cod
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/weighted_mean.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.weighted__mean_8hpp">boost/accumulators/statistics/weighted_mean.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -4873,10 +4980,10 @@ BOOST_CHECK_EQUAL(52./7., (accumulators::weighted_mean_of_variates&lt;int, tag::
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>weighted_mean_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.weighted__mean_8hpp" class="xref page"><em><code>weighted_mean_impl</code></em></a></p>
 </li>
 <li>
-<p><em><code>immediate_weighted_mean_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.weighted__mean_8hpp" class="xref page"><em><code>immediate_weighted_mean_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_sum"><code>weighted_sum</code></a></p>
@@ -4890,7 +4997,7 @@ BOOST_CHECK_EQUAL(52./7., (accumulators::weighted_mean_of_variates&lt;int, tag::
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.weighted_median"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_median"></a>weighted_median <em>and variants</em></h3>
 <div class="paragraph">
-<p>Median estimation for weighted samples based on the <code>P^2</code> quantile estimator, the density estimator, or the <code>P^2</code> cumulative distribution estimator. For more implementation details, see <em><code>weighted_median_impl</code></em>, <em><code>with_weighted_density_median_impl</code></em>, and <em><code>with_weighted_p_square_cumulative_distribution_median_impl</code></em>.</p>
+<p>Median estimation for weighted samples based on the <code>P^2</code> quantile estimator, the density estimator, or the <code>P^2</code> cumulative distribution estimator. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.weighted__median_8hpp" class="xref page"><em><code>weighted_median_impl</code></em></a>, <em><code>with_weighted_density_median_impl</code></em>, and <em><code>with_weighted_p_square_cumulative_distribution_median_impl</code></em>.</p>
 </div>
 <div class="paragraph">
 <p>The three median accumulators all satisfy the <code>tag::weighted_median</code> feature, and can all be extracted with the <code>weighted_median()</code> extractor.</p>
@@ -4939,11 +5046,8 @@ BOOST_CHECK_EQUAL(52./7., (accumulators::weighted_mean_of_variates&lt;int, tag::
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/weighted_median.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.weighted__median_8hpp">boost/accumulators/statistics/weighted_median.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -4985,7 +5089,7 @@ BOOST_CHECK_CLOSE(1., weighted_median(acc_cdist), 1e-1);</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>weighted_median_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.weighted__median_8hpp" class="xref page"><em><code>weighted_median_impl</code></em></a></p>
 </li>
 <li>
 <p><em><code>with_weighted_density_median_impl</code></em></p>
@@ -5054,11 +5158,8 @@ BOOST_CHECK_CLOSE(1., weighted_median(acc_cdist), 1e-1);</code></pre>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/weighted_moment.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.weighted__moment_8hpp">boost/accumulators/statistics/weighted_moment.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -5085,7 +5186,7 @@ BOOST_CHECK_CLOSE(548.54182, accumulators::weighted_moment&lt;7&gt;(acc7), 1e-5)
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>weighted_moment_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.weighted__moment_8hpp" class="xref page"><em><code>weighted_moment_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.count"><code>count</code></a></p>
@@ -5099,7 +5200,7 @@ BOOST_CHECK_CLOSE(548.54182, accumulators::weighted_moment&lt;7&gt;(acc7), 1e-5)
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.weighted_p_square_cumulative_distribution"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_p_square_cumulative_distribution"></a>weighted_p_square_cumulative_distribution</h3>
 <div class="paragraph">
-<p>Histogram calculation of the cumulative distribution with the <code>P^2</code> algorithm for weighted samples. For more implementation details, see <em><code>weighted_p_square_cumulative_distribution_impl</code></em></p>
+<p>Histogram calculation of the cumulative distribution with the <code>P^2</code> algorithm for weighted samples. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.weighted__p__square__cumul__dist_8hpp" class="xref page"><em><code>weighted_p_square_cumulative_distribution_impl</code></em></a></p>
 </div>
 <div class="dlist">
 <dl>
@@ -5155,11 +5256,8 @@ BOOST_CHECK_CLOSE(548.54182, accumulators::weighted_moment&lt;7&gt;(acc7), 1e-5)
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/weighted_p_square_cumul_dist.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.weighted__p__square__cumul__dist_8hpp">boost/accumulators/statistics/weighted_p_square_cumul_dist.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -5221,7 +5319,7 @@ for (std::size_t i = 0; i &lt; histogram_upper.size(); ++i)
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>weighted_p_square_cumulative_distribution_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.weighted__p__square__cumul__dist_8hpp" class="xref page"><em><code>weighted_p_square_cumulative_distribution_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.count"><code>count</code></a></p>
@@ -5235,7 +5333,7 @@ for (std::size_t i = 0; i &lt; histogram_upper.size(); ++i)
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.weighted_p_square_quantile"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_p_square_quantile"></a>weighted_p_square_quantile <em>and variants</em></h3>
 <div class="paragraph">
-<p>Single quantile estimation with the <code>P^2</code> algorithm. For more implementation details, see <em><code>weighted_p_square_quantile_impl</code></em></p>
+<p>Single quantile estimation with the <code>P^2</code> algorithm. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.weighted__p__square__quantile_8hpp" class="xref page"><em><code>weighted_p_square_quantile_impl</code></em></a></p>
 </div>
 <div class="dlist">
 <dl>
@@ -5281,11 +5379,8 @@ for (std::size_t i = 0; i &lt; histogram_upper.size(); ++i)
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/weighted_p_square_quantile.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.weighted__p__square__quantile_8hpp">boost/accumulators/statistics/weighted_p_square_quantile.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -5359,7 +5454,7 @@ BOOST_CHECK_CLOSE( weighted_p_square_quantile(acc7),  3.090232, epsilon );</code
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>weighted_p_square_quantile_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.weighted__p__square__quantile_8hpp" class="xref page"><em><code>weighted_p_square_quantile_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.count"><code>count</code></a></p>
@@ -5373,7 +5468,7 @@ BOOST_CHECK_CLOSE( weighted_p_square_quantile(acc7),  3.090232, epsilon );</code
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.weighted_peaks_over_threshold"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_peaks_over_threshold"></a>weighted_peaks_over_threshold <em>and variants</em></h3>
 <div class="paragraph">
-<p>Weighted peaks over threshold method for weighted quantile and weighted tail mean estimation. For more implementation details, see <em><code>weighted_peaks_over_threshold_impl</code></em> and <em><code>weighted_peaks_over_threshold_prob_impl</code></em>.</p>
+<p>Weighted peaks over threshold method for weighted quantile and weighted tail mean estimation. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.weighted__peaks__over__threshold_8hpp" class="xref page"><em><code>weighted_peaks_over_threshold_impl</code></em></a> and <a href="reference.html#doxygen.statistics_library_reference.weighted__peaks__over__threshold_8hpp" class="xref page"><em><code>weighted_peaks_over_threshold_prob_impl</code></em></a>.</p>
 </div>
 <div class="paragraph">
 <p>Both <code>tag::weighted_peaks_over_threshold&lt;left-or-right&gt;</code> and <code>tag::weighted_peaks_over_threshold_prob&lt;left-or-right&gt;</code> satisfy the <code>tag::weighted_peaks_over_threshold&lt;left-or-right&gt;</code> feature and can be extracted using the <code>weighted_peaks_over_threshold()</code> extractor.</p>
@@ -5429,21 +5524,18 @@ BOOST_CHECK_CLOSE( weighted_p_square_quantile(acc7),  3.090232, epsilon );</code
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/weighted_peaks_over_threshold.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.weighted__peaks__over__threshold_8hpp">boost/accumulators/statistics/weighted_peaks_over_threshold.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>See also</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>weighted_peaks_over_threshold_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.weighted__peaks__over__threshold_8hpp" class="xref page"><em><code>weighted_peaks_over_threshold_impl</code></em></a></p>
 </li>
 <li>
-<p><em><code>weighted_peaks_over_threshold_prob_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.weighted__peaks__over__threshold_8hpp" class="xref page"><em><code>weighted_peaks_over_threshold_prob_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.sum"><code>sum</code></a></p>
@@ -5460,7 +5552,7 @@ BOOST_CHECK_CLOSE( weighted_p_square_quantile(acc7),  3.090232, epsilon );</code
 <p>The skewness of a sample distribution is defined as the ratio of the 3rd central moment and the <code>3/2</code>-th power of the 2nd central moment (the variance) of the samples 3. The skewness estimator for weighted samples is formally identical to the estimator for unweighted samples, except that the weighted counterparts of all measures it depends on are to be taken.</p>
 </div>
 <div class="paragraph">
-<p>For implementation details, see <em><code>weighted_skewness_impl</code></em>.</p>
+<p>For implementation details, see <a href="reference.html#doxygen.statistics_library_reference.weighted__skewness_8hpp" class="xref page"><em><code>weighted_skewness_impl</code></em></a>.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -5507,11 +5599,8 @@ BOOST_CHECK_CLOSE( weighted_p_square_quantile(acc7),  3.090232, epsilon );</code
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/weighted_skewness.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.weighted__skewness_8hpp">boost/accumulators/statistics/weighted_skewness.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -5537,7 +5626,7 @@ BOOST_CHECK_CLOSE( weighted_skewness(acc2), 1.30708406282, 1e-6 );</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>weighted_skewness_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.weighted__skewness_8hpp" class="xref page"><em><code>weighted_skewness_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_mean"><code>weighted_mean</code></a></p>
@@ -5597,12 +5686,9 @@ BOOST_CHECK_CLOSE( weighted_skewness(acc2), 1.30708406282, 1e-6 );</code></pre>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/weighted_sum.hpp&gt;
-#include &lt;boost/accumulators/statistics/weighted_sum_kahan.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.weighted__sum_8hpp">boost/accumulators/statistics/weighted_sum.hpp</a>&gt;
+#include &lt;<a href="reference.html#doxygen.statistics_library_reference.weighted__sum__kahan_8hpp">boost/accumulators/statistics/weighted_sum_kahan.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -5637,10 +5723,10 @@ BOOST_CHECK_EQUAL(1.0f, weighted_sum_kahan(acc));</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>weighted_sum_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.weighted__sum_8hpp" class="xref page"><em><code>weighted_sum_impl</code></em></a></p>
 </li>
 <li>
-<p><em><code>weighted_sum_kahan_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.weighted__sum_8hpp" class="xref page"><em><code>weighted_sum_kahan_impl</code></em></a></p>
 </li>
 </ul>
 </div>
@@ -5648,7 +5734,7 @@ BOOST_CHECK_EQUAL(1.0f, weighted_sum_kahan(acc));</code></pre>
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.non_coherent_weighted_tail_mean"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.non_coherent_weighted_tail_mean"></a>non_coherent_weighted_tail_mean</h3>
 <div class="paragraph">
-<p>Estimation of the (non-coherent) weighted tail mean based on order statistics (for both left and right tails). The left non-coherent weighted tail mean feature is <code>tag::non_coherent_weighted_tail_mean&lt;left&gt;</code>, and the right non-choherent weighted tail mean feature is <code>tag::non_coherent_weighted_tail_mean&lt;right&gt;</code>. They both share the <code>tag::abstract_non_coherent_tail_mean</code> feature with the unweighted non-coherent tail mean accumulators and can be extracted with either the <code>non_coherent_tail_mean()</code> or the <code>non_coherent_weighted_tail_mean()</code> extractors. For more implementation details, see <em><code>non_coherent_weighted_tail_mean_impl</code></em>.</p>
+<p>Estimation of the (non-coherent) weighted tail mean based on order statistics (for both left and right tails). The left non-coherent weighted tail mean feature is <code>tag::non_coherent_weighted_tail_mean&lt;left&gt;</code>, and the right non-choherent weighted tail mean feature is <code>tag::non_coherent_weighted_tail_mean&lt;right&gt;</code>. They both share the <code>tag::abstract_non_coherent_tail_mean</code> feature with the unweighted non-coherent tail mean accumulators and can be extracted with either the <code>non_coherent_tail_mean()</code> or the <code>non_coherent_weighted_tail_mean()</code> extractors. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.weighted__tail__mean_8hpp" class="xref page"><em><code>non_coherent_weighted_tail_mean_impl</code></em></a>.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -5694,11 +5780,8 @@ BOOST_CHECK_EQUAL(1.0f, weighted_sum_kahan(acc));</code></pre>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/weighted_tail_mean.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.weighted__tail__mean_8hpp">boost/accumulators/statistics/weighted_tail_mean.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -5747,7 +5830,7 @@ BOOST_CHECK_CLOSE( non_coherent_weighted_tail_mean(acc1, quantile_probability = 
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>non_coherent_weighted_tail_mean_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.weighted__tail__mean_8hpp" class="xref page"><em><code>non_coherent_weighted_tail_mean_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.sum"><code>sum</code></a></p>
@@ -5761,7 +5844,7 @@ BOOST_CHECK_CLOSE( non_coherent_weighted_tail_mean(acc1, quantile_probability = 
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.weighted_tail_quantile"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_tail_quantile"></a>weighted_tail_quantile</h3>
 <div class="paragraph">
-<p>Tail quantile estimation based on order statistics of weighted samples (for both left and right tails). The left weighted tail quantile feature is <code>tag::weighted_tail_quantile&lt;left&gt;</code>, and the right weighted tail quantile feature is <code>tag::weighted_tail_quantile&lt;right&gt;</code>. They both share the <code>tag::quantile</code> feature with the unweighted tail quantile accumulators and can be extracted with either the <code>quantile()</code> or the <code>weighted_tail_quantile()</code> extractors. For more implementation details, see <em><code>weighted_tail_quantile_impl</code></em></p>
+<p>Tail quantile estimation based on order statistics of weighted samples (for both left and right tails). The left weighted tail quantile feature is <code>tag::weighted_tail_quantile&lt;left&gt;</code>, and the right weighted tail quantile feature is <code>tag::weighted_tail_quantile&lt;right&gt;</code>. They both share the <code>tag::quantile</code> feature with the unweighted tail quantile accumulators and can be extracted with either the <code>quantile()</code> or the <code>weighted_tail_quantile()</code> extractors. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.weighted__tail__quantile_8hpp" class="xref page"><em><code>weighted_tail_quantile_impl</code></em></a></p>
 </div>
 <div class="dlist">
 <dl>
@@ -5804,11 +5887,8 @@ BOOST_CHECK_CLOSE( non_coherent_weighted_tail_mean(acc1, quantile_probability = 
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/weighted_tail_quantile.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.weighted__tail__quantile_8hpp">boost/accumulators/statistics/weighted_tail_quantile.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -5855,7 +5935,7 @@ BOOST_CHECK_CLOSE( quantile(acc2, quantile_probability  = 0.001), -3.090232, eps
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>weighted_tail_quantile_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.weighted__tail__quantile_8hpp" class="xref page"><em><code>weighted_tail_quantile_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.sum"><code>sum</code></a></p>
@@ -5872,7 +5952,7 @@ BOOST_CHECK_CLOSE( quantile(acc2, quantile_probability  = 0.001), -3.090232, eps
 <p>Estimation of the absolute and relative weighted tail variate means (for both left and right tails) The absolute weighted tail variate means has the feature <code>tag::absolute_weighted_tail_variate_means&lt;left-or-right, variate-type, variate-tag&gt;</code> and the relative weighted tail variate mean has the feature <code>tag::relative_weighted_tail_variate_means&lt;left-or-right, variate-type, variate-tag&gt;</code>. All absolute weighted tail variate mean features share the <code>tag::abstract_absolute_tail_variate_means</code> feature with their unweighted variants and can be extracted with the <code>tail_variate_means()</code> and <code>weighted_tail_variate_means()</code> extractors. All the relative weighted tail variate mean features share the <code>tag::abstract_relative_tail_variate_means</code> feature with their unweighted variants and can be extracted with either the <code>relative_tail_variate_means()</code> or <code>relative_weighted_tail_variate_means()</code> extractors.</p>
 </div>
 <div class="paragraph">
-<p>For more implementation details, see <em><code>weighted_tail_variate_means_impl</code></em></p>
+<p>For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.weighted__tail__variate__means_8hpp" class="xref page"><em><code>weighted_tail_variate_means_impl</code></em></a></p>
 </div>
 <div class="dlist">
 <dl>
@@ -5922,11 +6002,8 @@ BOOST_CHECK_CLOSE( quantile(acc2, quantile_probability  = 0.001), -3.090232, eps
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/weighted_tail_variate_means.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.weighted__tail__variate__means_8hpp">boost/accumulators/statistics/weighted_tail_variate_means.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -6029,7 +6106,7 @@ BOOST_CHECK_EQUAL( *(weighted_tail_variate_means(acc4, quantile_probability = 0.
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>weighted_tail_variate_means_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.weighted__tail__variate__means_8hpp" class="xref page"><em><code>weighted_tail_variate_means_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.non_coherent_weighted_tail_mean"><code>non_coherent_weighted_tail_mean</code></a></p>
@@ -6046,7 +6123,7 @@ BOOST_CHECK_EQUAL( *(weighted_tail_variate_means(acc4, quantile_probability = 0.
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_statistical_accumulators_library.weighted_variance"><a class="anchor" href="#accumulators.user_s_guide.the_statistical_accumulators_library.weighted_variance"></a>weighted_variance <em>and variants</em></h3>
 <div class="paragraph">
-<p>Lazy or iterative calculation of the weighted variance. The lazy calculation is associated with the <code>tag::lazy_weighted_variance</code> feature, and the iterative calculation with the <code>tag::weighted_variance</code> feature. Both can be extracted using the <code>tag::weighted_variance()</code> extractor. For more implementation details, see <em><code>lazy_weighted_variance_impl</code></em> and <em><code>weighted_variance_impl</code></em></p>
+<p>Lazy or iterative calculation of the weighted variance. The lazy calculation is associated with the <code>tag::lazy_weighted_variance</code> feature, and the iterative calculation with the <code>tag::weighted_variance</code> feature. Both can be extracted using the <code>tag::weighted_variance()</code> extractor. For more implementation details, see <a href="reference.html#doxygen.statistics_library_reference.weighted__variance_8hpp" class="xref page"><em><code>lazy_weighted_variance_impl</code></em></a> and <a href="reference.html#doxygen.statistics_library_reference.weighted__variance_8hpp" class="xref page"><em><code>weighted_variance_impl</code></em></a></p>
 </div>
 <div class="dlist">
 <dl>
@@ -6093,11 +6170,8 @@ BOOST_CHECK_EQUAL( *(weighted_tail_variate_means(acc4, quantile_probability = 0.
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/statistics/weighted_variance.hpp&gt;</code></pre>
-</div>
-</div>
+<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.weighted__variance_8hpp">boost/accumulators/statistics/weighted_variance.hpp</a>&gt;
+</code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
@@ -6159,10 +6233,10 @@ BOOST_CHECK_CLOSE(1., weighted_variance(acc_immediate), 1.);</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em><code>lazy_weighted_variance_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.weighted__variance_8hpp" class="xref page"><em><code>lazy_weighted_variance_impl</code></em></a></p>
 </li>
 <li>
-<p><em><code>weighted_variance_impl</code></em></p>
+<p><a href="reference.html#doxygen.statistics_library_reference.weighted__variance_8hpp" class="xref page"><em><code>weighted_variance_impl</code></em></a></p>
 </li>
 <li>
 <p><a href="#accumulators.user_s_guide.the_statistical_accumulators_library.count"><code>count</code></a></p>
@@ -6252,6 +6326,99 @@ BOOST_CHECK_CLOSE(1., weighted_variance(acc_immediate), 1.);</code></pre>
   } else {
     scrollToHash();
   }
+})();
+</script>
+<script>
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    var toolbarNav = document.querySelector('.toolbar .spirit-nav');
+    if (!toolbarNav) return;
+
+    /* Home belongs in breadcrumbs (left). Remove duplicate house icons from the top spirit-nav only. */
+    Array.prototype.slice.call(toolbarNav.querySelectorAll('a')).forEach(function (a) {
+      var sp = a.querySelector('.material-symbols-outlined');
+      if (!sp) return;
+      var t = (sp.textContent || '').replace(/\s+/g, '');
+      if (t === 'home' && a.parentNode === toolbarNav) a.parentNode.removeChild(a);
+    });
+
+    function enableUp(anchor) {
+      if (!anchor) return;
+      if (anchor.classList.contains('disabled') || anchor.getAttribute('aria-disabled') === 'true') {
+        anchor.classList.remove('disabled');
+        anchor.removeAttribute('aria-disabled');
+        anchor.removeAttribute('tabindex');
+      }
+      anchor.setAttribute('href', 'index.html');
+      var ic = anchor.querySelector('.material-symbols-outlined');
+      if (ic) ic.setAttribute('title', 'Up: Boost.Accumulators (home)');
+    }
+
+    function ensureHome(container) {
+      if (!container || container.querySelector('a[accesskey="h"]')) return;
+      var home = document.createElement('a');
+      home.setAttribute('accesskey', 'h');
+      home.setAttribute('href', 'index.html');
+      var span = document.createElement('span');
+      span.className = 'material-symbols-outlined';
+      span.setAttribute('title', 'Home');
+      span.appendChild(document.createTextNode('home'));
+      home.appendChild(span);
+      var next = container.querySelector('a[accesskey="n"]');
+      var up = container.querySelector('a[accesskey="u"]');
+      if (next) {
+        next.parentNode.insertBefore(home, next);
+      } else if (up) {
+        if (up.nextSibling) up.parentNode.insertBefore(home, up.nextSibling);
+        else up.parentNode.appendChild(home);
+      } else {
+        var prev = container.querySelector('a[accesskey="p"]');
+        if (prev) {
+          if (prev.nextSibling) prev.parentNode.insertBefore(home, prev.nextSibling);
+          else prev.parentNode.appendChild(home);
+        } else {
+          container.appendChild(home);
+        }
+      }
+    }
+
+    function ensureNextPlaceholder(container) {
+      if (!container || container.querySelector('a[accesskey="n"]')) return;
+      var a = document.createElement('a');
+      a.className = 'disabled';
+      a.setAttribute('aria-disabled', 'true');
+      a.setAttribute('tabindex', '-1');
+      a.setAttribute('accesskey', 'n');
+      var sp = document.createElement('span');
+      sp.className = 'material-symbols-outlined';
+      sp.setAttribute('title', 'Next');
+      sp.appendChild(document.createTextNode('arrow_forward'));
+      a.appendChild(sp);
+      container.appendChild(a);
+    }
+
+    /* Top bar: keep Antora prev/up/next only; home is already in breadcrumbs (left). */
+    enableUp(toolbarNav.querySelector('a[accesskey="u"]'));
+
+    var article = document.querySelector('article.doc');
+    if (article && !article.querySelector('.spirit-nav-footer-wrap')) {
+      var wrap = document.createElement('div');
+      wrap.className = 'spirit-nav-footer-wrap';
+      wrap.setAttribute('role', 'navigation');
+      var bottom = toolbarNav.cloneNode(true);
+      bottom.classList.add('spirit-nav-bottom');
+      Array.prototype.forEach.call(bottom.querySelectorAll('a[accesskey="u"]'), enableUp);
+      ensureHome(bottom);
+      ensureNextPlaceholder(bottom);
+      wrap.appendChild(bottom);
+      var edit = article.querySelector('.edit-this-page');
+      if (edit) {
+        edit.parentNode.insertBefore(wrap, edit);
+      } else {
+        article.appendChild(wrap);
+      }
+    }
+  });
 })();
 </script>
 </div>
