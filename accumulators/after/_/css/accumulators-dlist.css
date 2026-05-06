@@ -98,3 +98,47 @@ html.dark .doc .spirit-nav-footer-wrap {
 html.dark .doc .spirit-nav-footer-wrap .spirit-nav a {
   color: #e6edf3;
 }
+
+/* Dark theme: mini-TOC + dlist panels (same idea as spirit-nav-footer-wrap above). */
+html.dark .doc .sidebarblock.accumulators-mini-toc .content,
+html.dark .doc .literalblock.accumulators-mini-toc .content {
+  background: #1a1f26;
+  color: #e6edf3;
+  border-color: #3d4550;
+}
+
+html.dark .doc .sidebarblock.accumulators-mini-toc a,
+html.dark .doc .literalblock.accumulators-mini-toc a {
+  color: #8ab4f8;
+}
+
+html.dark .doc .sidebarblock.accumulators-mini-toc a:visited,
+html.dark .doc .literalblock.accumulators-mini-toc a:visited {
+  color: #c9a7e8;
+}
+
+html.dark .doc .dlist > dl {
+  background: #1a1f26;
+  color: #e6edf3;
+  border-color: #3d4550;
+}
+
+html.dark .doc .dlist > dl a {
+  color: #8ab4f8;
+}
+
+html.dark .doc .dlist > dl a:visited {
+  color: #c9a7e8;
+}
+
+html.dark .doc .dlist > dl code {
+  color: #e6edf3;
+}
+
+html.dark .doc .dlist > dl > dt.hdlist1 {
+  border-top-color: #3d4550;
+}
+
+html.dark .doc .dlist > dl > dd {
+  border-left-color: #3d4550;
+}
