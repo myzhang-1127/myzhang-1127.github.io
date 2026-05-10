@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<style>html.fonts-loading{visibility:hidden;opacity:0}</style>
+<script>document.documentElement.classList.add('fonts-loading');</script>
+
+<link rel="preload" href="../../_/font/NotoSansDisplay.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="../../_/font/NotoSansDisplay-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="../../_/font/MonaspaceNeon-Var.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="../../_/font/MonaspaceXenon-Var.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+<script>
+(function() {
+  'use strict';
+  
+  var revealed = false;
+  
+  var reveal = function() {
+    if (revealed) return;
+    revealed = true;
+    document.documentElement.classList.remove('fonts-loading');
+  };
+  
+  setTimeout(reveal, 3000);
+  
+  if (!('FontFace' in window) || !('fonts' in document)) {
+    setTimeout(reveal, 100);
+    return;
+  }
+  
+  var uiRoot = '../../_';
+  var fonts = [
+    { 
+      family: 'Noto Sans', 
+      url: uiRoot + '/font/NotoSansDisplay.woff2',
+      descriptors: { style: 'normal', weight: '100 900', stretch: '62.5% 100%' }
+    },
+    { 
+      family: 'Noto Sans', 
+      url: uiRoot + '/font/NotoSansDisplay-Italic.woff2',
+      descriptors: { style: 'italic', weight: '100 900', stretch: '62.5% 100%' }
+    },
+    { 
+      family: 'Monaspace Neon', 
+      url: uiRoot + '/font/MonaspaceNeon-Var.woff2',
+      descriptors: { style: 'normal', weight: '400' }
+    },
+    { 
+      family: 'Monaspace Xenon', 
+      url: uiRoot + '/font/MonaspaceXenon-Var.woff2',
+      descriptors: { style: 'italic', weight: '400' }
+    }
+  ];
+  
+  var loadPromises = fonts.map(function(f) {
+    try {
+      var face = new FontFace(f.family, 'url("' + f.url + '")', f.descriptors);
+      return face.load().then(function(loaded) {
+        document.fonts.add(loaded);
+        return loaded;
+      }).catch(function() {
+        return null;
+      });
+    } catch (e) {
+      return Promise.resolve(null);
+    }
+  });
+  
+  Promise.all(loadPromises)
+    .then(function() {
+      return document.fonts.ready;
+    })
+    .then(reveal)
+    .catch(reveal);
+})();
+</script>    <title>Boost.Accumulators: Class Hierarchy :: Boost.Accumulators</title>
+  <link rel="canonical" href="https://antora.cppalliance.org/develop/lib/doc/accumulators/doxygen-ref/hierarchy.html">
+  <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../_/css/boostlook.css">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+    <script>
+    (function() {
+      if (window.self !== window.top) return;
+      var theme = localStorage.getItem('antora-theme');
+      if (!theme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        theme = 'dark';
+      }
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    })();
+    </script>
+    <script>var uiRootPath = '../../_'</script>
+<link rel="icon" href="../../_/img/favicons/favicon.ico" type="image/x-icon">
+    <!-- Favicon configuration -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../../_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../../_/img/favicons/favicon.ico">
+  </head>
+  <body class="article toc2 toc-left">
+    <div class="boostlook">
+   <div id="header">
+      <div id="toc" class="nav-container toc2" data-component="accumulators" data-version="">
+  <aside class="nav">
+    <button class="nav-close"></button>
+    <div class="panels">
+      <div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+      <div class="title-row">
+        <h3 class="title"><a href="../index.html">Boost.Accumulators</a></h3>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme" style="display:none">
+  <i class="fas fa-sun theme-icon-light"></i>
+  <i class="fas fa-moon theme-icon-dark"></i>
+</button>      </div>
+      <ul class="nav-list">
+        <ul class="nav-list">
+        <li class="" data-depth="1">
+            <a class="nav-link" href="../index.html">Chapter 1. Boost.Accumulators</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../preface.html">Preface</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../user_s_guide.html">User&#8217;s Guide</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../acknowledgements.html">Acknowledgements</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../reference.html">Reference</a>
+        </li>
+        <ul class="nav-list">
+        <li class="" data-depth="2">
+            <a class="nav-link" href="classes.html">Framework API (Doxygen HTML → AsciiDoc)</a>
+        </li>
+        </ul>
+  </ul>
+  </ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+  </div>  <div id="content">
+    <article class="doc max-width-reset">
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="../index.html" aria-label="Home: Boost.Accumulators">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 -960 960 960" fill="#000000" aria-hidden="true"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+      </a>
+    </li>
+    <li><a href="hierarchy.html">Boost.Accumulators: Class Hierarchy</a></li>
+  </ul>
+</nav>
+  <div class="search-container">
+    <div id="search-field" class="field has-filter">
+      <input id="search-input" type="text" placeholder="Search the docs" >
+    </div>
+  </div>
+<div class="spirit-nav">
+    <a class="disabled" accesskey="u" aria-disabled="true" tabindex="-1">
+      <span class="material-symbols-outlined" title="Up:">arrow_upward</span>
+    </a>
+</div></div>
+    <h1 class="page">Boost.Accumulators: Class Hierarchy</h1>
+  <div class="textblock">This inheritance list is sorted roughly, but not completely, alphabetically:</div><div class="directory">
+<div class="levels">[detail level <span onclick="javascript:dynsection.toggleLevel(1);">1</span><span onclick="javascript:dynsection.toggleLevel(2);">2</span><span onclick="javascript:dynsection.toggleLevel(3);">3</span><span onclick="javascript:dynsection.toggleLevel(4);">4</span>]</div><table class="directory">
+<tr class="even" id="row_0_"><td class="entry"><span style="width:0px;display:inline-block;"> </span><span class="arrow" id="arr_0_" onclick="dynsection.toggleFolder('0_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><b>Accumulator</b></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__wrapper.html" target="_self">boost::accumulators::detail::accumulator_wrapper&lt; Accumulator, Feature &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_1_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="arrow" id="arr_0_1_" onclick="dynsection.toggleFolder('0_1_')"><span class="arrowhead closed"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1droppable__accumulator__base.html" target="_self">boost::accumulators::droppable_accumulator_base&lt; Accumulator &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_1_0_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1droppable__accumulator.html" target="_self">boost::accumulators::droppable_accumulator&lt; typename mpl::apply2&lt; typename feature_type::impl, Sample, Weight &gt;::type &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_1_1_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1droppable__accumulator.html" target="_self">boost::accumulators::droppable_accumulator&lt; Accumulator &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_2_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1with__cached__result.html" target="_self">boost::accumulators::with_cached_result&lt; Accumulator &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_1_"><td class="entry"><span style="width:0px;display:inline-block;"> </span><span class="arrow" id="arr_1_" onclick="dynsection.toggleFolder('1_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1accumulator__base.html" target="_self">boost::accumulators::accumulator_base</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_1_0_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1impl_1_1external__impl.html" target="_self">boost::accumulators::impl::external_impl&lt; detail::to_accumulator&lt; Feature, mpl::_1, mpl::_2 &gt;, Tag &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_1_1_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1impl_1_1external__impl.html" target="_self">boost::accumulators::impl::external_impl&lt; Accumulator, Tag &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_1_2_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1impl_1_1reference__accumulator__impl.html" target="_self">boost::accumulators::impl::reference_accumulator_impl&lt; Referent, Tag &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_1_3_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1impl_1_1value__accumulator__impl.html" target="_self">boost::accumulators::impl::value_accumulator_impl&lt; ValueType, Tag &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_2_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1accumulator__concept.html" target="_self">boost::accumulators::accumulator_concept&lt; Stat &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_3_"><td class="entry"><span style="width:0px;display:inline-block;"> </span><span class="arrow" id="arr_3_" onclick="dynsection.toggleFolder('3_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__base.html" target="_self">boost::accumulators::detail::accumulator_set_base</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_3_0_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1accumulator__set.html" target="_self">boost::accumulators::accumulator_set&lt; Sample, Features, Weight &gt;</a></td><td class="desc">A set of accumulators </td></tr>
+<tr class="even" id="row_4_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__result.html" target="_self">boost::accumulators::detail::accumulator_set_result&lt; AccumulatorSet, Feature &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_5_"><td class="entry"><span style="width:0px;display:inline-block;"> </span><span class="arrow" id="arr_5_" onclick="dynsection.toggleFolder('5_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__result.html" target="_self">boost::accumulators::detail::accumulator_set_result&lt; boost::remove_reference&lt; parameter::binding&lt; boost::remove_const&lt; boost::remove_reference&lt; Args &gt;::type &gt;::type, tag::accumulator &gt;::type &gt;::type, Feature &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_5_0_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1argument__pack__result.html" target="_self">boost::accumulators::detail::argument_pack_result&lt; Args, Feature &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_6_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__visitor.html" target="_self">boost::accumulators::detail::accumulator_visitor&lt; Args &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_7_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1add__ref__visitor.html" target="_self">boost::accumulators::detail::add_ref_visitor&lt; Args &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_8_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1droppable_1_1impl_1_1apply.html" target="_self">boost::accumulators::droppable&lt; Feature &gt;::impl::apply&lt; Sample, Weight &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_9_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1droppable_1_1impl_1_1apply.html" target="_self">boost::accumulators::tag::droppable&lt; Feature &gt;::impl::apply&lt; Sample, Weight &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_10_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1as__droppable.html" target="_self">boost::accumulators::tag::as_droppable&lt; Feature &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_11_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1as__droppable_3_01droppable_3_01Feature_01_4_01_4.html" target="_self">boost::accumulators::tag::as_droppable&lt; droppable&lt; Feature &gt; &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_12_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1as__feature.html" target="_self">boost::accumulators::as_feature&lt; Feature &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_13_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1as__feature_3_01tag_1_1droppable_3_01Feature_01_4_01_4.html" target="_self">boost::accumulators::as_feature&lt; tag::droppable&lt; Feature &gt; &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_14_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1as__weighted__feature.html" target="_self">boost::accumulators::as_weighted_feature&lt; Feature &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_15_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1as__weighted__feature_3_01tag_1_1droppable_3_01Feature_01_4_01_4.html" target="_self">boost::accumulators::as_weighted_feature&lt; tag::droppable&lt; Feature &gt; &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_16_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1build__acc__list.html" target="_self">boost::accumulators::detail::build_acc_list&lt; First, Last, is_empty &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_17_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1build__acc__list_3_01First_00_01Last_00_01false_01_4.html" target="_self">boost::accumulators::detail::build_acc_list&lt; First, Last, false &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_18_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1build__acc__list_3_01First_00_01Last_00_01true_01_4.html" target="_self">boost::accumulators::detail::build_acc_list&lt; First, Last, true &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_19_"><td class="entry"><span style="width:0px;display:inline-block;"> </span><span class="arrow" id="arr_19_" onclick="dynsection.toggleFolder('19_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1build__acc__list.html" target="_self">boost::accumulators::detail::build_acc_list&lt; fusion::result_of::begin&lt; accumulators_mpl_vector &gt;::type, fusion::result_of::end&lt; accumulators_mpl_vector &gt;::type &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_19_0_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1meta_1_1make__acc__list.html" target="_self">boost::accumulators::detail::meta::type&lt; accumulators_mpl_vector &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_19_1_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1meta_1_1make__acc__list.html" target="_self">boost::accumulators::detail::meta::make_acc_list&lt; accumulators_mpl_vector &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_20_"><td class="entry"><span style="width:0px;display:inline-block;"> </span><span class="arrow" id="arr_20_" onclick="dynsection.toggleFolder('20_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1build__acc__list.html" target="_self">boost::accumulators::detail::build_acc_list&lt; fusion::result_of::begin&lt; Sequence &gt;::type, fusion::result_of::end&lt; Sequence &gt;::type &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_20_0_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1meta_1_1make__acc__list.html" target="_self">boost::accumulators::detail::meta::make_acc_list&lt; Sequence &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_21_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1checked__as__weighted__feature.html" target="_self">boost::accumulators::detail::checked_as_weighted_feature&lt; Feature &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_22_"><td class="entry"><span style="width:0px;display:inline-block;"> </span><span class="arrow" id="arr_22_" onclick="dynsection.toggleFolder('22_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1contains__feature__of.html" target="_self">boost::accumulators::detail::contains_feature_of&lt; Features, Accumulator &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_22_0_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1contains__feature__of___1_1apply.html" target="_self">boost::accumulators::detail::contains_feature_of_&lt; Features &gt;::apply&lt; Accumulator &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_23_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1contains__feature__of__.html" target="_self">boost::accumulators::detail::contains_feature_of_&lt; Features &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_24_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1dependencies__of.html" target="_self">boost::accumulators::detail::dependencies_of&lt; Feature &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_25_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1dont__care.html" target="_self">boost::accumulators::dont_care</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_26_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1drop__visitor.html" target="_self">boost::accumulators::detail::drop_visitor&lt; Args &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_27_"><td class="entry"><span style="width:0px;display:inline-block;"> </span><span class="arrow" id="arr_27_" onclick="dynsection.toggleFolder('27_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><b>mpl::eval_if</b></td><td class="desc"></td></tr>
+<tr class="odd" id="row_27_0_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="arrow" id="arr_27_0_" onclick="dynsection.toggleFolder('27_0_')"><span class="arrowhead closed"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html" target="_self">boost::accumulators::detail::extractor_result&lt; A1, Feature &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_27_0_0_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1extractor_1_1result_3_01this__type_07A1_08_4.html" target="_self">boost::accumulators::extractor&lt; Feature &gt;::result&lt; this_type(A1)&gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_27_1_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html" target="_self">boost::accumulators::detail::extractor_result&lt; A, Feature &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_27_2_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1insert__feature.html" target="_self">boost::accumulators::detail::insert_feature&lt; FeatureMap, Feature &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_28_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1extractor.html" target="_self">boost::accumulators::extractor&lt; Feature &gt;</a></td><td class="desc">Extracts the result associated with Feature from the specified <a class="el" href="structboost_1_1accumulators_1_1accumulator__set.html" title="A set of accumulators.">accumulator_set</a> </td></tr>
+<tr class="odd" id="row_29_"><td class="entry"><span style="width:0px;display:inline-block;"> </span><span class="arrow" id="arr_29_" onclick="dynsection.toggleFolder('29_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1feature__of.html" target="_self">boost::accumulators::feature_of&lt; Feature &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_29_0_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1feature__of_3_01tag_1_1droppable_3_01Feature_01_4_01_4.html" target="_self">boost::accumulators::feature_of&lt; tag::droppable&lt; Feature &gt; &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_29_1_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1feature__of_3_01tag_1_1external_3_01Feature_00_01Tag_00_01AccumulatorSet_01_4_01_4.html" target="_self">boost::accumulators::feature_of&lt; tag::external&lt; Feature, Tag, AccumulatorSet &gt; &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_30_"><td class="entry"><span style="width:0px;display:inline-block;"> </span><span class="arrow" id="arr_30_" onclick="dynsection.toggleFolder('30_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1feature__of.html" target="_self">boost::accumulators::feature_of&lt; tag::reference_tag&lt; Tag &gt; &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_30_0_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1feature__of_3_01tag_1_1reference_3_01ValueType_00_01Tag_01_4_01_4.html" target="_self">boost::accumulators::feature_of&lt; tag::reference&lt; ValueType, Tag &gt; &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_31_"><td class="entry"><span style="width:0px;display:inline-block;"> </span><span class="arrow" id="arr_31_" onclick="dynsection.toggleFolder('31_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1feature__of.html" target="_self">boost::accumulators::feature_of&lt; tag::value_tag&lt; Tag &gt; &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_31_0_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1feature__of_3_01tag_1_1value_3_01ValueType_00_01Tag_01_4_01_4.html" target="_self">boost::accumulators::feature_of&lt; tag::value&lt; ValueType, Tag &gt; &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_32_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1feature__tag.html" target="_self">boost::accumulators::detail::feature_tag&lt; Accumulator &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_33_"><td class="entry"><span style="width:0px;display:inline-block;"> </span><span class="arrow" id="arr_33_" onclick="dynsection.toggleFolder('33_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><b>mpl::fold</b></td><td class="desc"></td></tr>
+<tr class="even" id="row_33_0_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1collect__abstract__features.html" target="_self">boost::accumulators::detail::collect_abstract_features&lt; Features &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_33_1_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1insert__dependencies.html" target="_self">boost::accumulators::detail::insert_dependencies&lt; FeatureMap, Feature, Weight &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_33_2_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1insert__sequence.html" target="_self">boost::accumulators::detail::insert_sequence&lt; FeatureMap, Features, Weight &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_33_3_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1set__insert__range.html" target="_self">boost::accumulators::detail::set_insert_range&lt; Set, Range &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_34_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1ignore__accumulator.html" target="_self">boost::accumulators::detail::ignore_accumulator</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_35_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1ignore__sample.html" target="_self">boost::accumulators::detail::ignore_sample</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_36_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1ignore__weight.html" target="_self">boost::accumulators::detail::ignore_weight</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_37_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1ignore__weights.html" target="_self">boost::accumulators::detail::ignore_weights</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_38_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1droppable_1_1impl.html" target="_self">boost::accumulators::droppable&lt; Feature &gt;::impl</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_39_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1droppable_1_1impl.html" target="_self">boost::accumulators::tag::droppable&lt; Feature &gt;::impl</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_40_"><td class="entry"><span style="width:0px;display:inline-block;"> </span><span class="arrow" id="arr_40_" onclick="dynsection.toggleFolder('40_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><b>is_base_and_derived</b></td><td class="desc"></td></tr>
+<tr class="odd" id="row_40_0_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1is__dependent__on.html" target="_self">boost::accumulators::detail::is_dependent_on&lt; A, B &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_41_"><td class="entry"><span style="width:0px;display:inline-block;"> </span><span class="arrow" id="arr_41_" onclick="dynsection.toggleFolder('41_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><b>is_same</b></td><td class="desc"></td></tr>
+<tr class="odd" id="row_41_0_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1matches__feature_1_1apply.html" target="_self">boost::accumulators::detail::matches_feature&lt; Feature &gt;::apply&lt; Accumulator &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_42_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1make__accumulator__tuple.html" target="_self">boost::accumulators::detail::make_accumulator_tuple&lt; Features, Sample, Weight &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_43_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1matches__feature.html" target="_self">boost::accumulators::detail::matches_feature&lt; Feature &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_44_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference__tag.html" target="_self">boost::accumulators::tag::reference_tag&lt; Tag &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_45_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1extractor_1_1result.html" target="_self">boost::accumulators::extractor&lt; Feature &gt;::result&lt; F &gt;</a></td><td class="desc">The result meta-function for determining the return type of the extractor </td></tr>
+<tr class="even" id="row_46_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1serialize__accumulator.html" target="_self">boost::accumulators::detail::serialize_accumulator&lt; Archive &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_47_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1to__accumulator.html" target="_self">boost::accumulators::detail::to_accumulator&lt; Feature, Sample, Weight &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_48_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1to__accumulator_3_01Feature_00_01Sample_00_01tag_1_1ext0c26d8c3c18bcca084cb467b003ed836.html" target="_self">boost::accumulators::detail::to_accumulator&lt; Feature, Sample, tag::external&lt; Weight, Tag, AccumulatorSet &gt; &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_49_"><td class="entry"><span style="width:0px;display:inline-block;"> </span><span class="arrow" id="arr_49_" onclick="dynsection.toggleFolder('49_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><b>mpl::transform_view</b></td><td class="desc"></td></tr>
+<tr class="even" id="row_49_0_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1as__feature__list_3_01Features_00_01void_01_4.html" target="_self">boost::accumulators::detail::as_feature_list&lt; Features, void &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_49_1_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1as__feature__list.html" target="_self">boost::accumulators::detail::as_feature_list&lt; Features, Weight &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_49_2_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1as__feature__list_3_01Features_00_01void_01_4.html" target="_self">boost::accumulators::detail::as_feature_list&lt; Features, void &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_50_"><td class="entry"><span style="width:0px;display:inline-block;"> </span><span class="arrow" id="arr_50_" onclick="dynsection.toggleFolder('50_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1as__feature.html" target="_self">boost::accumulators::type&lt; Feature &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_50_0_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1droppable.html" target="_self">boost::accumulators::tag::droppable&lt; typename as_feature&lt; Feature &gt;::type &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_50_1_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1droppable.html" target="_self">boost::accumulators::tag::droppable&lt; typename as_weighted_feature&lt; Feature &gt;::type &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_50_2_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1droppable.html" target="_self">boost::accumulators::tag::droppable&lt; Feature &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_51_"><td class="entry"><span style="width:0px;display:inline-block;"> </span><span class="arrow" id="arr_51_" onclick="dynsection.toggleFolder('51_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><b>mpl::if_::type</b></td><td class="desc"></td></tr>
+<tr class="even" id="row_51_0_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1is__accumulator__set.html" target="_self">boost::accumulators::detail::is_accumulator_set&lt; T &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_52_"><td class="entry"><span style="width:0px;display:inline-block;"> </span><span class="arrow" id="arr_52_" onclick="dynsection.toggleFolder('52_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><b>mpl::inherit_linearly::type</b></td><td class="desc"></td></tr>
+<tr class="even" id="row_52_0_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="arrow" id="arr_52_0_" onclick="dynsection.toggleFolder('52_0_')"><span class="arrowhead closed"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1depends__on__base.html" target="_self">boost::accumulators::detail::depends_on_base&lt; mpl::transform&lt; mpl::vector&lt; Feature1, Feature2, ... &gt;, as_feature&lt; mpl::_1 &gt; &gt;::type &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_52_0_0_" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="arrow" id="arr_52_0_0_" onclick="dynsection.toggleFolder('52_0_0_')"><span class="arrowhead closed"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1depends__on.html" target="_self">boost::accumulators::depends_on&lt; reference&lt; AccumulatorSet, Tag &gt; &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_52_0_0_0_" style="display:none;"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1external.html" target="_self">boost::accumulators::tag::external&lt; Feature, Tag, AccumulatorSet &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_52_0_1_" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="arrow" id="arr_52_0_1_" onclick="dynsection.toggleFolder('52_0_1_')"><span class="arrowhead closed"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1depends__on.html" target="_self">boost::accumulators::depends_on&lt;&gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_52_0_1_0_" style="display:none;"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1external_3_01Feature_00_01Tag_00_01void_01_4.html" target="_self">boost::accumulators::tag::external&lt; Feature, Tag, void &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_52_0_1_1_" style="display:none;"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference.html" target="_self">boost::accumulators::tag::reference&lt; Referent, Tag &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_52_0_1_2_" style="display:none;"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1value.html" target="_self">boost::accumulators::tag::value&lt; ValueType, Tag &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_52_0_2_" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="arrow" id="arr_52_0_2_" onclick="dynsection.toggleFolder('52_0_2_')"><span class="arrowhead closed"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1depends__on.html" target="_self">boost::accumulators::depends_on&lt; typename Feature1, typename Feature2, ... &gt;</a></td><td class="desc">Depends_on </td></tr>
+<tr class="odd" id="row_52_0_2_0_" style="display:none;"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1external_3_01Feature_00_01Tag_00_01void_01_4.html" target="_self">boost::accumulators::tag::external&lt; Feature, Tag, void &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_52_1_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1depends__on__base.html" target="_self">boost::accumulators::detail::depends_on_base&lt; Features &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_53_"><td class="entry"><span style="width:0px;display:inline-block;"> </span><span class="arrow" id="arr_53_" onclick="dynsection.toggleFolder('53_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><b>typename mpl::apply2::type</b></td><td class="desc"></td></tr>
+<tr class="odd" id="row_53_0_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__wrapper.html" target="_self">boost::accumulators::detail::accumulator_wrapper&lt; typename mpl::apply2&lt; typename Feature::impl, Sample, Weight &gt;::type, Feature &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_54_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1undroppable.html" target="_self">boost::accumulators::detail::undroppable&lt; Feature &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_55_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1undroppable_3_01tag_1_1droppable_3_01Feature_01_4_01_4.html" target="_self">boost::accumulators::detail::undroppable&lt; tag::droppable&lt; Feature &gt; &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_56_"><td class="entry"><span style="width:0px;display:inline-block;"> </span><span class="arrow" id="arr_56_" onclick="dynsection.toggleFolder('56_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><b>fusion::result_of::value_of</b></td><td class="desc"></td></tr>
+<tr class="odd" id="row_56_0_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1accumulator__set_1_1apply.html" target="_self">boost::accumulators::accumulator_set&lt; Sample, Features, Weight &gt;::apply&lt; Feature &gt;</a></td><td class="desc">Extraction </td></tr>
+<tr class="even" id="row_57_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1value__tag.html" target="_self">boost::accumulators::tag::value_tag&lt; Tag &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_58_"><td class="entry"><span style="width:0px;display:inline-block;"> </span><span class="arrow" id="arr_58_" onclick="dynsection.toggleFolder('58_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><b>mpl::vector</b></td><td class="desc"></td></tr>
+<tr class="even" id="row_58_0_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1features.html" target="_self">boost::accumulators::features&lt; typename Feature1, typename Feature2, ... &gt;</a></td><td class="desc"></td></tr>
+</table>
+</div><!-- directory -->
+  <div class="edit-this-page">
+      <a href="file:///home/z-ming-yang/桌面/dev/boost/libs/accumulators/doc/modules/ROOT/pages/doxygen-ref/hierarchy.adoc">Edit this Page</a>
+  </div>
+  </article>
+</div>
+  <div id="footer">
+  <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+<script async src="../../_/js/vendor/lunr.js"></script>
+<script async src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.."
+  data-ui-root-path="../../_"></script>
+<script async src="../../search-index.js"></script>
+</div>
+</div>
+  </body>
+</html>

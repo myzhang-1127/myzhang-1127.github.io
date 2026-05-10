@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<style>html.fonts-loading{visibility:hidden;opacity:0}</style>
+<script>document.documentElement.classList.add('fonts-loading');</script>
+
+<link rel="preload" href="../../_/font/NotoSansDisplay.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="../../_/font/NotoSansDisplay-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="../../_/font/MonaspaceNeon-Var.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="../../_/font/MonaspaceXenon-Var.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+<script>
+(function() {
+  'use strict';
+  
+  var revealed = false;
+  
+  var reveal = function() {
+    if (revealed) return;
+    revealed = true;
+    document.documentElement.classList.remove('fonts-loading');
+  };
+  
+  setTimeout(reveal, 3000);
+  
+  if (!('FontFace' in window) || !('fonts' in document)) {
+    setTimeout(reveal, 100);
+    return;
+  }
+  
+  var uiRoot = '../../_';
+  var fonts = [
+    { 
+      family: 'Noto Sans', 
+      url: uiRoot + '/font/NotoSansDisplay.woff2',
+      descriptors: { style: 'normal', weight: '100 900', stretch: '62.5% 100%' }
+    },
+    { 
+      family: 'Noto Sans', 
+      url: uiRoot + '/font/NotoSansDisplay-Italic.woff2',
+      descriptors: { style: 'italic', weight: '100 900', stretch: '62.5% 100%' }
+    },
+    { 
+      family: 'Monaspace Neon', 
+      url: uiRoot + '/font/MonaspaceNeon-Var.woff2',
+      descriptors: { style: 'normal', weight: '400' }
+    },
+    { 
+      family: 'Monaspace Xenon', 
+      url: uiRoot + '/font/MonaspaceXenon-Var.woff2',
+      descriptors: { style: 'italic', weight: '400' }
+    }
+  ];
+  
+  var loadPromises = fonts.map(function(f) {
+    try {
+      var face = new FontFace(f.family, 'url("' + f.url + '")', f.descriptors);
+      return face.load().then(function(loaded) {
+        document.fonts.add(loaded);
+        return loaded;
+      }).catch(function() {
+        return null;
+      });
+    } catch (e) {
+      return Promise.resolve(null);
+    }
+  });
+  
+  Promise.all(loadPromises)
+    .then(function() {
+      return document.fonts.ready;
+    })
+    .then(reveal)
+    .catch(reveal);
+})();
+</script>    <title>Boost.Accumulators: boost::accumulators::detail Namespace Reference :: Boost.Accumulators</title>
+  <link rel="canonical" href="https://antora.cppalliance.org/develop/lib/doc/accumulators/doxygen-ref/namespaceboost_1_1accumulators_1_1detail.html">
+  <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../_/css/boostlook.css">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+    <script>
+    (function() {
+      if (window.self !== window.top) return;
+      var theme = localStorage.getItem('antora-theme');
+      if (!theme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        theme = 'dark';
+      }
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    })();
+    </script>
+    <script>var uiRootPath = '../../_'</script>
+<link rel="icon" href="../../_/img/favicons/favicon.ico" type="image/x-icon">
+    <!-- Favicon configuration -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../../_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../../_/img/favicons/favicon.ico">
+  </head>
+  <body class="article toc2 toc-left">
+    <div class="boostlook">
+   <div id="header">
+      <div id="toc" class="nav-container toc2" data-component="accumulators" data-version="">
+  <aside class="nav">
+    <button class="nav-close"></button>
+    <div class="panels">
+      <div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+      <div class="title-row">
+        <h3 class="title"><a href="../index.html">Boost.Accumulators</a></h3>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme" style="display:none">
+  <i class="fas fa-sun theme-icon-light"></i>
+  <i class="fas fa-moon theme-icon-dark"></i>
+</button>      </div>
+      <ul class="nav-list">
+        <ul class="nav-list">
+        <li class="" data-depth="1">
+            <a class="nav-link" href="../index.html">Chapter 1. Boost.Accumulators</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../preface.html">Preface</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../user_s_guide.html">User&#8217;s Guide</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../acknowledgements.html">Acknowledgements</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../reference.html">Reference</a>
+        </li>
+        <ul class="nav-list">
+        <li class="" data-depth="2">
+            <a class="nav-link" href="classes.html">Framework API (Doxygen HTML → AsciiDoc)</a>
+        </li>
+        </ul>
+  </ul>
+  </ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+  </div>  <div id="content">
+    <article class="doc max-width-reset">
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="../index.html" aria-label="Home: Boost.Accumulators">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 -960 960 960" fill="#000000" aria-hidden="true"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+      </a>
+    </li>
+    <li><a href="namespaceboost_1_1accumulators_1_1detail.html">Boost.Accumulators: boost::accumulators::detail Namespace Reference</a></li>
+  </ul>
+</nav>
+  <div class="search-container">
+    <div id="search-field" class="field has-filter">
+      <input id="search-input" type="text" placeholder="Search the docs" >
+    </div>
+  </div>
+<div class="spirit-nav">
+    <a class="disabled" accesskey="u" aria-disabled="true" tabindex="-1">
+      <span class="material-symbols-outlined" title="Up:">arrow_upward</span>
+    </a>
+</div></div>
+    <h1 class="page">Boost.Accumulators: boost::accumulators::detail Namespace Reference</h1>
+  <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader" id="header-namespaces"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:meta" id="r_meta"><td class="memItemLeft">namespace  </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1detail_1_1meta.html">meta</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader" id="header-nested-classes"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:accumulator_5Fvisitor" id="r_accumulator_5Fvisitor"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__visitor.html">accumulator_visitor</a></td></tr>
+<tr class="memitem:accumulator_5Fset_5Fbase" id="r_accumulator_5Fset_5Fbase"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__base.html">accumulator_set_base</a></td></tr>
+<tr class="memitem:is_5Faccumulator_5Fset" id="r_is_5Faccumulator_5Fset"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1is__accumulator__set.html">is_accumulator_set</a></td></tr>
+<tr class="memitem:serialize_5Faccumulator" id="r_serialize_5Faccumulator"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1serialize__accumulator.html">serialize_accumulator</a></td></tr>
+<tr class="memitem:add_5Fref_5Fvisitor" id="r_add_5Fref_5Fvisitor"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1add__ref__visitor.html">add_ref_visitor</a></td></tr>
+<tr class="memitem:drop_5Fvisitor" id="r_drop_5Fvisitor"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1drop__visitor.html">drop_visitor</a></td></tr>
+<tr class="memitem:feature_5Ftag" id="r_feature_5Ftag"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1feature__tag.html">feature_tag</a></td></tr>
+<tr class="memitem:undroppable" id="r_undroppable"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1undroppable.html">undroppable</a></td></tr>
+<tr class="memitem:undroppable_3C_20tag_3A_3Adroppable_3C_20Feature_20_3E_20_3E" id="r_undroppable_3C_20tag_3A_3Adroppable_3C_20Feature_20_3E_20_3E"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1undroppable_3_01tag_1_1droppable_3_01Feature_01_4_01_4.html">undroppable&lt; tag::droppable&lt; Feature &gt; &gt;</a></td></tr>
+<tr class="memitem:is_5Fdependent_5Fon" id="r_is_5Fdependent_5Fon"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1is__dependent__on.html">is_dependent_on</a></td></tr>
+<tr class="memitem:dependencies_5Fof" id="r_dependencies_5Fof"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1dependencies__of.html">dependencies_of</a></td></tr>
+<tr class="memitem:set_5Finsert_5Frange" id="r_set_5Finsert_5Frange"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1set__insert__range.html">set_insert_range</a></td></tr>
+<tr class="memitem:collect_5Fabstract_5Ffeatures" id="r_collect_5Fabstract_5Ffeatures"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1collect__abstract__features.html">collect_abstract_features</a></td></tr>
+<tr class="memitem:depends_5Fon_5Fbase" id="r_depends_5Fon_5Fbase"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1depends__on__base.html">depends_on_base</a></td></tr>
+<tr class="memitem:matches_5Ffeature" id="r_matches_5Ffeature"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1matches__feature.html">matches_feature</a></td></tr>
+<tr class="memitem:contains_5Ffeature_5Fof" id="r_contains_5Ffeature_5Fof"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1contains__feature__of.html">contains_feature_of</a></td></tr>
+<tr class="memitem:contains_5Ffeature_5Fof_5F" id="r_contains_5Ffeature_5Fof_5F"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1contains__feature__of__.html">contains_feature_of_</a></td></tr>
+<tr class="memitem:build_5Facc_5Flist" id="r_build_5Facc_5Flist"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1build__acc__list.html">build_acc_list</a></td></tr>
+<tr class="memitem:build_5Facc_5Flist_3C_20First_2C_20Last_2C_20true_20_3E" id="r_build_5Facc_5Flist_3C_20First_2C_20Last_2C_20true_20_3E"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1build__acc__list_3_01First_00_01Last_00_01true_01_4.html">build_acc_list&lt; First, Last, true &gt;</a></td></tr>
+<tr class="memitem:build_5Facc_5Flist_3C_20First_2C_20Last_2C_20false_20_3E" id="r_build_5Facc_5Flist_3C_20First_2C_20Last_2C_20false_20_3E"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1build__acc__list_3_01First_00_01Last_00_01false_01_4.html">build_acc_list&lt; First, Last, false &gt;</a></td></tr>
+<tr class="memitem:checked_5Fas_5Fweighted_5Ffeature" id="r_checked_5Fas_5Fweighted_5Ffeature"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1checked__as__weighted__feature.html">checked_as_weighted_feature</a></td></tr>
+<tr class="memitem:as_5Ffeature_5Flist" id="r_as_5Ffeature_5Flist"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1as__feature__list.html">as_feature_list</a></td></tr>
+<tr class="memitem:as_5Ffeature_5Flist_3C_20Features_2C_20void_20_3E" id="r_as_5Ffeature_5Flist_3C_20Features_2C_20void_20_3E"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1as__feature__list_3_01Features_00_01void_01_4.html">as_feature_list&lt; Features, void &gt;</a></td></tr>
+<tr class="memitem:accumulator_5Fwrapper" id="r_accumulator_5Fwrapper"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__wrapper.html">accumulator_wrapper</a></td></tr>
+<tr class="memitem:to_5Faccumulator" id="r_to_5Faccumulator"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1to__accumulator.html">to_accumulator</a></td></tr>
+<tr class="memitem:to_5Faccumulator_3C_20Feature_2C_20Sample_2C_20tag_3A_3Aexternal_3C_20Weight_2C_20Tag_2C_20AccumulatorSet_20_3E_20_3E" id="r_to_5Faccumulator_3C_20Feature_2C_20Sample_2C_20tag_3A_3Aexternal_3C_20Weight_2C_20Tag_2C_20AccumulatorSet_20_3E_20_3E"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1to__accumulator_3_01Feature_00_01Sample_00_01tag_1_1ext0c26d8c3c18bcca084cb467b003ed836.html">to_accumulator&lt; Feature, Sample, tag::external&lt; Weight, Tag, AccumulatorSet &gt; &gt;</a></td></tr>
+<tr class="memitem:insert_5Ffeature" id="r_insert_5Ffeature"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1insert__feature.html">insert_feature</a></td></tr>
+<tr class="memitem:insert_5Fdependencies" id="r_insert_5Fdependencies"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1insert__dependencies.html">insert_dependencies</a></td></tr>
+<tr class="memitem:insert_5Fsequence" id="r_insert_5Fsequence"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1insert__sequence.html">insert_sequence</a></td></tr>
+<tr class="memitem:make_5Faccumulator_5Ftuple" id="r_make_5Faccumulator_5Ftuple"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1make__accumulator__tuple.html">make_accumulator_tuple</a></td></tr>
+<tr class="memitem:accumulator_5Fset_5Fresult" id="r_accumulator_5Fset_5Fresult"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__result.html">accumulator_set_result</a></td></tr>
+<tr class="memitem:argument_5Fpack_5Fresult" id="r_argument_5Fpack_5Fresult"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1argument__pack__result.html">argument_pack_result</a></td></tr>
+<tr class="memitem:extractor_5Fresult" id="r_extractor_5Fresult"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">extractor_result</a></td></tr>
+<tr class="memitem:ignore_5Faccumulator" id="r_ignore_5Faccumulator"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1ignore__accumulator.html">ignore_accumulator</a></td></tr>
+<tr class="memitem:ignore_5Fsample" id="r_ignore_5Fsample"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1ignore__sample.html">ignore_sample</a></td></tr>
+<tr class="memitem:ignore_5Fweight" id="r_ignore_5Fweight"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1ignore__weight.html">ignore_weight</a></td></tr>
+<tr class="memitem:ignore_5Fweights" id="r_ignore_5Fweights"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1ignore__weights.html">ignore_weights</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader" id="header-typedef-members"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:aa2dae793a14e136c7fd1cabf89aae193" id="r_aa2dae793a14e136c7fd1cabf89aae193"><td class="memItemLeft">typedef void </td><td class="memItemRight"><a class="el" href="#aa2dae793a14e136c7fd1cabf89aae193">void_</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader" id="header-func-members"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a7a05c0d34fc050f675745edd4c0ed9a3" id="r_a7a05c0d34fc050f675745edd4c0ed9a3"><td class="memTemplParams" colspan="2">template&lt;typename Args&gt; </td></tr>
+<tr class="memitem:a7a05c0d34fc050f675745edd4c0ed9a3 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__visitor.html">accumulator_visitor</a>&lt; Args &gt; const </td><td class="memItemRight"><a class="el" href="#a7a05c0d34fc050f675745edd4c0ed9a3">make_accumulator_visitor</a> (Args const &amp;args)</td></tr>
+<tr class="memitem:ad95af42f103f9b5310e5f4d814bcccbb" id="r_ad95af42f103f9b5310e5f4d814bcccbb"><td class="memTemplParams" colspan="2">template&lt;typename Args&gt; </td></tr>
+<tr class="memitem:ad95af42f103f9b5310e5f4d814bcccbb template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1add__ref__visitor.html">add_ref_visitor</a>&lt; Args &gt; </td><td class="memItemRight"><a class="el" href="#ad95af42f103f9b5310e5f4d814bcccbb">make_add_ref_visitor</a> (Args const &amp;args)</td></tr>
+<tr class="memitem:a2f013e7608bf263a85a0d865fcf609e1" id="r_a2f013e7608bf263a85a0d865fcf609e1"><td class="memTemplParams" colspan="2">template&lt;typename Args&gt; </td></tr>
+<tr class="memitem:a2f013e7608bf263a85a0d865fcf609e1 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1drop__visitor.html">drop_visitor</a>&lt; Args &gt; </td><td class="memItemRight"><a class="el" href="#a2f013e7608bf263a85a0d865fcf609e1">make_drop_visitor</a> (Args const &amp;args)</td></tr>
+<tr class="memitem:a4bbbe1d020181c0fac28ff04de33b722" id="r_a4bbbe1d020181c0fac28ff04de33b722"><td class="memTemplParams" colspan="2">template&lt;typename Sequence, typename Args&gt; </td></tr>
+<tr class="memitem:a4bbbe1d020181c0fac28ff04de33b722 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1meta_1_1make__acc__list.html">meta::make_acc_list</a>&lt; Sequence &gt;<a class="el" href="structboost_1_1accumulators_1_1detail_1_1make__accumulator__tuple.html">::type</a> </td><td class="memItemRight"><a class="el" href="#a4bbbe1d020181c0fac28ff04de33b722">make_acc_list</a> (Sequence &amp;seq, Args const &amp;args)</td></tr>
+<tr class="memitem:a51620daa6b32e2330bd3fc8614fdcef9" id="r_a51620daa6b32e2330bd3fc8614fdcef9"><td class="memTemplParams" colspan="2">template&lt;typename Sequence, typename Args&gt; </td></tr>
+<tr class="memitem:a51620daa6b32e2330bd3fc8614fdcef9 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1meta_1_1make__acc__list.html">meta::make_acc_list</a>&lt; Sequence &gt;<a class="el" href="structboost_1_1accumulators_1_1detail_1_1make__accumulator__tuple.html">::type</a> </td><td class="memItemRight"><a class="el" href="#a51620daa6b32e2330bd3fc8614fdcef9">make_acc_list</a> (Sequence const &amp;seq, Args const &amp;args)</td></tr>
+<tr class="memitem:aa132abaa38c5b005646759842dee956a" id="r_aa132abaa38c5b005646759842dee956a"><td class="memTemplParams" colspan="2">template&lt;typename Feature, typename AccumulatorSet&gt; </td></tr>
+<tr class="memitem:aa132abaa38c5b005646759842dee956a template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">extractor_result</a>&lt; AccumulatorSet, Feature &gt;<a class="el" href="structboost_1_1accumulators_1_1detail_1_1make__accumulator__tuple.html">::type</a> </td><td class="memItemRight"><a class="el" href="#aa132abaa38c5b005646759842dee956a">do_extract</a> (AccumulatorSet const &amp;acc, mpl::true_)</td></tr>
+<tr class="memitem:ac23879897ebe2d9f82ee91aadee01725" id="r_ac23879897ebe2d9f82ee91aadee01725"><td class="memTemplParams" colspan="2">template&lt;typename Feature, typename Args&gt; </td></tr>
+<tr class="memitem:ac23879897ebe2d9f82ee91aadee01725 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">extractor_result</a>&lt; Args, Feature &gt;<a class="el" href="structboost_1_1accumulators_1_1detail_1_1make__accumulator__tuple.html">::type</a> </td><td class="memItemRight"><a class="el" href="#ac23879897ebe2d9f82ee91aadee01725">do_extract</a> (Args const &amp;args, mpl::false_)</td></tr>
+</table>
+<a id="doc-typedef-members" name="doc-typedef-members"></a><h2 class="groupheader" id="header-doc-typedef-members">Typedef Documentation</h2>
+<a id="aa2dae793a14e136c7fd1cabf89aae193" name="aa2dae793a14e136c7fd1cabf89aae193"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2dae793a14e136c7fd1cabf89aae193">◆ </a></span>void_</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname">typedef void <a class="el" href="#aa2dae793a14e136c7fd1cabf89aae193">boost::accumulators::detail::void_</a></td>
+</tr>
+</table>
+</div><div class="memdoc">
+</div>
+</div>
+<a id="doc-func-members" name="doc-func-members"></a><h2 class="groupheader" id="header-doc-func-members">Function Documentation</h2>
+<a id="aa132abaa38c5b005646759842dee956a" name="aa132abaa38c5b005646759842dee956a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa132abaa38c5b005646759842dee956a">◆ </a></span>do_extract() <span class="overload">[1/2]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Feature, typename AccumulatorSet&gt; </div>
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">extractor_result</a>&lt; AccumulatorSet, Feature &gt;<a class="el" href="structboost_1_1accumulators_1_1detail_1_1make__accumulator__tuple.html">::type</a> boost::accumulators::detail::do_extract </td>
+<td>(</td>
+<td class="paramtype">AccumulatorSet const &amp;</td> <td class="paramname"><span class="paramname"><em>acc</em></span>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">mpl::true_</td> <td class="paramname"><span class="paramname"><em></em></span> )</td>
+</tr>
+</table>
+</div><div class="memdoc">
+</div>
+</div>
+<a id="ac23879897ebe2d9f82ee91aadee01725" name="ac23879897ebe2d9f82ee91aadee01725"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac23879897ebe2d9f82ee91aadee01725">◆ </a></span>do_extract() <span class="overload">[2/2]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Feature, typename Args&gt; </div>
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">extractor_result</a>&lt; Args, Feature &gt;<a class="el" href="structboost_1_1accumulators_1_1detail_1_1make__accumulator__tuple.html">::type</a> boost::accumulators::detail::do_extract </td>
+<td>(</td>
+<td class="paramtype">Args const &amp;</td> <td class="paramname"><span class="paramname"><em>args</em></span>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">mpl::false_</td> <td class="paramname"><span class="paramname"><em></em></span> )</td>
+</tr>
+</table>
+</div><div class="memdoc">
+</div>
+</div>
+<a id="a4bbbe1d020181c0fac28ff04de33b722" name="a4bbbe1d020181c0fac28ff04de33b722"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bbbe1d020181c0fac28ff04de33b722">◆ </a></span>make_acc_list() <span class="overload">[1/2]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Sequence, typename Args&gt; </div>
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1meta_1_1make__acc__list.html">meta::make_acc_list</a>&lt; Sequence &gt;<a class="el" href="structboost_1_1accumulators_1_1detail_1_1make__accumulator__tuple.html">::type</a> boost::accumulators::detail::make_acc_list </td>
+<td>(</td>
+<td class="paramtype">Sequence &amp;</td> <td class="paramname"><span class="paramname"><em>seq</em></span>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">Args const &amp;</td> <td class="paramname"><span class="paramname"><em>args</em></span> )</td>
+</tr>
+</table>
+</div><div class="memdoc">
+</div>
+</div>
+<a id="a51620daa6b32e2330bd3fc8614fdcef9" name="a51620daa6b32e2330bd3fc8614fdcef9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51620daa6b32e2330bd3fc8614fdcef9">◆ </a></span>make_acc_list() <span class="overload">[2/2]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Sequence, typename Args&gt; </div>
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1meta_1_1make__acc__list.html">meta::make_acc_list</a>&lt; Sequence &gt;<a class="el" href="structboost_1_1accumulators_1_1detail_1_1make__accumulator__tuple.html">::type</a> boost::accumulators::detail::make_acc_list </td>
+<td>(</td>
+<td class="paramtype">Sequence const &amp;</td> <td class="paramname"><span class="paramname"><em>seq</em></span>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">Args const &amp;</td> <td class="paramname"><span class="paramname"><em>args</em></span> )</td>
+</tr>
+</table>
+</div><div class="memdoc">
+</div>
+</div>
+<a id="a7a05c0d34fc050f675745edd4c0ed9a3" name="a7a05c0d34fc050f675745edd4c0ed9a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a05c0d34fc050f675745edd4c0ed9a3">◆ </a></span>make_accumulator_visitor()</h2>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Args&gt; </div>
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__visitor.html">accumulator_visitor</a>&lt; Args &gt; const boost::accumulators::detail::make_accumulator_visitor </td>
+<td>(</td>
+<td class="paramtype">Args const &amp;</td> <td class="paramname"><span class="paramname"><em>args</em></span></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+</div>
+</div>
+<a id="ad95af42f103f9b5310e5f4d814bcccbb" name="ad95af42f103f9b5310e5f4d814bcccbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad95af42f103f9b5310e5f4d814bcccbb">◆ </a></span>make_add_ref_visitor()</h2>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Args&gt; </div>
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1add__ref__visitor.html">add_ref_visitor</a>&lt; Args &gt; boost::accumulators::detail::make_add_ref_visitor </td>
+<td>(</td>
+<td class="paramtype">Args const &amp;</td> <td class="paramname"><span class="paramname"><em>args</em></span></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</div><div class="memdoc">
+</div>
+</div>
+<a id="a2f013e7608bf263a85a0d865fcf609e1" name="a2f013e7608bf263a85a0d865fcf609e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f013e7608bf263a85a0d865fcf609e1">◆ </a></span>make_drop_visitor()</h2>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Args&gt; </div>
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1drop__visitor.html">drop_visitor</a>&lt; Args &gt; boost::accumulators::detail::make_drop_visitor </td>
+<td>(</td>
+<td class="paramtype">Args const &amp;</td> <td class="paramname"><span class="paramname"><em>args</em></span></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</div><div class="memdoc">
+</div>
+</div>
+  <div class="edit-this-page">
+      <a href="file:///home/z-ming-yang/桌面/dev/boost/libs/accumulators/doc/modules/ROOT/pages/doxygen-ref/namespaceboost_1_1accumulators_1_1detail.adoc">Edit this Page</a>
+  </div>
+  </article>
+</div>
+  <div id="footer">
+  <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+<script async src="../../_/js/vendor/lunr.js"></script>
+<script async src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.."
+  data-ui-root-path="../../_"></script>
+<script async src="../../search-index.js"></script>
+</div>
+</div>
+  </body>
+</html>

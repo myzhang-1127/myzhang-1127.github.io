@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<style>html.fonts-loading{visibility:hidden;opacity:0}</style>
+<script>document.documentElement.classList.add('fonts-loading');</script>
+
+<link rel="preload" href="../../_/font/NotoSansDisplay.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="../../_/font/NotoSansDisplay-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="../../_/font/MonaspaceNeon-Var.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="../../_/font/MonaspaceXenon-Var.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+<script>
+(function() {
+  'use strict';
+  
+  var revealed = false;
+  
+  var reveal = function() {
+    if (revealed) return;
+    revealed = true;
+    document.documentElement.classList.remove('fonts-loading');
+  };
+  
+  setTimeout(reveal, 3000);
+  
+  if (!('FontFace' in window) || !('fonts' in document)) {
+    setTimeout(reveal, 100);
+    return;
+  }
+  
+  var uiRoot = '../../_';
+  var fonts = [
+    { 
+      family: 'Noto Sans', 
+      url: uiRoot + '/font/NotoSansDisplay.woff2',
+      descriptors: { style: 'normal', weight: '100 900', stretch: '62.5% 100%' }
+    },
+    { 
+      family: 'Noto Sans', 
+      url: uiRoot + '/font/NotoSansDisplay-Italic.woff2',
+      descriptors: { style: 'italic', weight: '100 900', stretch: '62.5% 100%' }
+    },
+    { 
+      family: 'Monaspace Neon', 
+      url: uiRoot + '/font/MonaspaceNeon-Var.woff2',
+      descriptors: { style: 'normal', weight: '400' }
+    },
+    { 
+      family: 'Monaspace Xenon', 
+      url: uiRoot + '/font/MonaspaceXenon-Var.woff2',
+      descriptors: { style: 'italic', weight: '400' }
+    }
+  ];
+  
+  var loadPromises = fonts.map(function(f) {
+    try {
+      var face = new FontFace(f.family, 'url("' + f.url + '")', f.descriptors);
+      return face.load().then(function(loaded) {
+        document.fonts.add(loaded);
+        return loaded;
+      }).catch(function() {
+        return null;
+      });
+    } catch (e) {
+      return Promise.resolve(null);
+    }
+  });
+  
+  Promise.all(loadPromises)
+    .then(function() {
+      return document.fonts.ready;
+    })
+    .then(reveal)
+    .catch(reveal);
+})();
+</script>    <title>Boost.Accumulators: boost/accumulators/framework/accumulators/reference_accumulator.hpp File Reference :: Boost.Accumulators</title>
+  <link rel="canonical" href="https://antora.cppalliance.org/develop/lib/doc/accumulators/doxygen-ref/reference__accumulator_8hpp.html">
+  <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../_/css/boostlook.css">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+    <script>
+    (function() {
+      if (window.self !== window.top) return;
+      var theme = localStorage.getItem('antora-theme');
+      if (!theme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        theme = 'dark';
+      }
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    })();
+    </script>
+    <script>var uiRootPath = '../../_'</script>
+<link rel="icon" href="../../_/img/favicons/favicon.ico" type="image/x-icon">
+    <!-- Favicon configuration -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../../_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../../_/img/favicons/favicon.ico">
+  </head>
+  <body class="article toc2 toc-left">
+    <div class="boostlook">
+   <div id="header">
+      <div id="toc" class="nav-container toc2" data-component="accumulators" data-version="">
+  <aside class="nav">
+    <button class="nav-close"></button>
+    <div class="panels">
+      <div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+      <div class="title-row">
+        <h3 class="title"><a href="../index.html">Boost.Accumulators</a></h3>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme" style="display:none">
+  <i class="fas fa-sun theme-icon-light"></i>
+  <i class="fas fa-moon theme-icon-dark"></i>
+</button>      </div>
+      <ul class="nav-list">
+        <ul class="nav-list">
+        <li class="" data-depth="1">
+            <a class="nav-link" href="../index.html">Chapter 1. Boost.Accumulators</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../preface.html">Preface</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../user_s_guide.html">User&#8217;s Guide</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../acknowledgements.html">Acknowledgements</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../reference.html">Reference</a>
+        </li>
+        <ul class="nav-list">
+        <li class="" data-depth="2">
+            <a class="nav-link" href="classes.html">Framework API (Doxygen HTML → AsciiDoc)</a>
+        </li>
+        </ul>
+  </ul>
+  </ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+  </div>  <div id="content">
+    <article class="doc max-width-reset">
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="../index.html" aria-label="Home: Boost.Accumulators">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 -960 960 960" fill="#000000" aria-hidden="true"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+      </a>
+    </li>
+    <li><a href="reference__accumulator_8hpp.html">Boost.Accumulators: boost/accumulators/framework/accumulators/reference_accumulator.hpp File Reference</a></li>
+  </ul>
+</nav>
+  <div class="search-container">
+    <div id="search-field" class="field has-filter">
+      <input id="search-input" type="text" placeholder="Search the docs" >
+    </div>
+  </div>
+<div class="spirit-nav">
+    <a class="disabled" accesskey="u" aria-disabled="true" tabindex="-1">
+      <span class="material-symbols-outlined" title="Up:">arrow_upward</span>
+    </a>
+</div></div>
+    <h1 class="page">Boost.Accumulators: boost/accumulators/framework/accumulators/reference_accumulator.hpp File Reference</h1>
+  <div class="textblock"><code>#include &lt;boost/ref.hpp&gt;</code><br/>
+<code>#include &lt;boost/mpl/always.hpp&gt;</code><br/>
+<code>#include &lt;boost/parameter/keyword.hpp&gt;</code><br/>
+<code>#include &lt;boost/accumulators/framework/depends_on.hpp&gt;</code><br/>
+<code>#include &lt;boost/accumulators/framework/accumulator_base.hpp&gt;</code><br/>
+<code>#include &lt;boost/accumulators/framework/extractor.hpp&gt;</code><br/>
+</div>
+<p><a href="reference__accumulator_8hpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader" id="header-nested-classes"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:boost_3A_3Aaccumulators_3A_3Aimpl_3A_3Areference_5Faccumulator_5Fimpl_3C_20Referent_2C_20Tag_20_3E" id="r_boost_3A_3Aaccumulators_3A_3Aimpl_3A_3Areference_5Faccumulator_5Fimpl_3C_20Referent_2C_20Tag_20_3E"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1impl_1_1reference__accumulator__impl.html">boost::accumulators::impl::reference_accumulator_impl&lt; Referent, Tag &gt;</a></td></tr>
+<tr class="memitem:boost_3A_3Aaccumulators_3A_3Atag_3A_3Areference_5Ftag_3C_20Tag_20_3E" id="r_boost_3A_3Aaccumulators_3A_3Atag_3A_3Areference_5Ftag_3C_20Tag_20_3E"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference__tag.html">boost::accumulators::tag::reference_tag&lt; Tag &gt;</a></td></tr>
+<tr class="memitem:boost_3A_3Aaccumulators_3A_3Atag_3A_3Areference_3C_20Referent_2C_20Tag_20_3E" id="r_boost_3A_3Aaccumulators_3A_3Atag_3A_3Areference_3C_20Referent_2C_20Tag_20_3E"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference.html">boost::accumulators::tag::reference&lt; Referent, Tag &gt;</a></td></tr>
+<tr class="memitem:boost_3A_3Aaccumulators_3A_3Afeature_5Fof_3C_20tag_3A_3Areference_3C_20ValueType_2C_20Tag_20_3E_20_3E" id="r_boost_3A_3Aaccumulators_3A_3Afeature_5Fof_3C_20tag_3A_3Areference_3C_20ValueType_2C_20Tag_20_3E_20_3E"><td class="memItemLeft">struct  </td><td class="memItemRight"><a class="el" href="structboost_1_1accumulators_1_1feature__of_3_01tag_1_1reference_3_01ValueType_00_01Tag_01_4_01_4.html">boost::accumulators::feature_of&lt; tag::reference&lt; ValueType, Tag &gt; &gt;</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader" id="header-namespaces"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:boost" id="r_boost"><td class="memItemLeft">namespace  </td><td class="memItemRight"><a class="el" href="namespaceboost.html">boost</a></td></tr>
+<tr class="memitem:boost_3A_3Aaccumulators" id="r_boost_3A_3Aaccumulators"><td class="memItemLeft">namespace  </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a></td></tr>
+<tr class="memitem:boost_3A_3Aaccumulators_3A_3Aimpl" id="r_boost_3A_3Aaccumulators_3A_3Aimpl"><td class="memItemLeft">namespace  </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1impl.html">boost::accumulators::impl</a></td></tr>
+<tr class="memitem:boost_3A_3Aaccumulators_3A_3Atag" id="r_boost_3A_3Aaccumulators_3A_3Atag"><td class="memItemLeft">namespace  </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1tag.html">boost::accumulators::tag</a></td></tr>
+<tr class="memitem:boost_3A_3Aaccumulators_3A_3Aextract" id="r_boost_3A_3Aaccumulators_3A_3Aextract"><td class="memItemLeft">namespace  </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html">boost::accumulators::extract</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader" id="header-func-members"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a88d1591a6a203ae411124cce9abe3946" id="r_a88d1591a6a203ae411124cce9abe3946"><td class="memTemplParams" colspan="2">template&lt;BOOST_PP_SEQ_ENUM_0 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2, typename Arg1&gt; </td></tr>
+<tr class="memitem:a88d1591a6a203ae411124cce9abe3946 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference.html">tag::reference</a>&lt; BOOST_PP_SEQ_ENUM_0BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a88d1591a6a203ae411124cce9abe3946">boost::accumulators::extract::reference</a> (Arg1 const &amp;arg1)</td></tr>
+<tr class="memitem:a8114d6f26237c58298efadce2ad15ede" id="r_a8114d6f26237c58298efadce2ad15ede"><td class="memTemplParams" colspan="2">template&lt;BOOST_PP_SEQ_ENUM_0 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2, typename Arg1, typename A0&gt; </td></tr>
+<tr class="memitem:a8114d6f26237c58298efadce2ad15ede template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference.html">tag::reference</a>&lt; BOOST_PP_SEQ_ENUM_0BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a8114d6f26237c58298efadce2ad15ede">boost::accumulators::extract::reference</a> (Arg1 const &amp;arg1, A0 const &amp;a0)</td></tr>
+<tr class="memitem:a7f48d9335fa96de0e923eea155181db5" id="r_a7f48d9335fa96de0e923eea155181db5"><td class="memTemplParams" colspan="2">template&lt;BOOST_PP_SEQ_ENUM_0 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2, typename Arg1, typename A0, typename A1&gt; </td></tr>
+<tr class="memitem:a7f48d9335fa96de0e923eea155181db5 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference.html">tag::reference</a>&lt; BOOST_PP_SEQ_ENUM_0BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a7f48d9335fa96de0e923eea155181db5">boost::accumulators::extract::reference</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1)</td></tr>
+<tr class="memitem:a250f692d7c546c63c1cdc100cd4564ef" id="r_a250f692d7c546c63c1cdc100cd4564ef"><td class="memTemplParams" colspan="2">template&lt;BOOST_PP_SEQ_ENUM_0 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2, typename Arg1, typename A0, typename A1, typename A2&gt; </td></tr>
+<tr class="memitem:a250f692d7c546c63c1cdc100cd4564ef template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference.html">tag::reference</a>&lt; BOOST_PP_SEQ_ENUM_0BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a250f692d7c546c63c1cdc100cd4564ef">boost::accumulators::extract::reference</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2)</td></tr>
+<tr class="memitem:a7704af8112481921a8b5b49b55980aed" id="r_a7704af8112481921a8b5b49b55980aed"><td class="memTemplParams" colspan="2">template&lt;BOOST_PP_SEQ_ENUM_0 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2, typename Arg1, typename A0, typename A1, typename A2, typename A3&gt; </td></tr>
+<tr class="memitem:a7704af8112481921a8b5b49b55980aed template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference.html">tag::reference</a>&lt; BOOST_PP_SEQ_ENUM_0BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a7704af8112481921a8b5b49b55980aed">boost::accumulators::extract::reference</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3)</td></tr>
+<tr class="memitem:a833456b845946e10812c79de7dd56e99" id="r_a833456b845946e10812c79de7dd56e99"><td class="memTemplParams" colspan="2">template&lt;BOOST_PP_SEQ_ENUM_0 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2, typename Arg1, typename A0, typename A1, typename A2, typename A3, typename A4&gt; </td></tr>
+<tr class="memitem:a833456b845946e10812c79de7dd56e99 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference.html">tag::reference</a>&lt; BOOST_PP_SEQ_ENUM_0BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a833456b845946e10812c79de7dd56e99">boost::accumulators::extract::reference</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3, A4 const &amp;a4)</td></tr>
+<tr class="memitem:ae0a3f9bf16bb5ad59d512e014f7cce3a" id="r_ae0a3f9bf16bb5ad59d512e014f7cce3a"><td class="memTemplParams" colspan="2">template&lt;BOOST_PP_SEQ_ENUM_0 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2, typename Arg1, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5&gt; </td></tr>
+<tr class="memitem:ae0a3f9bf16bb5ad59d512e014f7cce3a template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference.html">tag::reference</a>&lt; BOOST_PP_SEQ_ENUM_0BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#ae0a3f9bf16bb5ad59d512e014f7cce3a">boost::accumulators::extract::reference</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3, A4 const &amp;a4, A5 const &amp;a5)</td></tr>
+<tr class="memitem:a1d10567dc56ce3ee3007e31ef1185cf6" id="r_a1d10567dc56ce3ee3007e31ef1185cf6"><td class="memTemplParams" colspan="2">template&lt;BOOST_PP_SEQ_ENUM_0 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2, typename Arg1, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6&gt; </td></tr>
+<tr class="memitem:a1d10567dc56ce3ee3007e31ef1185cf6 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference.html">tag::reference</a>&lt; BOOST_PP_SEQ_ENUM_0BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a1d10567dc56ce3ee3007e31ef1185cf6">boost::accumulators::extract::reference</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3, A4 const &amp;a4, A5 const &amp;a5, A6 const &amp;a6)</td></tr>
+<tr class="memitem:a27fc8b19e3414c1875889763ef784232" id="r_a27fc8b19e3414c1875889763ef784232"><td class="memTemplParams" colspan="2">template&lt;BOOST_PP_SEQ_ENUM_0 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2, typename Arg1, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7&gt; </td></tr>
+<tr class="memitem:a27fc8b19e3414c1875889763ef784232 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference.html">tag::reference</a>&lt; BOOST_PP_SEQ_ENUM_0BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a27fc8b19e3414c1875889763ef784232">boost::accumulators::extract::reference</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3, A4 const &amp;a4, A5 const &amp;a5, A6 const &amp;a6, A7 const &amp;a7)</td></tr>
+<tr class="memitem:a950cdc9ad23a256c38a50d17cf5dc0c7" id="r_a950cdc9ad23a256c38a50d17cf5dc0c7"><td class="memTemplParams" colspan="2">template&lt;BOOST_PP_SEQ_ENUM_0 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2, typename Arg1, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8&gt; </td></tr>
+<tr class="memitem:a950cdc9ad23a256c38a50d17cf5dc0c7 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference.html">tag::reference</a>&lt; BOOST_PP_SEQ_ENUM_0BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a950cdc9ad23a256c38a50d17cf5dc0c7">boost::accumulators::extract::reference</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3, A4 const &amp;a4, A5 const &amp;a5, A6 const &amp;a6, A7 const &amp;a7, A8 const &amp;a8)</td></tr>
+<tr class="memitem:a9e32022921b7bbe43a5c31c7bc5d2a7b" id="r_a9e32022921b7bbe43a5c31c7bc5d2a7b"><td class="memTemplParams" colspan="2">template&lt;BOOST_PP_SEQ_ENUM_0 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2, typename Arg1, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8, typename A9&gt; </td></tr>
+<tr class="memitem:a9e32022921b7bbe43a5c31c7bc5d2a7b template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference.html">tag::reference</a>&lt; BOOST_PP_SEQ_ENUM_0BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a9e32022921b7bbe43a5c31c7bc5d2a7b">boost::accumulators::extract::reference</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3, A4 const &amp;a4, A5 const &amp;a5, A6 const &amp;a6, A7 const &amp;a7, A8 const &amp;a8, A9 const &amp;a9)</td></tr>
+<tr class="memitem:a22336acd83554a65d2f36b87ba9b37a6" id="r_a22336acd83554a65d2f36b87ba9b37a6"><td class="memTemplParams" colspan="2">template&lt;BOOST_PP_SEQ_ENUM_0 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2, typename Arg1, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8, typename A9, typename A10&gt; </td></tr>
+<tr class="memitem:a22336acd83554a65d2f36b87ba9b37a6 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference.html">tag::reference</a>&lt; BOOST_PP_SEQ_ENUM_0BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a22336acd83554a65d2f36b87ba9b37a6">boost::accumulators::extract::reference</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3, A4 const &amp;a4, A5 const &amp;a5, A6 const &amp;a6, A7 const &amp;a7, A8 const &amp;a8, A9 const &amp;a9, A10 const &amp;a10)</td></tr>
+<tr class="memitem:a43b48cb62ff497ceee3270b2701f4cc8" id="r_a43b48cb62ff497ceee3270b2701f4cc8"><td class="memTemplParams" colspan="2">template&lt;BOOST_PP_SEQ_ENUM_0 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2, typename Arg1, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8, typename A9, typename A10, typename A11&gt; </td></tr>
+<tr class="memitem:a43b48cb62ff497ceee3270b2701f4cc8 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference.html">tag::reference</a>&lt; BOOST_PP_SEQ_ENUM_0BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a43b48cb62ff497ceee3270b2701f4cc8">boost::accumulators::extract::reference</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3, A4 const &amp;a4, A5 const &amp;a5, A6 const &amp;a6, A7 const &amp;a7, A8 const &amp;a8, A9 const &amp;a9, A10 const &amp;a10, A11 const &amp;a11)</td></tr>
+<tr class="memitem:aafab97d2693486af52ac01456648d986" id="r_aafab97d2693486af52ac01456648d986"><td class="memTemplParams" colspan="2">template&lt;BOOST_PP_SEQ_ENUM_0 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2, typename Arg1, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8, typename A9, typename A10, typename A11, typename A12&gt; </td></tr>
+<tr class="memitem:aafab97d2693486af52ac01456648d986 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference.html">tag::reference</a>&lt; BOOST_PP_SEQ_ENUM_0BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#aafab97d2693486af52ac01456648d986">boost::accumulators::extract::reference</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3, A4 const &amp;a4, A5 const &amp;a5, A6 const &amp;a6, A7 const &amp;a7, A8 const &amp;a8, A9 const &amp;a9, A10 const &amp;a10, A11 const &amp;a11, A12 const &amp;a12)</td></tr>
+<tr class="memitem:ab036a49cb1a59320f08d1f531bb532cc" id="r_ab036a49cb1a59320f08d1f531bb532cc"><td class="memTemplParams" colspan="2">template&lt;BOOST_PP_SEQ_ENUM_0 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2, typename Arg1, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8, typename A9, typename A10, typename A11, typename A12, typename A13&gt; </td></tr>
+<tr class="memitem:ab036a49cb1a59320f08d1f531bb532cc template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference.html">tag::reference</a>&lt; BOOST_PP_SEQ_ENUM_0BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#ab036a49cb1a59320f08d1f531bb532cc">boost::accumulators::extract::reference</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3, A4 const &amp;a4, A5 const &amp;a5, A6 const &amp;a6, A7 const &amp;a7, A8 const &amp;a8, A9 const &amp;a9, A10 const &amp;a10, A11 const &amp;a11, A12 const &amp;a12, A13 const &amp;a13)</td></tr>
+<tr class="memitem:a2488c75cef5474907df7ac5b4280efba" id="r_a2488c75cef5474907df7ac5b4280efba"><td class="memTemplParams" colspan="2">template&lt;BOOST_PP_SEQ_ENUM_0 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2 BOOST_PP_SEQ_TAIL_I BOOST_PP_VARIADIC_ELEM_2, typename Arg1, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8, typename A9, typename A10, typename A11, typename A12, typename A13, typename A14&gt; </td></tr>
+<tr class="memitem:a2488c75cef5474907df7ac5b4280efba template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference.html">tag::reference</a>&lt; BOOST_PP_SEQ_ENUM_0BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2BOOST_PP_SEQ_TAIL_IBOOST_PP_VARIADIC_ELEM_2 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a2488c75cef5474907df7ac5b4280efba">boost::accumulators::extract::reference</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3, A4 const &amp;a4, A5 const &amp;a5, A6 const &amp;a6, A7 const &amp;a7, A8 const &amp;a8, A9 const &amp;a9, A10 const &amp;a10, A11 const &amp;a11, A12 const &amp;a12, A13 const &amp;a13, A14 const &amp;a14)</td></tr>
+<tr class="memitem:a9d00525235e890af63f35e4fcad0e3e4" id="r_a9d00525235e890af63f35e4fcad0e3e4"><td class="memTemplParams" colspan="2">template&lt;typename T1, typename Arg1&gt; </td></tr>
+<tr class="memitem:a9d00525235e890af63f35e4fcad0e3e4 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference__tag.html">tag::reference_tag</a>&lt; T1 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a9d00525235e890af63f35e4fcad0e3e4">boost::accumulators::extract::reference_tag</a> (Arg1 const &amp;arg1)</td></tr>
+<tr class="memitem:ac39431491a9a4ae5cd2c8f645f0acba7" id="r_ac39431491a9a4ae5cd2c8f645f0acba7"><td class="memTemplParams" colspan="2">template&lt;typename T1, typename Arg1, typename A0&gt; </td></tr>
+<tr class="memitem:ac39431491a9a4ae5cd2c8f645f0acba7 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference__tag.html">tag::reference_tag</a>&lt; T1 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#ac39431491a9a4ae5cd2c8f645f0acba7">boost::accumulators::extract::reference_tag</a> (Arg1 const &amp;arg1, A0 const &amp;a0)</td></tr>
+<tr class="memitem:a09135eab73f5b1d6485c75b211fbbda5" id="r_a09135eab73f5b1d6485c75b211fbbda5"><td class="memTemplParams" colspan="2">template&lt;typename T1, typename Arg1, typename A0, typename A1&gt; </td></tr>
+<tr class="memitem:a09135eab73f5b1d6485c75b211fbbda5 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference__tag.html">tag::reference_tag</a>&lt; T1 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a09135eab73f5b1d6485c75b211fbbda5">boost::accumulators::extract::reference_tag</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1)</td></tr>
+<tr class="memitem:aabe84c01d6cf600c8dd89b3aeb512daa" id="r_aabe84c01d6cf600c8dd89b3aeb512daa"><td class="memTemplParams" colspan="2">template&lt;typename T1, typename Arg1, typename A0, typename A1, typename A2&gt; </td></tr>
+<tr class="memitem:aabe84c01d6cf600c8dd89b3aeb512daa template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference__tag.html">tag::reference_tag</a>&lt; T1 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#aabe84c01d6cf600c8dd89b3aeb512daa">boost::accumulators::extract::reference_tag</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2)</td></tr>
+<tr class="memitem:a5dd90ea9f6e600fe10dac9f3f9331191" id="r_a5dd90ea9f6e600fe10dac9f3f9331191"><td class="memTemplParams" colspan="2">template&lt;typename T1, typename Arg1, typename A0, typename A1, typename A2, typename A3&gt; </td></tr>
+<tr class="memitem:a5dd90ea9f6e600fe10dac9f3f9331191 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference__tag.html">tag::reference_tag</a>&lt; T1 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a5dd90ea9f6e600fe10dac9f3f9331191">boost::accumulators::extract::reference_tag</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3)</td></tr>
+<tr class="memitem:a6b49ff74288b3eb8265e381d9f3c131f" id="r_a6b49ff74288b3eb8265e381d9f3c131f"><td class="memTemplParams" colspan="2">template&lt;typename T1, typename Arg1, typename A0, typename A1, typename A2, typename A3, typename A4&gt; </td></tr>
+<tr class="memitem:a6b49ff74288b3eb8265e381d9f3c131f template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference__tag.html">tag::reference_tag</a>&lt; T1 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a6b49ff74288b3eb8265e381d9f3c131f">boost::accumulators::extract::reference_tag</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3, A4 const &amp;a4)</td></tr>
+<tr class="memitem:a349eb911026cef3b1dcd948db73354fd" id="r_a349eb911026cef3b1dcd948db73354fd"><td class="memTemplParams" colspan="2">template&lt;typename T1, typename Arg1, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5&gt; </td></tr>
+<tr class="memitem:a349eb911026cef3b1dcd948db73354fd template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference__tag.html">tag::reference_tag</a>&lt; T1 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a349eb911026cef3b1dcd948db73354fd">boost::accumulators::extract::reference_tag</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3, A4 const &amp;a4, A5 const &amp;a5)</td></tr>
+<tr class="memitem:a68ed98b50096e88933ef6a4cfdc3dec0" id="r_a68ed98b50096e88933ef6a4cfdc3dec0"><td class="memTemplParams" colspan="2">template&lt;typename T1, typename Arg1, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6&gt; </td></tr>
+<tr class="memitem:a68ed98b50096e88933ef6a4cfdc3dec0 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference__tag.html">tag::reference_tag</a>&lt; T1 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a68ed98b50096e88933ef6a4cfdc3dec0">boost::accumulators::extract::reference_tag</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3, A4 const &amp;a4, A5 const &amp;a5, A6 const &amp;a6)</td></tr>
+<tr class="memitem:a88bb321a712e76f837652c39f2998984" id="r_a88bb321a712e76f837652c39f2998984"><td class="memTemplParams" colspan="2">template&lt;typename T1, typename Arg1, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7&gt; </td></tr>
+<tr class="memitem:a88bb321a712e76f837652c39f2998984 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference__tag.html">tag::reference_tag</a>&lt; T1 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a88bb321a712e76f837652c39f2998984">boost::accumulators::extract::reference_tag</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3, A4 const &amp;a4, A5 const &amp;a5, A6 const &amp;a6, A7 const &amp;a7)</td></tr>
+<tr class="memitem:a79e1ea338ce0424b3ab70e2fe14a58e1" id="r_a79e1ea338ce0424b3ab70e2fe14a58e1"><td class="memTemplParams" colspan="2">template&lt;typename T1, typename Arg1, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8&gt; </td></tr>
+<tr class="memitem:a79e1ea338ce0424b3ab70e2fe14a58e1 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference__tag.html">tag::reference_tag</a>&lt; T1 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a79e1ea338ce0424b3ab70e2fe14a58e1">boost::accumulators::extract::reference_tag</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3, A4 const &amp;a4, A5 const &amp;a5, A6 const &amp;a6, A7 const &amp;a7, A8 const &amp;a8)</td></tr>
+<tr class="memitem:acb06740c3dd1aa5debbc2472a5fdfc90" id="r_acb06740c3dd1aa5debbc2472a5fdfc90"><td class="memTemplParams" colspan="2">template&lt;typename T1, typename Arg1, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8, typename A9&gt; </td></tr>
+<tr class="memitem:acb06740c3dd1aa5debbc2472a5fdfc90 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference__tag.html">tag::reference_tag</a>&lt; T1 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#acb06740c3dd1aa5debbc2472a5fdfc90">boost::accumulators::extract::reference_tag</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3, A4 const &amp;a4, A5 const &amp;a5, A6 const &amp;a6, A7 const &amp;a7, A8 const &amp;a8, A9 const &amp;a9)</td></tr>
+<tr class="memitem:a16c6ca6677e2131fff577c9294149bc9" id="r_a16c6ca6677e2131fff577c9294149bc9"><td class="memTemplParams" colspan="2">template&lt;typename T1, typename Arg1, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8, typename A9, typename A10&gt; </td></tr>
+<tr class="memitem:a16c6ca6677e2131fff577c9294149bc9 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference__tag.html">tag::reference_tag</a>&lt; T1 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a16c6ca6677e2131fff577c9294149bc9">boost::accumulators::extract::reference_tag</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3, A4 const &amp;a4, A5 const &amp;a5, A6 const &amp;a6, A7 const &amp;a7, A8 const &amp;a8, A9 const &amp;a9, A10 const &amp;a10)</td></tr>
+<tr class="memitem:ac2044e8656b9a8c619df9cdbb69bcd3b" id="r_ac2044e8656b9a8c619df9cdbb69bcd3b"><td class="memTemplParams" colspan="2">template&lt;typename T1, typename Arg1, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8, typename A9, typename A10, typename A11&gt; </td></tr>
+<tr class="memitem:ac2044e8656b9a8c619df9cdbb69bcd3b template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference__tag.html">tag::reference_tag</a>&lt; T1 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#ac2044e8656b9a8c619df9cdbb69bcd3b">boost::accumulators::extract::reference_tag</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3, A4 const &amp;a4, A5 const &amp;a5, A6 const &amp;a6, A7 const &amp;a7, A8 const &amp;a8, A9 const &amp;a9, A10 const &amp;a10, A11 const &amp;a11)</td></tr>
+<tr class="memitem:a50affeb20a0367a0497746e2f7e823c0" id="r_a50affeb20a0367a0497746e2f7e823c0"><td class="memTemplParams" colspan="2">template&lt;typename T1, typename Arg1, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8, typename A9, typename A10, typename A11, typename A12&gt; </td></tr>
+<tr class="memitem:a50affeb20a0367a0497746e2f7e823c0 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference__tag.html">tag::reference_tag</a>&lt; T1 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a50affeb20a0367a0497746e2f7e823c0">boost::accumulators::extract::reference_tag</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3, A4 const &amp;a4, A5 const &amp;a5, A6 const &amp;a6, A7 const &amp;a7, A8 const &amp;a8, A9 const &amp;a9, A10 const &amp;a10, A11 const &amp;a11, A12 const &amp;a12)</td></tr>
+<tr class="memitem:a130fc22df594e4c56c76c1a2a2a1e299" id="r_a130fc22df594e4c56c76c1a2a2a1e299"><td class="memTemplParams" colspan="2">template&lt;typename T1, typename Arg1, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8, typename A9, typename A10, typename A11, typename A12, typename A13&gt; </td></tr>
+<tr class="memitem:a130fc22df594e4c56c76c1a2a2a1e299 template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference__tag.html">tag::reference_tag</a>&lt; T1 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#a130fc22df594e4c56c76c1a2a2a1e299">boost::accumulators::extract::reference_tag</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3, A4 const &amp;a4, A5 const &amp;a5, A6 const &amp;a6, A7 const &amp;a7, A8 const &amp;a8, A9 const &amp;a9, A10 const &amp;a10, A11 const &amp;a11, A12 const &amp;a12, A13 const &amp;a13)</td></tr>
+<tr class="memitem:ade74a902042ed742972e708ead2715fe" id="r_ade74a902042ed742972e708ead2715fe"><td class="memTemplParams" colspan="2">template&lt;typename T1, typename Arg1, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8, typename A9, typename A10, typename A11, typename A12, typename A13, typename A14&gt; </td></tr>
+<tr class="memitem:ade74a902042ed742972e708ead2715fe template"><td class="memItemLeft"><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a>&lt; Arg1, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference__tag.html">tag::reference_tag</a>&lt; T1 &gt; &gt;<a class="el" href="structboost_1_1accumulators_1_1as__feature.html">::type</a> </td><td class="memItemRight"><a class="el" href="namespaceboost_1_1accumulators_1_1extract.html#ade74a902042ed742972e708ead2715fe">boost::accumulators::extract::reference_tag</a> (Arg1 const &amp;arg1, A0 const &amp;a0, A1 const &amp;a1, A2 const &amp;a2, A3 const &amp;a3, A4 const &amp;a4, A5 const &amp;a5, A6 const &amp;a6, A7 const &amp;a7, A8 const &amp;a8, A9 const &amp;a9, A10 const &amp;a10, A11 const &amp;a11, A12 const &amp;a12, A13 const &amp;a13, A14 const &amp;a14)</td></tr>
+</table>
+  <div class="edit-this-page">
+      <a href="file:///home/z-ming-yang/桌面/dev/boost/libs/accumulators/doc/modules/ROOT/pages/doxygen-ref/reference__accumulator_8hpp.adoc">Edit this Page</a>
+  </div>
+  </article>
+</div>
+  <div id="footer">
+  <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+<script async src="../../_/js/vendor/lunr.js"></script>
+<script async src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.."
+  data-ui-root-path="../../_"></script>
+<script async src="../../search-index.js"></script>
+</div>
+</div>
+  </body>
+</html>

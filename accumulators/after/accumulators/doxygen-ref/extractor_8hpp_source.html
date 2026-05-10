@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<style>html.fonts-loading{visibility:hidden;opacity:0}</style>
+<script>document.documentElement.classList.add('fonts-loading');</script>
+
+<link rel="preload" href="../../_/font/NotoSansDisplay.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="../../_/font/NotoSansDisplay-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="../../_/font/MonaspaceNeon-Var.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="../../_/font/MonaspaceXenon-Var.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+<script>
+(function() {
+  'use strict';
+  
+  var revealed = false;
+  
+  var reveal = function() {
+    if (revealed) return;
+    revealed = true;
+    document.documentElement.classList.remove('fonts-loading');
+  };
+  
+  setTimeout(reveal, 3000);
+  
+  if (!('FontFace' in window) || !('fonts' in document)) {
+    setTimeout(reveal, 100);
+    return;
+  }
+  
+  var uiRoot = '../../_';
+  var fonts = [
+    { 
+      family: 'Noto Sans', 
+      url: uiRoot + '/font/NotoSansDisplay.woff2',
+      descriptors: { style: 'normal', weight: '100 900', stretch: '62.5% 100%' }
+    },
+    { 
+      family: 'Noto Sans', 
+      url: uiRoot + '/font/NotoSansDisplay-Italic.woff2',
+      descriptors: { style: 'italic', weight: '100 900', stretch: '62.5% 100%' }
+    },
+    { 
+      family: 'Monaspace Neon', 
+      url: uiRoot + '/font/MonaspaceNeon-Var.woff2',
+      descriptors: { style: 'normal', weight: '400' }
+    },
+    { 
+      family: 'Monaspace Xenon', 
+      url: uiRoot + '/font/MonaspaceXenon-Var.woff2',
+      descriptors: { style: 'italic', weight: '400' }
+    }
+  ];
+  
+  var loadPromises = fonts.map(function(f) {
+    try {
+      var face = new FontFace(f.family, 'url("' + f.url + '")', f.descriptors);
+      return face.load().then(function(loaded) {
+        document.fonts.add(loaded);
+        return loaded;
+      }).catch(function() {
+        return null;
+      });
+    } catch (e) {
+      return Promise.resolve(null);
+    }
+  });
+  
+  Promise.all(loadPromises)
+    .then(function() {
+      return document.fonts.ready;
+    })
+    .then(reveal)
+    .catch(reveal);
+})();
+</script>    <title>Boost.Accumulators: boost/accumulators/framework/extractor.hpp Source File :: Boost.Accumulators</title>
+  <link rel="canonical" href="https://antora.cppalliance.org/develop/lib/doc/accumulators/doxygen-ref/extractor_8hpp_source.html">
+  <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../_/css/boostlook.css">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+    <script>
+    (function() {
+      if (window.self !== window.top) return;
+      var theme = localStorage.getItem('antora-theme');
+      if (!theme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        theme = 'dark';
+      }
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    })();
+    </script>
+    <script>var uiRootPath = '../../_'</script>
+<link rel="icon" href="../../_/img/favicons/favicon.ico" type="image/x-icon">
+    <!-- Favicon configuration -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../../_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../../_/img/favicons/favicon.ico">
+  </head>
+  <body class="article toc2 toc-left">
+    <div class="boostlook">
+   <div id="header">
+      <div id="toc" class="nav-container toc2" data-component="accumulators" data-version="">
+  <aside class="nav">
+    <button class="nav-close"></button>
+    <div class="panels">
+      <div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+      <div class="title-row">
+        <h3 class="title"><a href="../index.html">Boost.Accumulators</a></h3>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme" style="display:none">
+  <i class="fas fa-sun theme-icon-light"></i>
+  <i class="fas fa-moon theme-icon-dark"></i>
+</button>      </div>
+      <ul class="nav-list">
+        <ul class="nav-list">
+        <li class="" data-depth="1">
+            <a class="nav-link" href="../index.html">Chapter 1. Boost.Accumulators</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../preface.html">Preface</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../user_s_guide.html">User&#8217;s Guide</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../acknowledgements.html">Acknowledgements</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../reference.html">Reference</a>
+        </li>
+        <ul class="nav-list">
+        <li class="" data-depth="2">
+            <a class="nav-link" href="classes.html">Framework API (Doxygen HTML → AsciiDoc)</a>
+        </li>
+        </ul>
+  </ul>
+  </ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+  </div>  <div id="content">
+    <article class="doc max-width-reset">
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="../index.html" aria-label="Home: Boost.Accumulators">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 -960 960 960" fill="#000000" aria-hidden="true"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+      </a>
+    </li>
+    <li><a href="extractor_8hpp_source.html">Boost.Accumulators: boost/accumulators/framework/extractor.hpp Source File</a></li>
+  </ul>
+</nav>
+  <div class="search-container">
+    <div id="search-field" class="field has-filter">
+      <input id="search-input" type="text" placeholder="Search the docs" >
+    </div>
+  </div>
+<div class="spirit-nav">
+    <a class="disabled" accesskey="u" aria-disabled="true" tabindex="-1">
+      <span class="material-symbols-outlined" title="Up:">arrow_upward</span>
+    </a>
+</div></div>
+    <h1 class="page">Boost.Accumulators: boost/accumulators/framework/extractor.hpp Source File</h1>
+  <a href="extractor_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// extractor.hpp</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">//  Copyright 2005 Eric Niebler. Distributed under the Boost</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//  Software License, Version 1.0. (See accompanying file</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//  LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef BOOST_ACCUMULATORS_FRAMEWORK_EXTRACTOR_HPP_EAN_28_10_2005</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define BOOST_ACCUMULATORS_FRAMEWORK_EXTRACTOR_HPP_EAN_28_10_2005</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;boost/preprocessor/cat.hpp&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;boost/preprocessor/tuple/rem.hpp&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;boost/preprocessor/array/size.hpp&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;boost/preprocessor/array/data.hpp&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;boost/preprocessor/array/elem.hpp&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;boost/preprocessor/seq/to_array.hpp&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;boost/preprocessor/seq/transform.hpp&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;boost/preprocessor/repetition/enum_params.hpp&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;boost/preprocessor/repetition/enum_trailing.hpp&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;boost/preprocessor/repetition/enum_trailing_params.hpp&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;boost/preprocessor/repetition/enum_trailing_binary_params.hpp&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;boost/preprocessor/repetition/repeat.hpp&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;boost/preprocessor/repetition/repeat_from_to.hpp&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;boost/parameter/binding.hpp&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;boost/mpl/bool.hpp&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;boost/mpl/if.hpp&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;boost/mpl/eval_if.hpp&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;boost/mpl/apply.hpp&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;boost/type_traits/remove_const.hpp&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;boost/type_traits/remove_reference.hpp&gt;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;boost/accumulators/accumulators_fwd.hpp&gt;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;boost/accumulators/framework/parameters/accumulator.hpp&gt;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceboost.html">boost</a> { <span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceboost_1_1accumulators.html">accumulators</a></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceboost_1_1accumulators_1_1detail.html">detail</a></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> <span class="keyword">template</span>&lt;<span class="keyword">typename</span> AccumulatorSet, <span class="keyword">typename</span> Feature&gt;</div>
+<div class="foldopen" data-end="};" data-start="{" id="foldopen00040">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__result.html">   40</a></span> <span class="keyword">struct </span><a class="code hl_struct" href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__result.html">accumulator_set_result</a></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__result.html#a1b81c544ebcad329cdd7b04adbf3c163">   42</a></span> <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code hl_typedef" href="structboost_1_1accumulators_1_1as__feature.html#a7394e83f03a0e8eb86fcdc63fa9cda94">as_feature&lt;Feature&gt;::type</a> <a class="code hl_typedef" href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__result.html#a1b81c544ebcad329cdd7b04adbf3c163">feature_type</a>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> <span class="keyword">typedef</span> <span class="keyword">typename</span> mpl::apply&lt;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> <span class="keyword">typename</span> boost::remove_const&lt;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> <span class="keyword">typename</span> boost::remove_reference&lt;AccumulatorSet&gt;::type</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            &gt;<a class="code hl_typedef" href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__result.html#ab9c8ea07942717cf8ff71648a12ea766">::type</a></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>          , <a class="code hl_typedef" href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__result.html#a1b81c544ebcad329cdd7b04adbf3c163">feature_type</a></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__result.html#ab9c8ea07942717cf8ff71648a12ea766">   48</a></span>        &gt;::type::result_type <a class="code hl_typedef" href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__result.html#ab9c8ea07942717cf8ff71648a12ea766">type</a>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    };</div>
+</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Args, <span class="keyword">typename</span> Feature&gt;</div>
+<div class="foldopen" data-end="};" data-start="{" id="foldopen00052">
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="structboost_1_1accumulators_1_1detail_1_1argument__pack__result.html">   52</a></span> <span class="keyword">struct </span><a class="code hl_struct" href="structboost_1_1accumulators_1_1detail_1_1argument__pack__result.html">argument_pack_result</a></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>      : <a class="code hl_struct" href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__result.html">accumulator_set_result</a>&lt;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            typename boost::remove_reference&lt;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                typename parameter::binding&lt;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                    typename boost::remove_const&lt;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                        typename boost::remove_reference&lt;Args&gt;::type</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                    &gt;::type</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                  , tag::accumulator</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                &gt;::type</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            &gt;::type</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>          , Feature</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        &gt;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    };</div>
+</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> <span class="keyword">template</span>&lt;<span class="keyword">typename</span> A, <span class="keyword">typename</span> Feature&gt;</div>
+<div class="foldopen" data-end="};" data-start="{" id="foldopen00068">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">   68</a></span> <span class="keyword">struct </span><a class="code hl_struct" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">extractor_result</a></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>      : mpl::eval_if&lt;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            detail::is_accumulator_set&lt;A&gt;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>          , accumulator_set_result&lt;A, Feature&gt;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>          , argument_pack_result&lt;A, Feature&gt;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        &gt;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    };</div>
+</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Feature, <span class="keyword">typename</span> AccumulatorSet&gt;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> <span class="keyword">typename</span> <a class="code hl_struct" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">extractor_result&lt;AccumulatorSet, Feature&gt;::type</a></div>
+<div class="foldopen" data-end="}" data-start="{" id="foldopen00079">
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="namespaceboost_1_1accumulators_1_1detail.html#aa132abaa38c5b005646759842dee956a">   79</a></span> <a class="code hl_function" href="namespaceboost_1_1accumulators_1_1detail.html#aa132abaa38c5b005646759842dee956a">do_extract</a>(AccumulatorSet <span class="keyword">const</span> &amp;acc, mpl::true_)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code hl_typedef" href="structboost_1_1accumulators_1_1as__feature.html#a7394e83f03a0e8eb86fcdc63fa9cda94">as_feature&lt;Feature&gt;::type</a> feature_type;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceboost_1_1accumulators.html#a5d4c9a676b82b3f1f55aef8e1de24bbc">extract_result&lt;feature_type&gt;</a>(acc);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    }</div>
+</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Feature, <span class="keyword">typename</span> Args&gt;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> <span class="keyword">typename</span> extractor_result&lt;Args, Feature&gt;::type</div>
+<div class="foldopen" data-end="}" data-start="{" id="foldopen00087">
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="namespaceboost_1_1accumulators_1_1detail.html#ac23879897ebe2d9f82ee91aadee01725">   87</a></span> <a class="code hl_function" href="namespaceboost_1_1accumulators_1_1detail.html#aa132abaa38c5b005646759842dee956a">do_extract</a>(Args <span class="keyword">const</span> &amp;args, mpl::false_)</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    {</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code hl_typedef" href="structboost_1_1accumulators_1_1as__feature.html#a7394e83f03a0e8eb86fcdc63fa9cda94">as_feature&lt;Feature&gt;::type</a> feature_type;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceboost_1_1accumulators.html#a08d11740bf5c12f6090f0b1f9ab134a4">find_accumulator&lt;feature_type&gt;</a>(args[accumulator]).result(args);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    }</div>
+</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>} <span class="comment">// namespace detail</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Feature&gt;</div>
+<div class="foldopen" data-end="};" data-start="{" id="foldopen00099">
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="structboost_1_1accumulators_1_1extractor.html">   99</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structboost_1_1accumulators_1_1extractor.html">extractor</a></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>{</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="structboost_1_1accumulators_1_1extractor.html#a554f534b7b0d9cb5d8235b35180991a4">  101</a></span> <span class="keyword">typedef</span> <a class="code hl_struct" href="structboost_1_1accumulators_1_1extractor.html">extractor&lt;Feature&gt;</a> <a class="code hl_typedef" href="structboost_1_1accumulators_1_1extractor.html#a554f534b7b0d9cb5d8235b35180991a4">this_type</a>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> <span class="keyword">template</span>&lt;<span class="keyword">typename</span> F&gt;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="structboost_1_1accumulators_1_1extractor_1_1result.html">  105</a></span> <span class="keyword">struct </span><a class="code hl_struct" href="structboost_1_1accumulators_1_1extractor_1_1result.html">result</a>;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> <span class="keyword">template</span>&lt;<span class="keyword">typename</span> A1&gt;</div>
+<div class="foldopen" data-end="};" data-start="{" id="foldopen00108">
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="structboost_1_1accumulators_1_1extractor_1_1result_3_01this__type_07A1_08_4.html">  108</a></span> <span class="keyword">struct </span><a class="code hl_struct" href="structboost_1_1accumulators_1_1extractor_1_1result.html">result</a>&lt;<a class="code hl_typedef" href="structboost_1_1accumulators_1_1extractor.html#a554f534b7b0d9cb5d8235b35180991a4">this_type</a>(A1)&gt;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>      : <a class="code hl_struct" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">detail::extractor_result</a>&lt;A1, Feature&gt;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    };</div>
+</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Arg1&gt;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> <span class="keyword">typename</span> <a class="code hl_struct" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">detail::extractor_result&lt;Arg1, Feature&gt;::type</a></div>
+<div class="foldopen" data-end="}" data-start="{" id="foldopen00117">
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="structboost_1_1accumulators_1_1extractor.html#a543291f5a932f0d9b55fb627e62e0362">  117</a></span> <a class="code hl_function" href="structboost_1_1accumulators_1_1extractor.html#a543291f5a932f0d9b55fb627e62e0362">operator ()</a>(Arg1 <span class="keyword">const</span> &amp;arg1)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="keyword"> </span>{</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> <span class="comment">// Arg1 could be an accumulator_set or an argument pack containing</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> <span class="comment">// an accumulator_set. Dispatch accordingly.</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceboost_1_1accumulators_1_1detail.html#aa132abaa38c5b005646759842dee956a">detail::do_extract&lt;Feature&gt;</a>(arg1, <a class="code hl_struct" href="structboost_1_1accumulators_1_1detail_1_1is__accumulator__set.html">detail::is_accumulator_set&lt;Arg1&gt;</a>());</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    }</div>
+</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> <span class="keyword">template</span>&lt;<span class="keyword">typename</span> AccumulatorSet, <span class="keyword">typename</span> A1&gt;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> <span class="keyword">typename</span> <a class="code hl_struct" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">detail::extractor_result&lt;AccumulatorSet, Feature&gt;::type</a></div>
+<div class="foldopen" data-end="}" data-start="{" id="foldopen00129">
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="structboost_1_1accumulators_1_1extractor.html#a4756c17711c4ca273522b860dcf03cfe">  129</a></span> <a class="code hl_function" href="structboost_1_1accumulators_1_1extractor.html#a543291f5a932f0d9b55fb627e62e0362">operator ()</a>(AccumulatorSet <span class="keyword">const</span> &amp;acc, A1 <span class="keyword">const</span> &amp;a1)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="keyword"> </span>{</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        BOOST_MPL_ASSERT((<a class="code hl_struct" href="structboost_1_1accumulators_1_1detail_1_1is__accumulator__set.html">detail::is_accumulator_set&lt;AccumulatorSet&gt;</a>));</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code hl_typedef" href="structboost_1_1accumulators_1_1as__feature.html#a7394e83f03a0e8eb86fcdc63fa9cda94">as_feature&lt;Feature&gt;::type</a> feature_type;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceboost_1_1accumulators.html#a5d4c9a676b82b3f1f55aef8e1de24bbc">extract_result&lt;feature_type&gt;</a>(acc, a1);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    }</div>
+</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> <span class="comment">// ... other overloads generated by Boost.Preprocessor:</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span></div>
+<div class="foldopen" data-end="" data-start="" id="foldopen00140">
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="extractor_8hpp.html#a0088d2dad4aeaa8648728aa5d241a34a">  140</a></span><span class="preprocessor">#define BOOST_ACCUMULATORS_EXTRACTOR_FUN_OP(z, n, _)                                    \</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="preprocessor">    template&lt;BOOST_PP_ENUM_PARAMS_Z(z, n, typename A)&gt;                                  \</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="preprocessor">    struct result&lt;this_type(BOOST_PP_ENUM_PARAMS_Z(z, n, A))&gt;                           \</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="preprocessor">      : detail::extractor_result&lt;A1, Feature&gt;                                           \</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="preprocessor">    {};                                                                                 \</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="preprocessor">    template&lt;                                                                           \</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="preprocessor">        typename AccumulatorSet                                                         \</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="preprocessor">        BOOST_PP_ENUM_TRAILING_PARAMS_Z(z, n, typename A)                               \</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="preprocessor">    &gt;                                                                                   \</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="preprocessor">    typename detail::extractor_result&lt;AccumulatorSet, Feature&gt;::type                    \</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="preprocessor">    operator ()(                                                                        \</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="preprocessor">        AccumulatorSet const &amp;acc                                                       \</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="preprocessor">        BOOST_PP_ENUM_TRAILING_BINARY_PARAMS_Z(z, n, A, const &amp;a)                       \</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="preprocessor">    ) const                                                                             \</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="preprocessor">    {                                                                                   \</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="preprocessor">        BOOST_MPL_ASSERT((detail::is_accumulator_set&lt;AccumulatorSet&gt;));                 \</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="preprocessor">        typedef typename as_feature&lt;Feature&gt;::type feature_type;                        \</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="preprocessor">        return extract_result&lt;feature_type&gt;(acc BOOST_PP_ENUM_TRAILING_PARAMS_Z(z, n, a));\</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="preprocessor">    }</span></div>
+</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="structboost_1_1accumulators_1_1extractor.html#a3ef31f923c5d1fc27c18d45c073fbee6">  160</a></span>    BOOST_PP_REPEAT_FROM_TO(</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="structboost_1_1accumulators_1_1extractor.html#a2837e1a4ada1783825c01499b1b8bf5e">  161</a></span>        2</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>      , BOOST_PP_INC(BOOST_ACCUMULATORS_MAX_ARGS)</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>      , <a class="code hl_variable" href="structboost_1_1accumulators_1_1extractor.html#a2837e1a4ada1783825c01499b1b8bf5e">BOOST_ACCUMULATORS_EXTRACTOR_FUN_OP</a></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>      , _</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    )</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="preprocessor">#undef BOOST_ACCUMULATORS_EXTRACTOR_FUN_OP</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="preprocessor">    #ifdef BOOST_ACCUMULATORS_DOXYGEN_INVOKED</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> <span class="keyword">template</span>&lt;<span class="keyword">typename</span> AccumulatorSet, <span class="keyword">typename</span> A1, <span class="keyword">typename</span> A2, ...&gt;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> <span class="keyword">typename</span> <a class="code hl_struct" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">detail::extractor_result&lt;AccumulatorSet, Feature&gt;::type</a></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> <a class="code hl_function" href="structboost_1_1accumulators_1_1extractor.html#a543291f5a932f0d9b55fb627e62e0362">operator ()</a>(AccumulatorSet <span class="keyword">const</span> &amp;acc, A1 <span class="keyword">const</span> &amp;a1, A2 <span class="keyword">const</span> &amp;a2, ...);</div>
+</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>};</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>}} <span class="comment">// namespace boost::accumulators</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span></div>
+<div class="foldopen" data-end="" data-start="" id="foldopen00180">
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="extractor_8hpp.html#a0c05e4c3a9115bb075a45122f435dc60">  180</a></span><span class="comment">/// INTERNAL ONLY</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">///</span></div>
+</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="preprocessor">#define BOOST_ACCUMULATORS_ARRAY_REM(Array)                                                         \</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="preprocessor">    BOOST_PP_TUPLE_REM_CTOR(BOOST_PP_ARRAY_SIZE(Array), BOOST_PP_ARRAY_DATA(Array))</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span></div>
+<div class="foldopen" data-end="" data-start="" id="foldopen00185">
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="extractor_8hpp.html#a5b5057ffd5c011ea525cd27254bcf206">  185</a></span><span class="comment">/// INTERNAL ONLY</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment">///</span></div>
+</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="preprocessor">#define BOOST_ACCUMULATORS_SEQ_REM(Seq)                                                             \</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="preprocessor">    BOOST_ACCUMULATORS_ARRAY_REM(BOOST_PP_SEQ_TO_ARRAY(Seq))</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span></div>
+<div class="foldopen" data-end="" data-start="" id="foldopen00190">
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno"><a class="line" href="extractor_8hpp.html#a8f2976cfb3a9ed3ce738ca7068047755">  190</a></span><span class="comment">/// INTERNAL ONLY</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="comment">///</span></div>
+</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="preprocessor">#define BOOST_ACCUMULATORS_ARGS_OP(s, data, elem)                                                   \</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="preprocessor">    T ## s</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span></div>
+<div class="foldopen" data-end="" data-start="" id="foldopen00195">
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="extractor_8hpp.html#ab176da117c80a9c2025a20dc4f1b6f19">  195</a></span><span class="comment">/// INTERNAL ONLY</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="comment">///</span></div>
+</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="preprocessor">#define BOOST_ACCUMULATORS_PARAMS_OP(s, data, elem)                                                 \</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="preprocessor">    elem T ## s</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span></div>
+<div class="foldopen" data-end="" data-start="" id="foldopen00200">
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="extractor_8hpp.html#a4756b74df857579986598c47402372ac">  200</a></span><span class="comment">/// INTERNAL ONLY</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="comment">///</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="preprocessor">#define BOOST_ACCUMULATORS_MAKE_FEATURE(Tag, Feature, ParamsSeq)                                    \</span></div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="preprocessor">    Tag::Feature&lt;                                                                                   \</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="preprocessor">        BOOST_ACCUMULATORS_SEQ_REM(                                                                 \</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="preprocessor">            BOOST_PP_SEQ_TRANSFORM(BOOST_ACCUMULATORS_ARGS_OP, ~, ParamsSeq)                        \</span></div>
+</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="preprocessor">        )                                                                                           \</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="preprocessor">    &gt;</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span></div>
+<div class="foldopen" data-end="" data-start="" id="foldopen00209">
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno"><a class="line" href="extractor_8hpp.html#adf91476655bde9fadd8e55bf3d644f13">  209</a></span><span class="comment">/// INTERNAL ONLY</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="comment">///</span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="preprocessor">#define BOOST_ACCUMULATORS_DEFINE_EXTRACTOR_FUN_IMPL(z, n, Tag, Feature, ParamsSeq)                 \</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="preprocessor">    template&lt;                                                                                       \</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="preprocessor">        BOOST_ACCUMULATORS_SEQ_REM(                                                                 \</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="preprocessor">            BOOST_PP_SEQ_TRANSFORM(BOOST_ACCUMULATORS_PARAMS_OP, ~, ParamsSeq)                      \</span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="preprocessor">        )                                                                                           \</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="preprocessor">      , typename Arg1                                                                               \</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="preprocessor">        BOOST_PP_ENUM_TRAILING_PARAMS_Z(z, n, typename A)                                           \</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="preprocessor">    &gt;                                                                                               \</span></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="preprocessor">    typename boost::accumulators::detail::extractor_result&lt;                                         \</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="preprocessor">        Arg1                                                                                        \</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="preprocessor">      , BOOST_ACCUMULATORS_MAKE_FEATURE(Tag, Feature, ParamsSeq)                                    \</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="preprocessor">    &gt;::type                                                                                         \</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="preprocessor">    Feature(Arg1 const &amp;arg1 BOOST_PP_ENUM_TRAILING_BINARY_PARAMS_Z(z, n, A, const &amp;a) )            \</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="preprocessor">    {                                                                                               \</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="preprocessor">        typedef BOOST_ACCUMULATORS_MAKE_FEATURE(Tag, Feature, ParamsSeq) feature_type;              \</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="preprocessor">        return boost::accumulators::extractor&lt;feature_type&gt;()(                                      \</span></div>
+</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="preprocessor">            arg1 BOOST_PP_ENUM_TRAILING_PARAMS_Z(z, n, a));                                         \</span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="preprocessor">    }</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span></div>
+<div class="foldopen" data-end="" data-start="" id="foldopen00230">
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno"><a class="line" href="extractor_8hpp.html#a61ce4a65096d3951942fdf7a558de93a">  230</a></span><span class="comment">/// INTERNAL ONLY</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="comment">///</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="preprocessor">#define BOOST_ACCUMULATORS_DEFINE_EXTRACTOR_FUN(z, n, _)                                            \</span></div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="preprocessor">    BOOST_ACCUMULATORS_DEFINE_EXTRACTOR_FUN_IMPL(                                                   \</span></div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><span class="preprocessor">        z                                                                                           \</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="preprocessor">      , n                                                                                           \</span></div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="preprocessor">      , BOOST_PP_ARRAY_ELEM(0, _)                                                                   \</span></div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span><span class="preprocessor">      , BOOST_PP_ARRAY_ELEM(1, _)                                                                   \</span></div>
+</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="preprocessor">      , BOOST_PP_ARRAY_ELEM(2, _)                                                                   \</span></div>
+<div class="foldopen" data-end="" data-start="" id="foldopen00239">
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno"><a class="line" href="extractor_8hpp.html#a5e13d7e8840e54e5d68222029c7174c2">  239</a></span><span class="preprocessor">    )</span></div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="preprocessor">#define BOOST_ACCUMULATORS_DEFINE_EXTRACTOR(Tag, Feature, ParamSeq)                                 \</span></div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><span class="preprocessor">    BOOST_PP_REPEAT(                                                                                \</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="preprocessor">        BOOST_PP_INC(BOOST_ACCUMULATORS_MAX_ARGS)                                                   \</span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><span class="preprocessor">      , BOOST_ACCUMULATORS_DEFINE_EXTRACTOR_FUN                                                     \</span></div>
+</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="preprocessor">      , (3, (Tag, Feature, ParamSeq))                                                               \</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="preprocessor">    )</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="anamespaceboost_1_1accumulators_1_1detail_html"><div class="ttname"><a href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a></div><div class="ttdef"><b>Definition</b> accumulator_base.hpp:23</div></div>
+<div class="ttc" id="anamespaceboost_1_1accumulators_1_1detail_html_aa132abaa38c5b005646759842dee956a"><div class="ttname"><a href="namespaceboost_1_1accumulators_1_1detail.html#aa132abaa38c5b005646759842dee956a">boost::accumulators::detail::do_extract</a></div><div class="ttdeci">extractor_result&lt; AccumulatorSet, Feature &gt;::type do_extract(AccumulatorSet const &amp;acc, mpl::true_)</div><div class="ttdef"><b>Definition</b> extractor.hpp:79</div></div>
+<div class="ttc" id="anamespaceboost_1_1accumulators_html"><div class="ttname"><a href="namespaceboost_1_1accumulators.html">boost::accumulators</a></div><div class="ttdef"><b>Definition</b> accumulator_base.hpp:20</div></div>
+<div class="ttc" id="anamespaceboost_1_1accumulators_html_a08d11740bf5c12f6090f0b1f9ab134a4"><div class="ttname"><a href="namespaceboost_1_1accumulators.html#a08d11740bf5c12f6090f0b1f9ab134a4">boost::accumulators::find_accumulator</a></div><div class="ttdeci">mpl::apply&lt; AccumulatorSet, Feature &gt;::type &amp; find_accumulator(AccumulatorSet &amp;acc)</div><div class="ttdef"><b>Definition</b> accumulator_set.hpp:465</div></div>
+<div class="ttc" id="anamespaceboost_1_1accumulators_html_a5d4c9a676b82b3f1f55aef8e1de24bbc"><div class="ttname"><a href="namespaceboost_1_1accumulators.html#a5d4c9a676b82b3f1f55aef8e1de24bbc">boost::accumulators::extract_result</a></div><div class="ttdeci">mpl::apply&lt; AccumulatorSet, Feature &gt;::type::result_type extract_result(AccumulatorSet const &amp;acc)</div><div class="ttdef"><b>Definition</b> accumulator_set.hpp:480</div></div>
+<div class="ttc" id="anamespaceboost_html"><div class="ttname"><a href="namespaceboost.html">boost</a></div><div class="ttdef"><b>Definition</b> accumulator_base.hpp:19</div></div>
+<div class="ttc" id="astructboost_1_1accumulators_1_1as__feature_html_a7394e83f03a0e8eb86fcdc63fa9cda94"><div class="ttname"><a href="structboost_1_1accumulators_1_1as__feature.html#a7394e83f03a0e8eb86fcdc63fa9cda94">boost::accumulators::as_feature::type</a></div><div class="ttdeci">Feature type</div><div class="ttdef"><b>Definition</b> depends_on.hpp:54</div></div>
+<div class="ttc" id="astructboost_1_1accumulators_1_1detail_1_1accumulator__set__result_html"><div class="ttname"><a href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__result.html">boost::accumulators::detail::accumulator_set_result</a></div><div class="ttdef"><b>Definition</b> extractor.hpp:41</div></div>
+<div class="ttc" id="astructboost_1_1accumulators_1_1detail_1_1accumulator__set__result_html_a1b81c544ebcad329cdd7b04adbf3c163"><div class="ttname"><a href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__result.html#a1b81c544ebcad329cdd7b04adbf3c163">boost::accumulators::detail::accumulator_set_result::feature_type</a></div><div class="ttdeci">as_feature&lt; Feature &gt;::type feature_type</div><div class="ttdef"><b>Definition</b> extractor.hpp:42</div></div>
+<div class="ttc" id="astructboost_1_1accumulators_1_1detail_1_1accumulator__set__result_html_ab9c8ea07942717cf8ff71648a12ea766"><div class="ttname"><a href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__result.html#ab9c8ea07942717cf8ff71648a12ea766">boost::accumulators::detail::accumulator_set_result::type</a></div><div class="ttdeci">mpl::apply&lt; typenameboost::remove_const&lt; typenameboost::remove_reference&lt; AccumulatorSet &gt;::type &gt;::type, feature_type &gt;::type::result_type type</div><div class="ttdef"><b>Definition</b> extractor.hpp:48</div></div>
+<div class="ttc" id="astructboost_1_1accumulators_1_1detail_1_1argument__pack__result_html"><div class="ttname"><a href="structboost_1_1accumulators_1_1detail_1_1argument__pack__result.html">boost::accumulators::detail::argument_pack_result</a></div><div class="ttdef"><b>Definition</b> extractor.hpp:64</div></div>
+<div class="ttc" id="astructboost_1_1accumulators_1_1detail_1_1extractor__result_html"><div class="ttname"><a href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">boost::accumulators::detail::extractor_result</a></div><div class="ttdef"><b>Definition</b> extractor.hpp:74</div></div>
+<div class="ttc" id="astructboost_1_1accumulators_1_1detail_1_1is__accumulator__set_html"><div class="ttname"><a href="structboost_1_1accumulators_1_1detail_1_1is__accumulator__set.html">boost::accumulators::detail::is_accumulator_set</a></div><div class="ttdef"><b>Definition</b> accumulator_set.hpp:99</div></div>
+<div class="ttc" id="astructboost_1_1accumulators_1_1extractor_1_1result_html"><div class="ttname"><a href="structboost_1_1accumulators_1_1extractor_1_1result.html">boost::accumulators::extractor::result</a></div><div class="ttdoc">The result meta-function for determining the return type of the extractor.</div><div class="ttdef"><b>Definition</b> extractor.hpp:105</div></div>
+<div class="ttc" id="astructboost_1_1accumulators_1_1extractor_html"><div class="ttname"><a href="structboost_1_1accumulators_1_1extractor.html">boost::accumulators::extractor</a></div><div class="ttdoc">Extracts the result associated with Feature from the specified accumulator_set.</div><div class="ttdef"><b>Definition</b> extractor.hpp:100</div></div>
+<div class="ttc" id="astructboost_1_1accumulators_1_1extractor_html_a2837e1a4ada1783825c01499b1b8bf5e"><div class="ttname"><a href="structboost_1_1accumulators_1_1extractor.html#a2837e1a4ada1783825c01499b1b8bf5e">boost::accumulators::extractor::BOOST_ACCUMULATORS_EXTRACTOR_FUN_OP</a></div><div class="ttdeci">BOOST_ACCUMULATORS_EXTRACTOR_FUN_OP</div><div class="ttdef"><b>Definition</b> extractor.hpp:162</div></div>
+<div class="ttc" id="astructboost_1_1accumulators_1_1extractor_html_a543291f5a932f0d9b55fb627e62e0362"><div class="ttname"><a href="structboost_1_1accumulators_1_1extractor.html#a543291f5a932f0d9b55fb627e62e0362">boost::accumulators::extractor::operator()</a></div><div class="ttdeci">detail::extractor_result&lt; Arg1, Feature &gt;::type operator()(Arg1 const &amp;arg1) const</div><div class="ttdef"><b>Definition</b> extractor.hpp:117</div></div>
+<div class="ttc" id="astructboost_1_1accumulators_1_1extractor_html_a554f534b7b0d9cb5d8235b35180991a4"><div class="ttname"><a href="structboost_1_1accumulators_1_1extractor.html#a554f534b7b0d9cb5d8235b35180991a4">boost::accumulators::extractor::this_type</a></div><div class="ttdeci">extractor&lt; Feature &gt; this_type</div><div class="ttdef"><b>Definition</b> extractor.hpp:101</div></div>
+</div><!-- fragment -->
+  <div class="edit-this-page">
+      <a href="file:///home/z-ming-yang/桌面/dev/boost/libs/accumulators/doc/modules/ROOT/pages/doxygen-ref/extractor_8hpp_source.adoc">Edit this Page</a>
+  </div>
+  </article>
+</div>
+  <div id="footer">
+  <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+<script async src="../../_/js/vendor/lunr.js"></script>
+<script async src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.."
+  data-ui-root-path="../../_"></script>
+<script async src="../../search-index.js"></script>
+</div>
+</div>
+  </body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<style>html.fonts-loading{visibility:hidden;opacity:0}</style>
+<script>document.documentElement.classList.add('fonts-loading');</script>
+
+<link rel="preload" href="../../_/font/NotoSansDisplay.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="../../_/font/NotoSansDisplay-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="../../_/font/MonaspaceNeon-Var.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="../../_/font/MonaspaceXenon-Var.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+<script>
+(function() {
+  'use strict';
+  
+  var revealed = false;
+  
+  var reveal = function() {
+    if (revealed) return;
+    revealed = true;
+    document.documentElement.classList.remove('fonts-loading');
+  };
+  
+  setTimeout(reveal, 3000);
+  
+  if (!('FontFace' in window) || !('fonts' in document)) {
+    setTimeout(reveal, 100);
+    return;
+  }
+  
+  var uiRoot = '../../_';
+  var fonts = [
+    { 
+      family: 'Noto Sans', 
+      url: uiRoot + '/font/NotoSansDisplay.woff2',
+      descriptors: { style: 'normal', weight: '100 900', stretch: '62.5% 100%' }
+    },
+    { 
+      family: 'Noto Sans', 
+      url: uiRoot + '/font/NotoSansDisplay-Italic.woff2',
+      descriptors: { style: 'italic', weight: '100 900', stretch: '62.5% 100%' }
+    },
+    { 
+      family: 'Monaspace Neon', 
+      url: uiRoot + '/font/MonaspaceNeon-Var.woff2',
+      descriptors: { style: 'normal', weight: '400' }
+    },
+    { 
+      family: 'Monaspace Xenon', 
+      url: uiRoot + '/font/MonaspaceXenon-Var.woff2',
+      descriptors: { style: 'italic', weight: '400' }
+    }
+  ];
+  
+  var loadPromises = fonts.map(function(f) {
+    try {
+      var face = new FontFace(f.family, 'url("' + f.url + '")', f.descriptors);
+      return face.load().then(function(loaded) {
+        document.fonts.add(loaded);
+        return loaded;
+      }).catch(function() {
+        return null;
+      });
+    } catch (e) {
+      return Promise.resolve(null);
+    }
+  });
+  
+  Promise.all(loadPromises)
+    .then(function() {
+      return document.fonts.ready;
+    })
+    .then(reveal)
+    .catch(reveal);
+})();
+</script>    <title>Boost.Accumulators: Class Members :: Boost.Accumulators</title>
+  <link rel="canonical" href="https://antora.cppalliance.org/develop/lib/doc/accumulators/doxygen-ref/functions.html">
+  <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../_/css/boostlook.css">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+    <script>
+    (function() {
+      if (window.self !== window.top) return;
+      var theme = localStorage.getItem('antora-theme');
+      if (!theme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        theme = 'dark';
+      }
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    })();
+    </script>
+    <script>var uiRootPath = '../../_'</script>
+<link rel="icon" href="../../_/img/favicons/favicon.ico" type="image/x-icon">
+    <!-- Favicon configuration -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../../_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../../_/img/favicons/favicon.ico">
+  </head>
+  <body class="article toc2 toc-left">
+    <div class="boostlook">
+   <div id="header">
+      <div id="toc" class="nav-container toc2" data-component="accumulators" data-version="">
+  <aside class="nav">
+    <button class="nav-close"></button>
+    <div class="panels">
+      <div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+      <div class="title-row">
+        <h3 class="title"><a href="../index.html">Boost.Accumulators</a></h3>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme" style="display:none">
+  <i class="fas fa-sun theme-icon-light"></i>
+  <i class="fas fa-moon theme-icon-dark"></i>
+</button>      </div>
+      <ul class="nav-list">
+        <ul class="nav-list">
+        <li class="" data-depth="1">
+            <a class="nav-link" href="../index.html">Chapter 1. Boost.Accumulators</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../preface.html">Preface</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../user_s_guide.html">User&#8217;s Guide</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../acknowledgements.html">Acknowledgements</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../reference.html">Reference</a>
+        </li>
+        <ul class="nav-list">
+        <li class="" data-depth="2">
+            <a class="nav-link" href="classes.html">Framework API (Doxygen HTML → AsciiDoc)</a>
+        </li>
+        </ul>
+  </ul>
+  </ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+  </div>  <div id="content">
+    <article class="doc max-width-reset">
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="../index.html" aria-label="Home: Boost.Accumulators">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 -960 960 960" fill="#000000" aria-hidden="true"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+      </a>
+    </li>
+    <li><a href="functions.html">Boost.Accumulators: Class Members</a></li>
+  </ul>
+</nav>
+  <div class="search-container">
+    <div id="search-field" class="field has-filter">
+      <input id="search-input" type="text" placeholder="Search the docs" >
+    </div>
+  </div>
+<div class="spirit-nav">
+    <a class="disabled" accesskey="u" aria-disabled="true" tabindex="-1">
+      <span class="material-symbols-outlined" title="Up:">arrow_upward</span>
+    </a>
+</div></div>
+    <h1 class="page">Boost.Accumulators: Class Members</h1>
+  <div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
+<h3 class="doxsection"><a id="index_a" name="index_a"></a>- a -</h3><ul>
+<li>accumulator_set() : <a class="el" href="structboost_1_1accumulators_1_1accumulator__set.html#adca5d8965a12ebc86d6a954870169171">boost::accumulators::accumulator_set&lt; Sample, Features, Weight &gt;</a></li>
+<li>accumulator_type : <a class="el" href="structboost_1_1accumulators_1_1detail_1_1to__accumulator_3_01Feature_00_01Sample_00_01tag_1_1ext0c26d8c3c18bcca084cb467b003ed836.html#ae092c4e99a42ca3461933e1af7cb74aa">boost::accumulators::detail::to_accumulator&lt; Feature, Sample, tag::external&lt; Weight, Tag, AccumulatorSet &gt; &gt;</a></li>
+<li>accumulator_visitor() : <a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__visitor.html#a2b3a50dd44b743deb98d3a1898961b95">boost::accumulators::detail::accumulator_visitor&lt; Args &gt;</a></li>
+<li>accumulator_wrapper() : <a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__wrapper.html#a32ea11da8b6370acb823ed97b4fac408">boost::accumulators::detail::accumulator_wrapper&lt; Accumulator, Feature &gt;</a></li>
+<li>accumulators_mpl_vector : <a class="el" href="structboost_1_1accumulators_1_1accumulator__set.html#afe5db43f5310aad6a6ea2ed033884fba">boost::accumulators::accumulator_set&lt; Sample, Features, Weight &gt;</a></li>
+<li>accumulators_type : <a class="el" href="structboost_1_1accumulators_1_1accumulator__set.html#a0d86a03b79f84c6f9e5d217e81057e46">boost::accumulators::accumulator_set&lt; Sample, Features, Weight &gt;</a></li>
+<li>add_ref() : <a class="el" href="structboost_1_1accumulators_1_1accumulator__base.html#a70ecd8aaf276856ada0edddd446c1c5f">boost::accumulators::accumulator_base</a>, <a class="el" href="structboost_1_1accumulators_1_1droppable__accumulator__base.html#a6b51087be675880629ab6faf35e89b54">boost::accumulators::droppable_accumulator_base&lt; Accumulator &gt;</a></li>
+<li>add_ref_visitor() : <a class="el" href="structboost_1_1accumulators_1_1detail_1_1add__ref__visitor.html#aa969ed4f89a50013508d2c4ddbbd43b3">boost::accumulators::detail::add_ref_visitor&lt; Args &gt;</a></li>
+</ul>
+<h3 class="doxsection"><a id="index_b" name="index_b"></a>- b -</h3><ul>
+<li>base : <a class="el" href="structboost_1_1accumulators_1_1droppable__accumulator__base.html#afb0117b1ec544ae066b1721683ba12e0">boost::accumulators::droppable_accumulator_base&lt; Accumulator &gt;</a></li>
+<li>BOOST_ACCUMULATORS_ACCUMULATOR_SET_CTOR : <a class="el" href="structboost_1_1accumulators_1_1accumulator__set.html#a96facd032ec2341e720852187410b92b">boost::accumulators::accumulator_set&lt; Sample, Features, Weight &gt;</a></li>
+<li>BOOST_ACCUMULATORS_ACCUMULATOR_SET_FUN_OP : <a class="el" href="structboost_1_1accumulators_1_1accumulator__set.html#a495226e14fc9198637b5b9e3b629b37c">boost::accumulators::accumulator_set&lt; Sample, Features, Weight &gt;</a></li>
+<li>BOOST_ACCUMULATORS_EXTRACTOR_FUN_OP : <a class="el" href="structboost_1_1accumulators_1_1extractor.html#a2837e1a4ada1783825c01499b1b8bf5e">boost::accumulators::extractor&lt; Feature &gt;</a></li>
+<li>BOOST_PP_NODE_3() : <a class="el" href="structboost_1_1accumulators_1_1accumulator__set.html#a067d326cef3aa3dfc4a2cf547d6e3d41">boost::accumulators::accumulator_set&lt; Sample, Features, Weight &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1extractor.html#a3ef31f923c5d1fc27c18d45c073fbee6">boost::accumulators::extractor&lt; Feature &gt;</a></li>
+<li>BOOST_PP_REPEAT_FROM_TO_BOOST_PP_IIF_1() : <a class="el" href="structboost_1_1accumulators_1_1accumulator__set.html#a11ff5316137ddb3cee383a42327d2edc">boost::accumulators::accumulator_set&lt; Sample, Features, Weight &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1extractor.html#a587b9748d8d88799a85cff26544fb827">boost::accumulators::extractor&lt; Feature &gt;</a></li>
+<li>BOOST_STATIC_CONSTANT() : <a class="el" href="structboost_1_1accumulators_1_1detail_1_1checked__as__weighted__feature.html#a6f669196b23a59cc83c1bad453ad170f">boost::accumulators::detail::checked_as_weighted_feature&lt; Feature &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1detail_1_1to__accumulator_3_01Feature_00_01Sample_00_01tag_1_1ext0c26d8c3c18bcca084cb467b003ed836.html#a9bc699648e8725a002aa5490df9b3daf">boost::accumulators::detail::to_accumulator&lt; Feature, Sample, tag::external&lt; Weight, Tag, AccumulatorSet &gt; &gt;</a></li>
+</ul>
+<h3 class="doxsection"><a id="index_c" name="index_c"></a>- c -</h3><ul>
+<li>call() : <a class="el" href="structboost_1_1accumulators_1_1detail_1_1build__acc__list_3_01First_00_01Last_00_01false_01_4.html#aa7a80abb1d9867376060a7350c4ee4af">boost::accumulators::detail::build_acc_list&lt; First, Last, false &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1detail_1_1build__acc__list_3_01First_00_01Last_00_01true_01_4.html#ad4a1da6a98761bc08cbda5d53fb446c2">boost::accumulators::detail::build_acc_list&lt; First, Last, true &gt;</a></li>
+<li>constraints() : <a class="el" href="structboost_1_1accumulators_1_1accumulator__concept.html#af992e728b93ebc0b04b3e614f33c4bba">boost::accumulators::accumulator_concept&lt; Stat &gt;</a></li>
+</ul>
+<h3 class="doxsection"><a id="index_d" name="index_d"></a>- d -</h3><ul>
+<li>dependencies : <a class="el" href="structboost_1_1accumulators_1_1depends__on.html#aff745b224cb8207d97c91d763ff9edf3">boost::accumulators::depends_on&lt; typename Feature1, typename Feature2, ... &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1droppable.html#a5fcb450fa4cb5f84d1bb5902958afb87">boost::accumulators::droppable&lt; Feature &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1droppable.html#a5fcb450fa4cb5f84d1bb5902958afb87">boost::accumulators::tag::droppable&lt; Feature &gt;</a></li>
+<li>dont_care() : <a class="el" href="structboost_1_1accumulators_1_1dont__care.html#ad8c59f7e99fbfda6f565801e226ed7f4">boost::accumulators::dont_care</a></li>
+<li>drop() : <a class="el" href="structboost_1_1accumulators_1_1accumulator__base.html#a0bade1bcb87025379238e0a041a1d916">boost::accumulators::accumulator_base</a>, <a class="el" href="structboost_1_1accumulators_1_1accumulator__set.html#a85612efecb83a055ba9ab9dcf8fb406d">boost::accumulators::accumulator_set&lt; Sample, Features, Weight &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1droppable__accumulator__base.html#afbee9f23cd7198a6f84c6bb1fa6435be">boost::accumulators::droppable_accumulator_base&lt; Accumulator &gt;</a></li>
+<li>drop_visitor() : <a class="el" href="structboost_1_1accumulators_1_1detail_1_1drop__visitor.html#ac6b87eb68234c920062620f41a61f6df">boost::accumulators::detail::drop_visitor&lt; Args &gt;</a></li>
+<li>droppable_accumulator() : <a class="el" href="structboost_1_1accumulators_1_1droppable__accumulator.html#a8aaf0c428468beb0fbfa43d24156ae12">boost::accumulators::droppable_accumulator&lt; Accumulator &gt;</a></li>
+<li>droppable_accumulator_base() : <a class="el" href="structboost_1_1accumulators_1_1droppable__accumulator__base.html#ac9f468f2c9f8b28b2b0e569e50365672">boost::accumulators::droppable_accumulator_base&lt; Accumulator &gt;</a></li>
+</ul>
+<h3 class="doxsection"><a id="index_e" name="index_e"></a>- e -</h3><ul>
+<li>external_impl() : <a class="el" href="structboost_1_1accumulators_1_1impl_1_1external__impl.html#af72f9268f9a547562631a944bdf37cb1">boost::accumulators::impl::external_impl&lt; Accumulator, Tag &gt;</a></li>
+<li>extract() : <a class="el" href="structboost_1_1accumulators_1_1accumulator__set.html#ab0e596f97db369f881ef33f3942cd579">boost::accumulators::accumulator_set&lt; Sample, Features, Weight &gt;</a></li>
+</ul>
+<h3 class="doxsection"><a id="index_f" name="index_f"></a>- f -</h3><ul>
+<li>feature_map : <a class="el" href="structboost_1_1accumulators_1_1detail_1_1make__accumulator__tuple.html#af9435d65518b6db5e04867f47692d0e9">boost::accumulators::detail::make_accumulator_tuple&lt; Features, Sample, Weight &gt;</a></li>
+<li>feature_map_with_dependencies : <a class="el" href="structboost_1_1accumulators_1_1detail_1_1make__accumulator__tuple.html#abf0062cd3e3d549ec865911b7a7230a3">boost::accumulators::detail::make_accumulator_tuple&lt; Features, Sample, Weight &gt;</a></li>
+<li>feature_tag : <a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__wrapper.html#afce3db206ac219e19bea65cca4c26749">boost::accumulators::detail::accumulator_wrapper&lt; Accumulator, Feature &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1impl_1_1external__impl.html#a616de2470e6da58758599ee6d4544045">boost::accumulators::impl::external_impl&lt; Accumulator, Tag &gt;</a></li>
+<li>feature_type : <a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__result.html#a1b81c544ebcad329cdd7b04adbf3c163">boost::accumulators::detail::accumulator_set_result&lt; AccumulatorSet, Feature &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1detail_1_1checked__as__weighted__feature.html#af81b9803990774a1d26fd5e4f6c08399">boost::accumulators::detail::checked_as_weighted_feature&lt; Feature &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1droppable.html#ab6048d2e09b66400acc26cb193f2f191">boost::accumulators::droppable&lt; Feature &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1droppable.html#ab6048d2e09b66400acc26cb193f2f191">boost::accumulators::tag::droppable&lt; Feature &gt;</a></li>
+<li>feature_vector_with_dependencies : <a class="el" href="structboost_1_1accumulators_1_1detail_1_1make__accumulator__tuple.html#a3738196edeaf9f2c47e73b5cd1d65548">boost::accumulators::detail::make_accumulator_tuple&lt; Features, Sample, Weight &gt;</a></li>
+<li>features_list : <a class="el" href="structboost_1_1accumulators_1_1detail_1_1contains__feature__of.html#a6675c38642f7cfb450bfdbe3d9aab9ff">boost::accumulators::detail::contains_feature_of&lt; Features, Accumulator &gt;</a></li>
+<li>features_type : <a class="el" href="structboost_1_1accumulators_1_1accumulator__set.html#abe8e4f7b26abd6b3bfad4b0a9faa2769">boost::accumulators::accumulator_set&lt; Sample, Features, Weight &gt;</a></li>
+</ul>
+<h3 class="doxsection"><a id="index_i" name="index_i"></a>- i -</h3><ul>
+<li>ignore() : <a class="el" href="structboost_1_1accumulators_1_1detail_1_1ignore__accumulator.html#a91954ee6db11c0f1b937033148e6b131">boost::accumulators::detail::ignore_accumulator</a>, <a class="el" href="structboost_1_1accumulators_1_1detail_1_1ignore__sample.html#a044cc759f3a0e26a7e077f911320458d">boost::accumulators::detail::ignore_sample</a>, <a class="el" href="structboost_1_1accumulators_1_1detail_1_1ignore__weight.html#aab7f75bafc55497c8f14272a085948de">boost::accumulators::detail::ignore_weight</a>, <a class="el" href="structboost_1_1accumulators_1_1detail_1_1ignore__weights.html#a7aa02f7b16dc22b1fde94dd7d09850df">boost::accumulators::detail::ignore_weights</a></li>
+<li>impl : <a class="el" href="structboost_1_1accumulators_1_1external.html#aa14bb812a45964b3f059a2e21e519abc">boost::accumulators::external&lt; Feature, Tag, AccumulatorSet &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1external.html#aa14bb812a45964b3f059a2e21e519abc">boost::accumulators::tag::external&lt; Feature, Tag, AccumulatorSet &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1external_3_01Feature_00_01Tag_00_01void_01_4.html#aacb0d913abaf26a9c9ca35ab59c24c86">boost::accumulators::tag::external&lt; Feature, Tag, void &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference.html#aad336291742cec0e4edceec18292df22">boost::accumulators::tag::reference&lt; Referent, Tag &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1value.html#a46b0827f7d449734addf16342beaad7b">boost::accumulators::tag::value&lt; ValueType, Tag &gt;</a></li>
+<li>is_droppable : <a class="el" href="structboost_1_1accumulators_1_1accumulator__base.html#a1878bce5d5297472714f0143c5b331de">boost::accumulators::accumulator_base</a>, <a class="el" href="structboost_1_1accumulators_1_1droppable__accumulator__base.html#abcd09fd1a129b0638e8580591f84d3b8">boost::accumulators::droppable_accumulator_base&lt; Accumulator &gt;</a></li>
+<li>is_dropped() : <a class="el" href="structboost_1_1accumulators_1_1droppable__accumulator__base.html#abeca9b692b5b083a30bbf68471094074">boost::accumulators::droppable_accumulator_base&lt; Accumulator &gt;</a></li>
+<li>is_weight_accumulator : <a class="el" href="structboost_1_1accumulators_1_1depends__on.html#a716f998d24ef48c39561ae3ffb44bf2a">boost::accumulators::depends_on&lt; typename Feature1, typename Feature2, ... &gt;</a></li>
+</ul>
+<h3 class="doxsection"><a id="index_n" name="index_n"></a>- n -</h3><ul>
+<li>next_build_acc_list : <a class="el" href="structboost_1_1accumulators_1_1detail_1_1build__acc__list_3_01First_00_01Last_00_01false_01_4.html#aa002fffefd5a6438cdb17a1d16f5acd4">boost::accumulators::detail::build_acc_list&lt; First, Last, false &gt;</a></li>
+</ul>
+<h3 class="doxsection"><a id="index_o" name="index_o"></a>- o -</h3><ul>
+<li>on_drop() : <a class="el" href="structboost_1_1accumulators_1_1accumulator__base.html#abe7beb871af66411743b1b979efb4dd4">boost::accumulators::accumulator_base</a>, <a class="el" href="structboost_1_1accumulators_1_1with__cached__result.html#ab293ccd700fe56b127cab6805cb60060">boost::accumulators::with_cached_result&lt; Accumulator &gt;</a></li>
+<li>operator()() : <a class="el" href="structboost_1_1accumulators_1_1accumulator__base.html#a2d502ee5b55fe9efdc0c31ff9aee426b">boost::accumulators::accumulator_base</a>, <a class="el" href="structboost_1_1accumulators_1_1accumulator__set.html#a572a363eda7c0e7af81c89b78de6dd5f">boost::accumulators::accumulator_set&lt; Sample, Features, Weight &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__visitor.html#ace84334856989797eff1f7464effc0be">boost::accumulators::detail::accumulator_visitor&lt; Args &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1detail_1_1add__ref__visitor.html#a0df4f7ad612df050deb164966397c14d">boost::accumulators::detail::add_ref_visitor&lt; Args &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1detail_1_1drop__visitor.html#a4083a2c82fe6c877e4c472b049164f74">boost::accumulators::detail::drop_visitor&lt; Args &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1detail_1_1serialize__accumulator.html#ada394c79339ca3f0b85130aba328c5b9">boost::accumulators::detail::serialize_accumulator&lt; Archive &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1droppable__accumulator__base.html#ab4201c209e64d6c6e492ffb1427d5efd">boost::accumulators::droppable_accumulator_base&lt; Accumulator &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1extractor.html#a543291f5a932f0d9b55fb627e62e0362">boost::accumulators::extractor&lt; Feature &gt;</a></li>
+<li>operator=() : <a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__wrapper.html#ac1bb0b5319beb0b1ca12308b8a7bc117">boost::accumulators::detail::accumulator_wrapper&lt; Accumulator, Feature &gt;</a></li>
+</ul>
+<h3 class="doxsection"><a id="index_r" name="index_r"></a>- r -</h3><ul>
+<li>reference_accumulator_impl() : <a class="el" href="structboost_1_1accumulators_1_1impl_1_1reference__accumulator__impl.html#ae15cf6254f28440440e9e2d1d35e86e5">boost::accumulators::impl::reference_accumulator_impl&lt; Referent, Tag &gt;</a></li>
+<li>result() : <a class="el" href="structboost_1_1accumulators_1_1impl_1_1external__impl.html#ad213f9e7fc5b8488591c9f2339fe91b8">boost::accumulators::impl::external_impl&lt; Accumulator, Tag &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1impl_1_1reference__accumulator__impl.html#aaceff9cc2db5b17e17a682de93b1f1ec">boost::accumulators::impl::reference_accumulator_impl&lt; Referent, Tag &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1impl_1_1value__accumulator__impl.html#a9ed8d1def17307d7a4051247bc8c8461">boost::accumulators::impl::value_accumulator_impl&lt; ValueType, Tag &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1with__cached__result.html#a0d7dd6d4693b555b1c91773217f3f3dc">boost::accumulators::with_cached_result&lt; Accumulator &gt;</a></li>
+<li>result_type : <a class="el" href="structboost_1_1accumulators_1_1accumulator__set.html#a3688663d44c12775306dbd9840dbe7dc">boost::accumulators::accumulator_set&lt; Sample, Features, Weight &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1droppable__accumulator__base.html#a4f589811be0d3714aabfb8f438ea75a6">boost::accumulators::droppable_accumulator_base&lt; Accumulator &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1impl_1_1external__impl.html#a2e5e5a294c6474594483bbed6e7b9811">boost::accumulators::impl::external_impl&lt; Accumulator, Tag &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1impl_1_1reference__accumulator__impl.html#a563b0739db30f448dc5300c0f4f6ab9a">boost::accumulators::impl::reference_accumulator_impl&lt; Referent, Tag &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1impl_1_1value__accumulator__impl.html#a9b800361ce51a5c2da3ea90a645eab71">boost::accumulators::impl::value_accumulator_impl&lt; ValueType, Tag &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1with__cached__result.html#ac04158a694c223212838d62fec2ce4a2">boost::accumulators::with_cached_result&lt; Accumulator &gt;</a></li>
+</ul>
+<h3 class="doxsection"><a id="index_s" name="index_s"></a>- s -</h3><ul>
+<li>sample_type : <a class="el" href="structboost_1_1accumulators_1_1accumulator__set.html#a4650e990ed1b0eaff91c08541ba0a43e">boost::accumulators::accumulator_set&lt; Sample, Features, Weight &gt;</a></li>
+<li>serialize() : <a class="el" href="structboost_1_1accumulators_1_1accumulator__set.html#aa49d766b2fb06393289302c4366423e0">boost::accumulators::accumulator_set&lt; Sample, Features, Weight &gt;</a></li>
+<li>serialize_accumulator() : <a class="el" href="structboost_1_1accumulators_1_1detail_1_1serialize__accumulator.html#ac903060f3b8351e972b1d5abe1789155">boost::accumulators::detail::serialize_accumulator&lt; Archive &gt;</a></li>
+<li>sorted_feature_vector : <a class="el" href="structboost_1_1accumulators_1_1detail_1_1make__accumulator__tuple.html#a332095cd14fd4e0f53ddda3a36b012a3">boost::accumulators::detail::make_accumulator_tuple&lt; Features, Sample, Weight &gt;</a></li>
+<li>stat : <a class="el" href="structboost_1_1accumulators_1_1accumulator__concept.html#ade968258244098be7dff8ff6572108ba">boost::accumulators::accumulator_concept&lt; Stat &gt;</a></li>
+</ul>
+<h3 class="doxsection"><a id="index_t" name="index_t"></a>- t -</h3><ul>
+<li>the_feature : <a class="el" href="structboost_1_1accumulators_1_1detail_1_1contains__feature__of.html#a965a519f0155e435c81d9d9825619c9c">boost::accumulators::detail::contains_feature_of&lt; Features, Accumulator &gt;</a></li>
+<li>this_type : <a class="el" href="structboost_1_1accumulators_1_1extractor.html#a554f534b7b0d9cb5d8235b35180991a4">boost::accumulators::extractor&lt; Feature &gt;</a></li>
+<li>tmp_dependencies_ : <a class="el" href="structboost_1_1accumulators_1_1droppable.html#aacb21d431a7af58296e6cc4a7ed1a345">boost::accumulators::droppable&lt; Feature &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1droppable.html#aacb21d431a7af58296e6cc4a7ed1a345">boost::accumulators::tag::droppable&lt; Feature &gt;</a></li>
+<li>type : <a class="el" href="structboost_1_1accumulators_1_1as__feature.html#a7394e83f03a0e8eb86fcdc63fa9cda94">boost::accumulators::as_feature&lt; Feature &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1as__feature_3_01tag_1_1droppable_3_01Feature_01_4_01_4.html#ae5c709d996cd5119bf8e58db77eb34af">boost::accumulators::as_feature&lt; tag::droppable&lt; Feature &gt; &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1as__weighted__feature.html#ab3f196e87e3dcfaa9a3b0158fea60dbe">boost::accumulators::as_weighted_feature&lt; Feature &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1as__weighted__feature_3_01tag_1_1droppable_3_01Feature_01_4_01_4.html#ae1709f2cbee95f555e6ec4283511ffb4">boost::accumulators::as_weighted_feature&lt; tag::droppable&lt; Feature &gt; &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__result.html#ab9c8ea07942717cf8ff71648a12ea766">boost::accumulators::detail::accumulator_set_result&lt; AccumulatorSet, Feature &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1detail_1_1build__acc__list_3_01First_00_01Last_00_01false_01_4.html#a1844abec1e2df128389721be1c8b1934">boost::accumulators::detail::build_acc_list&lt; First, Last, false &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1detail_1_1build__acc__list_3_01First_00_01Last_00_01true_01_4.html#a1346268175b0ed535d69299544747de8">boost::accumulators::detail::build_acc_list&lt; First, Last, true &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1detail_1_1checked__as__weighted__feature.html#a1068d76183c160715203c41b05ba639d">boost::accumulators::detail::checked_as_weighted_feature&lt; Feature &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1detail_1_1contains__feature__of.html#a3fcb6c8447c51c0c03b0272eb3dc9ee6">boost::accumulators::detail::contains_feature_of&lt; Features, Accumulator &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1detail_1_1dependencies__of.html#aba1354bd1d35369d6f446a6ab0f1e168">boost::accumulators::detail::dependencies_of&lt; Feature &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1detail_1_1feature__tag.html#acebd4d1a9eca307d968048169f5adac7">boost::accumulators::detail::feature_tag&lt; Accumulator &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1detail_1_1make__accumulator__tuple.html#aa7bcbce4b9a46e3d19c7f4b45112b46e">boost::accumulators::detail::make_accumulator_tuple&lt; Features, Sample, Weight &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1detail_1_1to__accumulator.html#a9e943bc5323fb078de1d1d3c8ab33ffb">boost::accumulators::detail::to_accumulator&lt; Feature, Sample, Weight &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1detail_1_1to__accumulator_3_01Feature_00_01Sample_00_01tag_1_1ext0c26d8c3c18bcca084cb467b003ed836.html#ad179b7e3243fc47e4fe8e411fcbf9205">boost::accumulators::detail::to_accumulator&lt; Feature, Sample, tag::external&lt; Weight, Tag, AccumulatorSet &gt; &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1detail_1_1undroppable.html#a43b6e09cb47cd4783f1d8cd3f756c5d0">boost::accumulators::detail::undroppable&lt; Feature &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1detail_1_1undroppable_3_01tag_1_1droppable_3_01Feature_01_4_01_4.html#a8e557ec3e6aa77c641fe73d8268755aa">boost::accumulators::detail::undroppable&lt; tag::droppable&lt; Feature &gt; &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1droppable_1_1impl_1_1apply.html#a08dce4aded932fa8e4e02d70167e8ab0">boost::accumulators::droppable&lt; Feature &gt;::impl::apply&lt; Sample, Weight &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1feature__of.html#a9db0cf9fc26431bea0cf190ba5dab74b">boost::accumulators::feature_of&lt; Feature &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1feature__of.html#a9db0cf9fc26431bea0cf190ba5dab74b">boost::accumulators::feature_of&lt; tag::droppable&lt; Feature &gt; &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1feature__of.html#a9db0cf9fc26431bea0cf190ba5dab74b">boost::accumulators::feature_of&lt; tag::external&lt; Feature, Tag, AccumulatorSet &gt; &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1feature__of.html#a9db0cf9fc26431bea0cf190ba5dab74b">boost::accumulators::feature_of&lt; tag::reference&lt; ValueType, Tag &gt; &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1feature__of.html#a9db0cf9fc26431bea0cf190ba5dab74b">boost::accumulators::feature_of&lt; tag::value&lt; ValueType, Tag &gt; &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1as__droppable.html#a904367fd028ea0cf72b0fd59f5c8a5f3">boost::accumulators::tag::as_droppable&lt; Feature &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1as__droppable_3_01droppable_3_01Feature_01_4_01_4.html#a6948e3af6a989a64bd2dd03bf1291282">boost::accumulators::tag::as_droppable&lt; droppable&lt; Feature &gt; &gt;</a>, <a class="el" href="structboost_1_1accumulators_1_1tag_1_1droppable_1_1impl_1_1apply.html#a08dce4aded932fa8e4e02d70167e8ab0">boost::accumulators::tag::droppable&lt; Feature &gt;::impl::apply&lt; Sample, Weight &gt;</a></li>
+</ul>
+<h3 class="doxsection"><a id="index_v" name="index_v"></a>- v -</h3><ul>
+<li>value_accumulator_impl() : <a class="el" href="structboost_1_1accumulators_1_1impl_1_1value__accumulator__impl.html#a3624b527cb992510c8349fd597eed2ab">boost::accumulators::impl::value_accumulator_impl&lt; ValueType, Tag &gt;</a></li>
+<li>visit() : <a class="el" href="structboost_1_1accumulators_1_1accumulator__set.html#aa06587e3df3a62927f19a67dced4c5d2">boost::accumulators::accumulator_set&lt; Sample, Features, Weight &gt;</a></li>
+<li>visit_if() : <a class="el" href="structboost_1_1accumulators_1_1accumulator__set.html#aee351d9b1ac13614b4d612d69c24f519">boost::accumulators::accumulator_set&lt; Sample, Features, Weight &gt;</a></li>
+</ul>
+<h3 class="doxsection"><a id="index_w" name="index_w"></a>- w -</h3><ul>
+<li>weight_type : <a class="el" href="structboost_1_1accumulators_1_1accumulator__set.html#a8e459fd01c20ba2ed011a6689dde8a56">boost::accumulators::accumulator_set&lt; Sample, Features, Weight &gt;</a></li>
+<li>with_cached_result() : <a class="el" href="structboost_1_1accumulators_1_1with__cached__result.html#a633ac786c921169a8a47b75e28a583f1">boost::accumulators::with_cached_result&lt; Accumulator &gt;</a></li>
+</ul>
+<h3 class="doxsection"><a id="index__7E" name="index__7E"></a>- ~ -</h3><ul>
+<li>~with_cached_result() : <a class="el" href="structboost_1_1accumulators_1_1with__cached__result.html#a3f582721517855547bdc628852b2ad81">boost::accumulators::with_cached_result&lt; Accumulator &gt;</a></li>
+</ul>
+  <div class="edit-this-page">
+      <a href="file:///home/z-ming-yang/桌面/dev/boost/libs/accumulators/doc/modules/ROOT/pages/doxygen-ref/functions.adoc">Edit this Page</a>
+  </div>
+  </article>
+</div>
+  <div id="footer">
+  <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+<script async src="../../_/js/vendor/lunr.js"></script>
+<script async src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.."
+  data-ui-root-path="../../_"></script>
+<script async src="../../search-index.js"></script>
+</div>
+</div>
+  </body>
+</html>

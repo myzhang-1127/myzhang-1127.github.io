@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<style>html.fonts-loading{visibility:hidden;opacity:0}</style>
+<script>document.documentElement.classList.add('fonts-loading');</script>
+
+<link rel="preload" href="../../_/font/NotoSansDisplay.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="../../_/font/NotoSansDisplay-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="../../_/font/MonaspaceNeon-Var.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="../../_/font/MonaspaceXenon-Var.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+<script>
+(function() {
+  'use strict';
+  
+  var revealed = false;
+  
+  var reveal = function() {
+    if (revealed) return;
+    revealed = true;
+    document.documentElement.classList.remove('fonts-loading');
+  };
+  
+  setTimeout(reveal, 3000);
+  
+  if (!('FontFace' in window) || !('fonts' in document)) {
+    setTimeout(reveal, 100);
+    return;
+  }
+  
+  var uiRoot = '../../_';
+  var fonts = [
+    { 
+      family: 'Noto Sans', 
+      url: uiRoot + '/font/NotoSansDisplay.woff2',
+      descriptors: { style: 'normal', weight: '100 900', stretch: '62.5% 100%' }
+    },
+    { 
+      family: 'Noto Sans', 
+      url: uiRoot + '/font/NotoSansDisplay-Italic.woff2',
+      descriptors: { style: 'italic', weight: '100 900', stretch: '62.5% 100%' }
+    },
+    { 
+      family: 'Monaspace Neon', 
+      url: uiRoot + '/font/MonaspaceNeon-Var.woff2',
+      descriptors: { style: 'normal', weight: '400' }
+    },
+    { 
+      family: 'Monaspace Xenon', 
+      url: uiRoot + '/font/MonaspaceXenon-Var.woff2',
+      descriptors: { style: 'italic', weight: '400' }
+    }
+  ];
+  
+  var loadPromises = fonts.map(function(f) {
+    try {
+      var face = new FontFace(f.family, 'url("' + f.url + '")', f.descriptors);
+      return face.load().then(function(loaded) {
+        document.fonts.add(loaded);
+        return loaded;
+      }).catch(function() {
+        return null;
+      });
+    } catch (e) {
+      return Promise.resolve(null);
+    }
+  });
+  
+  Promise.all(loadPromises)
+    .then(function() {
+      return document.fonts.ready;
+    })
+    .then(reveal)
+    .catch(reveal);
+})();
+</script>    <title>Boost.Accumulators: Class Index :: Boost.Accumulators</title>
+  <link rel="canonical" href="https://antora.cppalliance.org/develop/lib/doc/accumulators/doxygen-ref/classes.html">
+    <link rel="prev" href="../reference.html">
+  <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../_/css/boostlook.css">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+    <script>
+    (function() {
+      if (window.self !== window.top) return;
+      var theme = localStorage.getItem('antora-theme');
+      if (!theme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        theme = 'dark';
+      }
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    })();
+    </script>
+    <script>var uiRootPath = '../../_'</script>
+<link rel="icon" href="../../_/img/favicons/favicon.ico" type="image/x-icon">
+    <!-- Favicon configuration -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../../_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../../_/img/favicons/favicon.ico">
+  </head>
+  <body class="article toc2 toc-left">
+    <div class="boostlook">
+   <div id="header">
+      <div id="toc" class="nav-container toc2" data-component="accumulators" data-version="">
+  <aside class="nav">
+    <button class="nav-close"></button>
+    <div class="panels">
+      <div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+      <div class="title-row">
+        <h3 class="title"><a href="../index.html">Boost.Accumulators</a></h3>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme" style="display:none">
+  <i class="fas fa-sun theme-icon-light"></i>
+  <i class="fas fa-moon theme-icon-dark"></i>
+</button>      </div>
+      <ul class="nav-list">
+        <ul class="nav-list">
+        <li class="" data-depth="1">
+            <a class="nav-link" href="../index.html">Chapter 1. Boost.Accumulators</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../preface.html">Preface</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../user_s_guide.html">User&#8217;s Guide</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../acknowledgements.html">Acknowledgements</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../reference.html">Reference</a>
+        </li>
+        <ul class="nav-list">
+        <li class=" is-current-page" data-depth="2">
+            <a class="nav-link" href="classes.html">Framework API (Doxygen HTML → AsciiDoc)</a>
+        </li>
+        </ul>
+  </ul>
+  </ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+  </div>  <div id="content">
+    <article class="doc max-width-reset">
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="../index.html" aria-label="Home: Boost.Accumulators">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 -960 960 960" fill="#000000" aria-hidden="true"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+      </a>
+    </li>
+    <li><a href="../reference.html">Reference</a></li>
+    <li><a href="classes.html">Framework API (Doxygen HTML → AsciiDoc)</a></li>
+  </ul>
+</nav>
+  <div class="search-container">
+    <div id="search-field" class="field has-filter">
+      <input id="search-input" type="text" placeholder="Search the docs" >
+    </div>
+  </div>
+<div class="spirit-nav">
+    <a accesskey="p" href="../reference.html">
+      <span class="material-symbols-outlined" title="Previous: Reference">arrow_back</span>
+    </a>
+    <a accesskey="u" href="../reference.html">
+      <span class="material-symbols-outlined" title="Up: Reference">arrow_upward</span>
+    </a>
+</div></div>
+    <h1 class="page">Boost.Accumulators: Class Index</h1>
+  <div class="qindex"><a class="qindex" href="#letter_A">A</a> | <a class="qindex" href="#letter_B">B</a> | <a class="qindex" href="#letter_C">C</a> | <a class="qindex" href="#letter_D">D</a> | <a class="qindex" href="#letter_E">E</a> | <a class="qindex" href="#letter_F">F</a> | <a class="qindex" href="#letter_I">I</a> | <a class="qindex" href="#letter_M">M</a> | <a class="qindex" href="#letter_R">R</a> | <a class="qindex" href="#letter_S">S</a> | <a class="qindex" href="#letter_T">T</a> | <a class="qindex" href="#letter_U">U</a> | <a class="qindex" href="#letter_V">V</a> | <a class="qindex" href="#letter_W">W</a></div>
+<div class="classindex">
+<dl class="classindex even">
+<dt class="alphachar"><a id="letter_A" name="letter_A">A</a></dt>
+<dd><a class="el" href="structboost_1_1accumulators_1_1accumulator__base.html">accumulator_base</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1accumulator__concept.html">accumulator_concept</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1accumulator__set.html">accumulator_set</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__base.html">accumulator_set_base</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__result.html">accumulator_set_result</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__visitor.html">accumulator_visitor</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__wrapper.html">accumulator_wrapper</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1add__ref__visitor.html">add_ref_visitor</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1accumulator__set_1_1apply.html">accumulator_set::apply</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1contains__feature__of___1_1apply.html">contains_feature_of_::apply</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1matches__feature_1_1apply.html">matches_feature::apply</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1droppable_1_1impl_1_1apply.html">droppable::impl::apply</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1tag_1_1droppable_1_1impl_1_1apply.html">droppable::impl::apply</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1tag.html">boost::accumulators::tag</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1argument__pack__result.html">argument_pack_result</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1tag_1_1as__droppable.html">as_droppable</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1tag.html">boost::accumulators::tag</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1tag_1_1as__droppable_3_01droppable_3_01Feature_01_4_01_4.html">as_droppable&lt; droppable&lt; Feature &gt; &gt;</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1tag.html">boost::accumulators::tag</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1as__feature.html">as_feature</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1as__feature_3_01tag_1_1droppable_3_01Feature_01_4_01_4.html">as_feature&lt; tag::droppable&lt; Feature &gt; &gt;</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1as__feature__list.html">as_feature_list</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1as__feature__list_3_01Features_00_01void_01_4.html">as_feature_list&lt; Features, void &gt;</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1as__weighted__feature.html">as_weighted_feature</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1as__weighted__feature_3_01tag_1_1droppable_3_01Feature_01_4_01_4.html">as_weighted_feature&lt; tag::droppable&lt; Feature &gt; &gt;</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd></dl>
+<dl class="classindex odd">
+<dt class="alphachar"><a id="letter_B" name="letter_B">B</a></dt>
+<dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1build__acc__list.html">build_acc_list</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1build__acc__list_3_01First_00_01Last_00_01false_01_4.html">build_acc_list&lt; First, Last, false &gt;</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1build__acc__list_3_01First_00_01Last_00_01true_01_4.html">build_acc_list&lt; First, Last, true &gt;</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd></dl>
+<dl class="classindex even">
+<dt class="alphachar"><a id="letter_C" name="letter_C">C</a></dt>
+<dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1checked__as__weighted__feature.html">checked_as_weighted_feature</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1collect__abstract__features.html">collect_abstract_features</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1contains__feature__of.html">contains_feature_of</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1contains__feature__of__.html">contains_feature_of_</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd></dl>
+<dl class="classindex odd">
+<dt class="alphachar"><a id="letter_D" name="letter_D">D</a></dt>
+<dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1dependencies__of.html">dependencies_of</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1depends__on.html">depends_on</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1depends__on__base.html">depends_on_base</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1dont__care.html">dont_care</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1drop__visitor.html">drop_visitor</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1droppable.html">droppable</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1tag_1_1droppable.html">droppable</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1tag.html">boost::accumulators::tag</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1droppable__accumulator.html">droppable_accumulator</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1droppable__accumulator__base.html">droppable_accumulator_base</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd></dl>
+<dl class="classindex even">
+<dt class="alphachar"><a id="letter_E" name="letter_E">E</a></dt>
+<dd><a class="el" href="structboost_1_1accumulators_1_1external.html">external</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1tag_1_1external.html">external</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1tag.html">boost::accumulators::tag</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1tag_1_1external_3_01Feature_00_01Tag_00_01void_01_4.html">external&lt; Feature, Tag, void &gt;</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1tag.html">boost::accumulators::tag</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1impl_1_1external__impl.html">external_impl</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1impl.html">boost::accumulators::impl</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1extractor.html">extractor</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html">extractor_result</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd></dl>
+<dl class="classindex odd">
+<dt class="alphachar"><a id="letter_F" name="letter_F">F</a></dt>
+<dd><a class="el" href="structboost_1_1accumulators_1_1feature__of.html">feature_of</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1feature__of_3_01tag_1_1droppable_3_01Feature_01_4_01_4.html">feature_of&lt; tag::droppable&lt; Feature &gt; &gt;</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1feature__of_3_01tag_1_1external_3_01Feature_00_01Tag_00_01AccumulatorSet_01_4_01_4.html">feature_of&lt; tag::external&lt; Feature, Tag, AccumulatorSet &gt; &gt;</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1feature__of_3_01tag_1_1reference_3_01ValueType_00_01Tag_01_4_01_4.html">feature_of&lt; tag::reference&lt; ValueType, Tag &gt; &gt;</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1feature__of_3_01tag_1_1value_3_01ValueType_00_01Tag_01_4_01_4.html">feature_of&lt; tag::value&lt; ValueType, Tag &gt; &gt;</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1feature__tag.html">feature_tag</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1features.html">features</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd></dl>
+<dl class="classindex even">
+<dt class="alphachar"><a id="letter_I" name="letter_I">I</a></dt>
+<dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1ignore__accumulator.html">ignore_accumulator</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1ignore__sample.html">ignore_sample</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1ignore__weight.html">ignore_weight</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1ignore__weights.html">ignore_weights</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1droppable_1_1impl.html">droppable::impl</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1tag_1_1droppable_1_1impl.html">droppable::impl</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1tag.html">boost::accumulators::tag</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1insert__dependencies.html">insert_dependencies</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1insert__feature.html">insert_feature</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1insert__sequence.html">insert_sequence</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1is__accumulator__set.html">is_accumulator_set</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1is__dependent__on.html">is_dependent_on</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd></dl>
+<dl class="classindex odd">
+<dt class="alphachar"><a id="letter_M" name="letter_M">M</a></dt>
+<dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1meta_1_1make__acc__list.html">make_acc_list</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail_1_1meta.html">boost::accumulators::detail::meta</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1make__accumulator__tuple.html">make_accumulator_tuple</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1matches__feature.html">matches_feature</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd></dl>
+<dl class="classindex even">
+<dt class="alphachar"><a id="letter_R" name="letter_R">R</a></dt>
+<dd><a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference.html">reference</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1tag.html">boost::accumulators::tag</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1impl_1_1reference__accumulator__impl.html">reference_accumulator_impl</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1impl.html">boost::accumulators::impl</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference__tag.html">reference_tag</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1tag.html">boost::accumulators::tag</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1extractor_1_1result.html">extractor::result</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1extractor_1_1result_3_01this__type_07A1_08_4.html">extractor::result&lt; this_type(A1)&gt;</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd></dl>
+<dl class="classindex odd">
+<dt class="alphachar"><a id="letter_S" name="letter_S">S</a></dt>
+<dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1serialize__accumulator.html">serialize_accumulator</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1set__insert__range.html">set_insert_range</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd></dl>
+<dl class="classindex even">
+<dt class="alphachar"><a id="letter_T" name="letter_T">T</a></dt>
+<dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1to__accumulator.html">to_accumulator</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1to__accumulator_3_01Feature_00_01Sample_00_01tag_1_1ext0c26d8c3c18bcca084cb467b003ed836.html">to_accumulator&lt; Feature, Sample, tag::external&lt; Weight, Tag, AccumulatorSet &gt; &gt;</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd></dl>
+<dl class="classindex odd">
+<dt class="alphachar"><a id="letter_U" name="letter_U">U</a></dt>
+<dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1undroppable.html">undroppable</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1detail_1_1undroppable_3_01tag_1_1droppable_3_01Feature_01_4_01_4.html">undroppable&lt; tag::droppable&lt; Feature &gt; &gt;</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1detail.html">boost::accumulators::detail</a>)</dd></dl>
+<dl class="classindex even">
+<dt class="alphachar"><a id="letter_V" name="letter_V">V</a></dt>
+<dd><a class="el" href="structboost_1_1accumulators_1_1tag_1_1value.html">value</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1tag.html">boost::accumulators::tag</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1impl_1_1value__accumulator__impl.html">value_accumulator_impl</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1impl.html">boost::accumulators::impl</a>)</dd><dd><a class="el" href="structboost_1_1accumulators_1_1tag_1_1value__tag.html">value_tag</a> (<a class="el" href="namespaceboost_1_1accumulators_1_1tag.html">boost::accumulators::tag</a>)</dd></dl>
+<dl class="classindex odd">
+<dt class="alphachar"><a id="letter_W" name="letter_W">W</a></dt>
+<dd><a class="el" href="structboost_1_1accumulators_1_1with__cached__result.html">with_cached_result</a> (<a class="el" href="namespaceboost_1_1accumulators.html">boost::accumulators</a>)</dd></dl>
+</div>
+  <div class="edit-this-page">
+      <a href="file:///home/z-ming-yang/桌面/dev/boost/libs/accumulators/doc/modules/ROOT/pages/doxygen-ref/classes.adoc">Edit this Page</a>
+  </div>
+      <nav class="pagination">
+        <span class="prev"><a href="../reference.html">Reference</a></span>
+    </nav>
+</article>
+</div>
+  <div id="footer">
+  <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+<script async src="../../_/js/vendor/lunr.js"></script>
+<script async src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.."
+  data-ui-root-path="../../_"></script>
+<script async src="../../search-index.js"></script>
+</div>
+</div>
+  </body>
+</html>

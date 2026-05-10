@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<style>html.fonts-loading{visibility:hidden;opacity:0}</style>
+<script>document.documentElement.classList.add('fonts-loading');</script>
+
+<link rel="preload" href="../../_/font/NotoSansDisplay.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="../../_/font/NotoSansDisplay-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="../../_/font/MonaspaceNeon-Var.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="../../_/font/MonaspaceXenon-Var.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+<script>
+(function() {
+  'use strict';
+  
+  var revealed = false;
+  
+  var reveal = function() {
+    if (revealed) return;
+    revealed = true;
+    document.documentElement.classList.remove('fonts-loading');
+  };
+  
+  setTimeout(reveal, 3000);
+  
+  if (!('FontFace' in window) || !('fonts' in document)) {
+    setTimeout(reveal, 100);
+    return;
+  }
+  
+  var uiRoot = '../../_';
+  var fonts = [
+    { 
+      family: 'Noto Sans', 
+      url: uiRoot + '/font/NotoSansDisplay.woff2',
+      descriptors: { style: 'normal', weight: '100 900', stretch: '62.5% 100%' }
+    },
+    { 
+      family: 'Noto Sans', 
+      url: uiRoot + '/font/NotoSansDisplay-Italic.woff2',
+      descriptors: { style: 'italic', weight: '100 900', stretch: '62.5% 100%' }
+    },
+    { 
+      family: 'Monaspace Neon', 
+      url: uiRoot + '/font/MonaspaceNeon-Var.woff2',
+      descriptors: { style: 'normal', weight: '400' }
+    },
+    { 
+      family: 'Monaspace Xenon', 
+      url: uiRoot + '/font/MonaspaceXenon-Var.woff2',
+      descriptors: { style: 'italic', weight: '400' }
+    }
+  ];
+  
+  var loadPromises = fonts.map(function(f) {
+    try {
+      var face = new FontFace(f.family, 'url("' + f.url + '")', f.descriptors);
+      return face.load().then(function(loaded) {
+        document.fonts.add(loaded);
+        return loaded;
+      }).catch(function() {
+        return null;
+      });
+    } catch (e) {
+      return Promise.resolve(null);
+    }
+  });
+  
+  Promise.all(loadPromises)
+    .then(function() {
+      return document.fonts.ready;
+    })
+    .then(reveal)
+    .catch(reveal);
+})();
+</script>    <title>Boost.Accumulators: Class List :: Boost.Accumulators</title>
+  <link rel="canonical" href="https://antora.cppalliance.org/develop/lib/doc/accumulators/doxygen-ref/annotated.html">
+  <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../_/css/boostlook.css">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+    <script>
+    (function() {
+      if (window.self !== window.top) return;
+      var theme = localStorage.getItem('antora-theme');
+      if (!theme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        theme = 'dark';
+      }
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    })();
+    </script>
+    <script>var uiRootPath = '../../_'</script>
+<link rel="icon" href="../../_/img/favicons/favicon.ico" type="image/x-icon">
+    <!-- Favicon configuration -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../../_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../../_/img/favicons/favicon.ico">
+  </head>
+  <body class="article toc2 toc-left">
+    <div class="boostlook">
+   <div id="header">
+      <div id="toc" class="nav-container toc2" data-component="accumulators" data-version="">
+  <aside class="nav">
+    <button class="nav-close"></button>
+    <div class="panels">
+      <div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+      <div class="title-row">
+        <h3 class="title"><a href="../index.html">Boost.Accumulators</a></h3>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme" style="display:none">
+  <i class="fas fa-sun theme-icon-light"></i>
+  <i class="fas fa-moon theme-icon-dark"></i>
+</button>      </div>
+      <ul class="nav-list">
+        <ul class="nav-list">
+        <li class="" data-depth="1">
+            <a class="nav-link" href="../index.html">Chapter 1. Boost.Accumulators</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../preface.html">Preface</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../user_s_guide.html">User&#8217;s Guide</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../acknowledgements.html">Acknowledgements</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../reference.html">Reference</a>
+        </li>
+        <ul class="nav-list">
+        <li class="" data-depth="2">
+            <a class="nav-link" href="classes.html">Framework API (Doxygen HTML → AsciiDoc)</a>
+        </li>
+        </ul>
+  </ul>
+  </ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+  </div>  <div id="content">
+    <article class="doc max-width-reset">
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="../index.html" aria-label="Home: Boost.Accumulators">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 -960 960 960" fill="#000000" aria-hidden="true"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+      </a>
+    </li>
+    <li><a href="annotated.html">Boost.Accumulators: Class List</a></li>
+  </ul>
+</nav>
+  <div class="search-container">
+    <div id="search-field" class="field has-filter">
+      <input id="search-input" type="text" placeholder="Search the docs" >
+    </div>
+  </div>
+<div class="spirit-nav">
+    <a class="disabled" accesskey="u" aria-disabled="true" tabindex="-1">
+      <span class="material-symbols-outlined" title="Up:">arrow_upward</span>
+    </a>
+</div></div>
+    <h1 class="page">Boost.Accumulators: Class List</h1>
+  <div class="textblock">Here are the classes, structs, unions and interfaces with brief descriptions:</div><div class="directory">
+<div class="levels">[detail level <span onclick="javascript:dynsection.toggleLevel(1);">1</span><span onclick="javascript:dynsection.toggleLevel(2);">2</span><span onclick="javascript:dynsection.toggleLevel(3);">3</span><span onclick="javascript:dynsection.toggleLevel(4);">4</span><span onclick="javascript:dynsection.toggleLevel(5);">5</span><span onclick="javascript:dynsection.toggleLevel(6);">6</span>]</div><table class="directory">
+<tr class="even" id="row_0_"><td class="entry"><span style="width:0px;display:inline-block;"> </span><span class="arrow" id="arr_0_" onclick="dynsection.toggleFolder('0_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespaceboost.html" target="_self">boost</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_"><td class="entry"><span style="width:16px;display:inline-block;"> </span><span class="arrow" id="arr_0_0_" onclick="dynsection.toggleFolder('0_0_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespaceboost_1_1accumulators.html" target="_self">accumulators</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_0_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="arrow" id="arr_0_0_0_" onclick="dynsection.toggleFolder('0_0_0_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespaceboost_1_1accumulators_1_1detail.html" target="_self">detail</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_0_0_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="arrow" id="arr_0_0_0_0_" onclick="dynsection.toggleFolder('0_0_0_0_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespaceboost_1_1accumulators_1_1detail_1_1meta.html" target="_self">meta</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_0_0_0_"><td class="entry"><span style="width:80px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1meta_1_1make__acc__list.html" target="_self">make_acc_list</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_0_1_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__visitor.html" target="_self">accumulator_visitor</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_0_2_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__base.html" target="_self">accumulator_set_base</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_0_3_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1is__accumulator__set.html" target="_self">is_accumulator_set</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_0_4_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1serialize__accumulator.html" target="_self">serialize_accumulator</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_0_5_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1add__ref__visitor.html" target="_self">add_ref_visitor</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_0_6_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1drop__visitor.html" target="_self">drop_visitor</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_0_7_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1feature__tag.html" target="_self">feature_tag</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_0_8_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1undroppable.html" target="_self">undroppable</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_0_9_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1undroppable_3_01tag_1_1droppable_3_01Feature_01_4_01_4.html" target="_self">undroppable&lt; tag::droppable&lt; Feature &gt; &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_0_10_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1is__dependent__on.html" target="_self">is_dependent_on</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_0_11_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1dependencies__of.html" target="_self">dependencies_of</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_0_12_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1set__insert__range.html" target="_self">set_insert_range</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_0_13_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1collect__abstract__features.html" target="_self">collect_abstract_features</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_0_14_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1depends__on__base.html" target="_self">depends_on_base</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_0_15_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="arrow" id="arr_0_0_0_15_" onclick="dynsection.toggleFolder('0_0_0_15_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1matches__feature.html" target="_self">matches_feature</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_0_15_0_"><td class="entry"><span style="width:80px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1matches__feature_1_1apply.html" target="_self">apply</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_0_16_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1contains__feature__of.html" target="_self">contains_feature_of</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_0_17_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="arrow" id="arr_0_0_0_17_" onclick="dynsection.toggleFolder('0_0_0_17_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1contains__feature__of__.html" target="_self">contains_feature_of_</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_0_17_0_"><td class="entry"><span style="width:80px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1contains__feature__of___1_1apply.html" target="_self">apply</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_0_18_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1build__acc__list.html" target="_self">build_acc_list</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_0_19_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1build__acc__list_3_01First_00_01Last_00_01true_01_4.html" target="_self">build_acc_list&lt; First, Last, true &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_0_20_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1build__acc__list_3_01First_00_01Last_00_01false_01_4.html" target="_self">build_acc_list&lt; First, Last, false &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_0_21_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1checked__as__weighted__feature.html" target="_self">checked_as_weighted_feature</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_0_22_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1as__feature__list.html" target="_self">as_feature_list</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_0_23_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1as__feature__list_3_01Features_00_01void_01_4.html" target="_self">as_feature_list&lt; Features, void &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_0_24_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__wrapper.html" target="_self">accumulator_wrapper</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_0_25_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1to__accumulator.html" target="_self">to_accumulator</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_0_26_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1to__accumulator_3_01Feature_00_01Sample_00_01tag_1_1ext0c26d8c3c18bcca084cb467b003ed836.html" target="_self">to_accumulator&lt; Feature, Sample, tag::external&lt; Weight, Tag, AccumulatorSet &gt; &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_0_27_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1insert__feature.html" target="_self">insert_feature</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_0_28_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1insert__dependencies.html" target="_self">insert_dependencies</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_0_29_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1insert__sequence.html" target="_self">insert_sequence</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_0_30_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1make__accumulator__tuple.html" target="_self">make_accumulator_tuple</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_0_31_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1accumulator__set__result.html" target="_self">accumulator_set_result</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_0_32_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1argument__pack__result.html" target="_self">argument_pack_result</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_0_33_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1extractor__result.html" target="_self">extractor_result</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_0_34_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1ignore__accumulator.html" target="_self">ignore_accumulator</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_0_35_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1ignore__sample.html" target="_self">ignore_sample</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_0_36_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1ignore__weight.html" target="_self">ignore_weight</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_0_37_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1detail_1_1ignore__weights.html" target="_self">ignore_weights</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_1_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="arrow" id="arr_0_0_1_" onclick="dynsection.toggleFolder('0_0_1_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespaceboost_1_1accumulators_1_1tag.html" target="_self">tag</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_1_0_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1as__droppable.html" target="_self">as_droppable</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_1_1_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1as__droppable_3_01droppable_3_01Feature_01_4_01_4.html" target="_self">as_droppable&lt; droppable&lt; Feature &gt; &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_1_2_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="arrow" id="arr_0_0_1_2_" onclick="dynsection.toggleFolder('0_0_1_2_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1droppable.html" target="_self">droppable</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_1_2_0_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="arrow" id="arr_0_0_1_2_0_" onclick="dynsection.toggleFolder('0_0_1_2_0_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1droppable_1_1impl.html" target="_self">impl</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_1_2_0_0_"><td class="entry"><span style="width:96px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1droppable_1_1impl_1_1apply.html" target="_self">apply</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_1_3_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1external.html" target="_self">external</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_1_4_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1external_3_01Feature_00_01Tag_00_01void_01_4.html" target="_self">external&lt; Feature, Tag, void &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_1_5_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference__tag.html" target="_self">reference_tag</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_1_6_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1reference.html" target="_self">reference</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_1_7_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1value__tag.html" target="_self">value_tag</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_1_8_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1tag_1_1value.html" target="_self">value</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_2_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="arrow" id="arr_0_0_2_" onclick="dynsection.toggleFolder('0_0_2_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespaceboost_1_1accumulators_1_1impl.html" target="_self">impl</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_2_0_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1impl_1_1external__impl.html" target="_self">external_impl</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_2_1_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1impl_1_1reference__accumulator__impl.html" target="_self">reference_accumulator_impl</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_2_2_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1impl_1_1value__accumulator__impl.html" target="_self">value_accumulator_impl</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_3_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1dont__care.html" target="_self">dont_care</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_4_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1accumulator__base.html" target="_self">accumulator_base</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_5_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1accumulator__concept.html" target="_self">accumulator_concept</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_6_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="arrow" id="arr_0_0_6_" onclick="dynsection.toggleFolder('0_0_6_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1accumulator__set.html" target="_self">accumulator_set</a></td><td class="desc">A set of accumulators </td></tr>
+<tr class="even" id="row_0_0_6_0_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1accumulator__set_1_1apply.html" target="_self">apply</a></td><td class="desc">Extraction </td></tr>
+<tr class="odd" id="row_0_0_7_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1droppable__accumulator.html" target="_self">droppable_accumulator</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_8_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1droppable__accumulator__base.html" target="_self">droppable_accumulator_base</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_9_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1with__cached__result.html" target="_self">with_cached_result</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_10_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1as__feature_3_01tag_1_1droppable_3_01Feature_01_4_01_4.html" target="_self">as_feature&lt; tag::droppable&lt; Feature &gt; &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_11_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1as__weighted__feature_3_01tag_1_1droppable_3_01Feature_01_4_01_4.html" target="_self">as_weighted_feature&lt; tag::droppable&lt; Feature &gt; &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_12_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1feature__of_3_01tag_1_1droppable_3_01Feature_01_4_01_4.html" target="_self">feature_of&lt; tag::droppable&lt; Feature &gt; &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_13_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1feature__of_3_01tag_1_1external_3_01Feature_00_01Tag_00_01AccumulatorSet_01_4_01_4.html" target="_self">feature_of&lt; tag::external&lt; Feature, Tag, AccumulatorSet &gt; &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_14_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1feature__of_3_01tag_1_1reference_3_01ValueType_00_01Tag_01_4_01_4.html" target="_self">feature_of&lt; tag::reference&lt; ValueType, Tag &gt; &gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_15_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1feature__of_3_01tag_1_1value_3_01ValueType_00_01Tag_01_4_01_4.html" target="_self">feature_of&lt; tag::value&lt; ValueType, Tag &gt; &gt;</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_16_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1as__feature.html" target="_self">as_feature</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_17_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1as__weighted__feature.html" target="_self">as_weighted_feature</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_18_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1feature__of.html" target="_self">feature_of</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_19_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1depends__on.html" target="_self">depends_on</a></td><td class="desc">Depends_on </td></tr>
+<tr class="even" id="row_0_0_20_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="arrow" id="arr_0_0_20_" onclick="dynsection.toggleFolder('0_0_20_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1extractor.html" target="_self">extractor</a></td><td class="desc">Extracts the result associated with Feature from the specified <a class="el" href="structboost_1_1accumulators_1_1accumulator__set.html" title="A set of accumulators.">accumulator_set</a> </td></tr>
+<tr class="odd" id="row_0_0_20_0_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1extractor_1_1result.html" target="_self">result</a></td><td class="desc">The result meta-function for determining the return type of the extractor </td></tr>
+<tr class="even" id="row_0_0_20_1_"><td class="entry"><span style="width:64px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1extractor_1_1result_3_01this__type_07A1_08_4.html" target="_self">result&lt; this_type(A1)&gt;</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_21_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1features.html" target="_self">features</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_22_"><td class="entry"><span style="width:32px;display:inline-block;"> </span><span class="arrow" id="arr_0_0_22_" onclick="dynsection.toggleFolder('0_0_22_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1droppable.html" target="_self">droppable</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_22_0_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="arrow" id="arr_0_0_22_0_" onclick="dynsection.toggleFolder('0_0_22_0_')"><span class="arrowhead opened"></span></span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1droppable_1_1impl.html" target="_self">impl</a></td><td class="desc"></td></tr>
+<tr class="even" id="row_0_0_22_0_0_"><td class="entry"><span style="width:80px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1droppable_1_1impl_1_1apply.html" target="_self">apply</a></td><td class="desc"></td></tr>
+<tr class="odd" id="row_0_0_23_"><td class="entry"><span style="width:48px;display:inline-block;"> </span><span class="icona"><span class="icon">C</span></span><a class="el" href="structboost_1_1accumulators_1_1external.html" target="_self">external</a></td><td class="desc"></td></tr>
+</table>
+</div><!-- directory -->
+  <div class="edit-this-page">
+      <a href="file:///home/z-ming-yang/桌面/dev/boost/libs/accumulators/doc/modules/ROOT/pages/doxygen-ref/annotated.adoc">Edit this Page</a>
+  </div>
+  </article>
+</div>
+  <div id="footer">
+  <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+<script async src="../../_/js/vendor/lunr.js"></script>
+<script async src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.."
+  data-ui-root-path="../../_"></script>
+<script async src="../../search-index.js"></script>
+</div>
+</div>
+  </body>
+</html>
