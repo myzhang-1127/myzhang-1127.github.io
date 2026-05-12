@@ -78,7 +78,6 @@
 </script>    <title>Reference :: Boost.Accumulators</title>
   <link rel="canonical" href="https://antora.cppalliance.org/develop/lib/doc/accumulators/reference.html">
     <link rel="prev" href="acknowledgements.html">
-    <link rel="next" href="doxygen-ref/classes.html">
   <meta name="generator" content="Antora 3.1.14">
     <link rel="stylesheet" href="../_/css/boostlook.css">
     <link rel="stylesheet" href="../_/css/site.css">
@@ -134,12 +133,7 @@
               <li class=" is-current-page" data-depth="1">
             <a class="nav-link" href="reference.html">Reference</a>
         </li>
-        <ul class="nav-list">
-        <li class="" data-depth="2">
-            <a class="nav-link" href="doxygen-ref/classes.html">Framework API (Doxygen HTML → AsciiDoc)</a>
-        </li>
         </ul>
-  </ul>
   </ul>
   </nav>
 </div>
@@ -171,9 +165,6 @@
     </a>
     <a class="disabled" accesskey="u" aria-disabled="true" tabindex="-1">
       <span class="material-symbols-outlined" title="Up:">arrow_upward</span>
-    </a>
-    <a accesskey="n" href="doxygen-ref/classes.html">
-      <span class="material-symbols-outlined" title="Next: Framework API (Doxygen HTML → AsciiDoc)">arrow_forward</span>
     </a>
 </div></div>
     <h1 class="page">Reference</h1>
@@ -283,16 +274,13 @@
 </div>
 <div class="sect2">
 <h3 id="doxygen.accumulators_framework_reference.accumulator__base_8hpp"><a class="anchor" href="#doxygen.accumulators_framework_reference.accumulator__base_8hpp"></a>Header &lt; boost/accumulators/framework/accumulator_base.hpp &gt;</h3>
-<div class="listingblock programlisting">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">namespace boost {
+<pre class="programlisting"><code class="language-c++">namespace boost {
   namespace accumulators {
-    struct [accumulator_base];
-    struct [dont_care];
+    struct <a href="#doxygen.accumulators_framework_reference.accumulator__base_8hpp">accumulator_base</a>;
+    struct <a href="#doxygen.accumulators_framework_reference.accumulator__base_8hpp">dont_care</a>;
   }
-}</code></pre>
-</div>
-</div>
+}
+</code></pre>
 </div>
 <div class="sect2">
 <h3 id="doxygen.accumulators_framework_reference.accumulator__concept_8hpp"><a class="anchor" href="#doxygen.accumulators_framework_reference.accumulator__concept_8hpp"></a>Header &lt; boost/accumulators/framework/accumulator_concept.hpp &gt;</h3>
@@ -328,15 +316,15 @@
 <h3 id="doxygen.accumulators_framework_reference.droppable__accumulator_8hpp"><a class="anchor" href="#doxygen.accumulators_framework_reference.droppable__accumulator_8hpp"></a>Header &lt; boost/accumulators/framework/accumulators/droppable_accumulator.hpp &gt;</h3>
 <pre class="programlisting"><code class="language-c++">namespace boost {
   namespace accumulators {
-    template&lt;typename Feature&gt; struct <a href="#doxygen.accumulators_framework_reference.droppable__accumulator_8hpp">as_feature</a>&lt;tag::<a href="#doxygen.accumulators_framework_reference.droppable__accumulator_8hpp">droppable</a>&lt; Feature &gt;&gt;;
+    template&lt;typename Feature&gt; struct <a href="#doxygen.accumulators_framework_reference.depends__on_8hpp">as_feature</a>&lt;tag::<a href="#doxygen.accumulators_framework_reference.droppable__accumulator_8hpp">droppable</a>&lt; Feature &gt;&gt;;
     template&lt;typename Feature&gt;
-      struct <a href="#doxygen.accumulators_framework_reference.droppable__accumulator_8hpp">as_weighted_feature</a>&lt;tag::<a href="#doxygen.accumulators_framework_reference.droppable__accumulator_8hpp">droppable</a>&lt; Feature &gt;&gt;;
+      struct <a href="#doxygen.accumulators_framework_reference.depends__on_8hpp">as_weighted_feature</a>&lt;tag::<a href="#doxygen.accumulators_framework_reference.droppable__accumulator_8hpp">droppable</a>&lt; Feature &gt;&gt;;
 
     template&lt;typename Feature&gt; struct <a href="#doxygen.accumulators_framework_reference.droppable__accumulator_8hpp">droppable</a>;
     template&lt;typename Accumulator&gt; struct <a href="#doxygen.accumulators_framework_reference.droppable__accumulator_8hpp">droppable_accumulator</a>;
     template&lt;typename Accumulator&gt; struct <a href="#doxygen.accumulators_framework_reference.droppable__accumulator_8hpp">droppable_accumulator_base</a>;
 
-    template&lt;typename Feature&gt; struct <a href="#doxygen.accumulators_framework_reference.droppable__accumulator_8hpp">feature_of</a>&lt;tag::<a href="#doxygen.accumulators_framework_reference.droppable__accumulator_8hpp">droppable</a>&lt; Feature &gt;&gt;;
+    template&lt;typename Feature&gt; struct <a href="#doxygen.accumulators_framework_reference.depends__on_8hpp">feature_of</a>&lt;tag::<a href="#doxygen.accumulators_framework_reference.droppable__accumulator_8hpp">droppable</a>&lt; Feature &gt;&gt;;
 
     template&lt;typename Accumulator&gt; struct <a href="#doxygen.accumulators_framework_reference.droppable__accumulator_8hpp">with_cached_result</a>;
     namespace tag {
@@ -2308,11 +2296,10 @@
 </div>
 </div>
   <div class="edit-this-page">
-      <a href="file:///home/z-ming-yang/桌面/dev/boost/libs/accumulators/doc/modules/ROOT/pages/reference.adoc">Edit this Page</a>
+      <a href="file:///D:/dev/boost/libs/accumulators/doc/modules/ROOT/pages/reference.adoc">Edit this Page</a>
   </div>
       <nav class="pagination">
         <span class="prev"><a href="acknowledgements.html">Acknowledgements</a></span>
-        <span class="next"><a href="doxygen-ref/classes.html">Framework API (Doxygen HTML → AsciiDoc)</a></span>
     </nav>
 </article>
 </div>
