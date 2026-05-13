@@ -1,6 +1,0 @@
-/* Override Boost UI: smooth scrolling breaks reliable scroll restoration on Back after
-   in-page hash navigation (Chrome/Firefox/Safari). Native instant scroll pairs with
-   history.pushState in anchor-back-nav-fix.js. */
-html {
-  scroll-behavior: auto !important;
-}
