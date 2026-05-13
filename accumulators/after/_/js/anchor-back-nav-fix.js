@@ -11,30 +11,32 @@
     }
   }
 
-  function scrollTopForTarget(el) {
-    var article = document.querySelector('article.doc')
+  function toolbarOverlapPx() {
     var toolbar = document.querySelector('.toolbar')
-    if (!article || !toolbar || !el || !article.contains(el)) return null
-    function sumOffset(node, acc) {
-      if (!article.contains(node)) return acc
-      return sumOffset(node.offsetParent, acc + node.offsetTop)
-    }
-    return sumOffset(el, 0) - toolbar.getBoundingClientRect().bottom
+    if (!toolbar) return 0
+    return Math.max(0, toolbar.getBoundingClientRect().bottom)
+  }
+
+  /**
+   * Scroll an element into view under the fixed Boost toolbar.
+   * Avoids walking offsetParent (null offsetParent made the old sumOffset call
+   * article.contains(null) and threw after preventDefault — “dead” in-page links).
+   */
+  function scrollElementUnderToolbar(el) {
+    if (!el) return
+    el.scrollIntoView({ block: 'start', behavior: 'auto' })
+    var overlap = toolbarOverlapPx()
+    if (overlap > 0) window.scrollBy(0, -overlap)
   }
 
   function scrollToId(id) {
     if (!id) {
-      /* Let the browser restore scroll for the non-hash history entry (popstate). */
+      /* Non-hash history entry: let the browser restore scroll on popstate. */
       return
     }
     var el = document.getElementById(id)
     if (!el) return
-    var y = scrollTopForTarget(el)
-    if (y === null) {
-      el.scrollIntoView({ block: 'start', behavior: 'auto' })
-      return
-    }
-    window.scrollTo(0, Math.max(0, y))
+    scrollElementUnderToolbar(el)
   }
 
   document.addEventListener(
@@ -56,7 +58,7 @@
         e.preventDefault()
         e.stopPropagation()
         if (e.stopImmediatePropagation) e.stopImmediatePropagation()
-        scrollToId(target.id)
+        scrollElementUnderToolbar(target)
         return
       }
 
@@ -64,25 +66,33 @@
       e.stopPropagation()
       if (e.stopImmediatePropagation) e.stopImmediatePropagation()
 
+      var path = window.location.pathname + window.location.search + nextHash
       if (window.history && typeof window.history.pushState === 'function') {
         try {
-          window.history.pushState({ antoraAnchorNav: true, id: target.id }, '', nextHash)
+          window.history.pushState({ antoraAnchorNav: true, id: target.id }, '', path)
         } catch (err) {
           window.location.hash = nextHash
         }
       } else {
         window.location.hash = nextHash
       }
-      scrollToId(target.id)
+      /* Defer until after URL / layout settle (avoids occasional no-op scroll). */
+      requestAnimationFrame(function () {
+        scrollElementUnderToolbar(target)
+      })
     },
     true
   )
 
   window.addEventListener('popstate', function () {
-    scrollToId(decodeHashFragment(window.location.hash))
+    requestAnimationFrame(function () {
+      scrollToId(decodeHashFragment(window.location.hash))
+    })
   })
 
   window.addEventListener('hashchange', function () {
-    scrollToId(decodeHashFragment(window.location.hash))
+    requestAnimationFrame(function () {
+      scrollToId(decodeHashFragment(window.location.hash))
+    })
   })
 })()
