@@ -1,0 +1,23 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$structboost_1_1accumulators_1_1feature__of.html" title=" " alt="" coords="5,195,188,237"/>
+<area shape="rect" id="Node000001" href="$structboost_1_1accumulators_1_1feature__of_3_01tag_1_1extended__p__square__quantile_01_4.html" title=" " alt="" coords="249,12,428,71"/>
+<area shape="poly" id="edge200_Node000000_Node000001" title=" " alt="" coords="125,181,174,133,234,86,267,69,263,73,237,90,178,137,130,185"/>
+<area shape="rect" id="Node000003" href="$structboost_1_1accumulators_1_1feature__of_3_01tag_1_1extended__p__square__quantile__quadratic_01_4.html" title=" " alt="" coords="236,100,441,159"/>
+<area shape="poly" id="edge202_Node000000_Node000003" title=" " alt="" coords="171,187,256,157,253,161,174,191"/>
+<area shape="rect" id="Node000005" href="$structboost_1_1accumulators_1_1feature__of_3_01tag_1_1pot__quantile_3_01_left_right_01_4_01_4.html" title=" " alt="" coords="257,187,420,245"/>
+<area shape="poly" id="edge204_Node000000_Node000005" title=" " alt="" coords="202,213,259,215,254,217,204,219"/>
+<area shape="rect" id="Node000007" href="$structboost_1_1accumulators_1_1feature__of_3_01tag_1_1pot__quantile__prob_3_01_left_right_01_4_01_4.html" title=" " alt="" coords="241,269,436,328"/>
+<area shape="poly" id="edge206_Node000000_Node000007" title=" " alt="" coords="176,240,253,268,248,270,176,246"/>
+<area shape="rect" id="Node000009" href="$structboost_1_1accumulators_1_1feature__of_3_01tag_1_1tail__quantile_3_01_left_right_01_4_01_4.html" title=" " alt="" coords="257,352,420,411"/>
+<area shape="poly" id="edge208_Node000000_Node000009" title=" " alt="" coords="128,246,178,293,237,338,259,352,254,351,234,342,175,297,127,251"/>
+<area shape="rect" id="Node000002" href="$structboost_1_1accumulators_1_1feature__of_3_01tag_1_1weighted__extended__p__square__quantile_01_4.html" title=" " alt="" coords="496,5,701,64"/>
+<area shape="poly" id="edge201_Node000001_Node000002" title=" " alt="" coords="442,36,498,36,493,38,444,41"/>
+<area shape="rect" id="Node000004" href="$structboost_1_1accumulators_1_1feature__of_3_01tag_1_1weighted__extended__p__square__quantile__quadratic_01_4.html" title=" " alt="" coords="502,88,695,163"/>
+<area shape="poly" id="edge203_Node000003_Node000004" title=" " alt="" coords="456,125,504,126,499,128,457,130"/>
+<area shape="rect" id="Node000006" href="$structboost_1_1accumulators_1_1feature__of_3_01tag_1_1weighted__pot__quantile_3_01_left_right_01_4_01_4.html" title=" " alt="" coords="505,187,692,245"/>
+<area shape="poly" id="edge205_Node000005_Node000006" title=" " alt="" coords="435,213,507,215,502,217,436,219"/>
+<area shape="rect" id="Node000008" href="$structboost_1_1accumulators_1_1feature__of_3_01tag_1_1weighted__pot__quantile__prob_3_01_left_right_01_4_01_4.html" title=" " alt="" coords="489,269,708,328"/>
+<area shape="poly" id="edge207_Node000007_Node000008" title=" " alt="" coords="451,296,491,298,486,299,451,301"/>
+<area shape="rect" id="Node000010" href="$structboost_1_1accumulators_1_1feature__of_3_01tag_1_1weighted__tail__quantile_3_01_left_right_01_4_01_4.html" title=" " alt="" coords="506,352,692,411"/>
+<area shape="poly" id="edge209_Node000009_Node000010" title=" " alt="" coords="435,379,508,381,502,381,435,384"/>
+</map>

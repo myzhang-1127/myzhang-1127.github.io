@@ -1,0 +1,11 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,149,77,176"/>
+<area shape="rect" id="Node000001" href="$structboost_1_1accumulators_1_1detail_1_1collect__abstract__features.html" title=" " alt="" coords="152,5,312,64"/>
+<area shape="poly" id="edge585_Node000000_Node000001" title=" " alt="" coords="59,136,88,104,123,74,153,59,149,63,126,78,91,108,64,139"/>
+<area shape="rect" id="Node000002" href="$structboost_1_1accumulators_1_1detail_1_1insert__dependencies.html" title=" " alt="" coords="125,88,339,147"/>
+<area shape="poly" id="edge586_Node000000_Node000002" title=" " alt="" coords="91,148,126,141,122,145,94,153"/>
+<area shape="rect" id="Node000003" href="$structboost_1_1accumulators_1_1detail_1_1insert__sequence.html" title=" " alt="" coords="149,171,314,245"/>
+<area shape="poly" id="edge587_Node000000_Node000003" title=" " alt="" coords="91,172,151,187,147,190,92,177"/>
+<area shape="rect" id="Node000004" href="$structboost_1_1accumulators_1_1detail_1_1set__insert__range.html" title=" " alt="" coords="157,269,307,328"/>
+<area shape="poly" id="edge588_Node000000_Node000004" title=" " alt="" coords="60,186,90,222,126,255,159,275,154,275,123,259,86,226,59,192"/>
+</map>

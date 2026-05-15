@@ -1,0 +1,11 @@
+<map id="boost::accumulators::tag::weighted_p_square_cumulative_distribution" name="boost::accumulators::tag::weighted_p_square_cumulative_distribution">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1171,179,1339,237"/>
+<area shape="rect" id="Node000002" href="$structboost_1_1accumulators_1_1depends__on.html" title=" " alt="" coords="971,141,1118,200"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1134,184,1173,193,1168,193,1133,189"/>
+<area shape="rect" id="Node000003" href="$structboost_1_1accumulators_1_1detail_1_1depends__on__base.html" title=" " alt="" coords="454,37,918,304"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="933,168,973,170,968,171,933,173"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,5,406,336"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="421,168,456,170,451,171,422,173"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="966,224,1123,267"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1138,226,1168,223,1173,223,1139,231"/>
+</map>

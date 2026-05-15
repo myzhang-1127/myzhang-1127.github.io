@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$structboost_1_1accumulators_1_1feature__of.html" title=" " alt="" coords="5,55,175,97"/>
+<area shape="rect" id="Node000001" href="$structboost_1_1accumulators_1_1feature__of_3_01tag_1_1immediate__mean_01_4.html" title=" " alt="" coords="223,5,408,64"/>
+<area shape="poly" id="edge185_Node000000_Node000001" title=" " alt="" coords="189,55,225,51,220,53,191,60"/>
+<area shape="rect" id="Node000003" href="$structboost_1_1accumulators_1_1feature__of_3_01tag_1_1weighted__mean_01_4.html" title=" " alt="" coords="227,88,404,147"/>
+<area shape="poly" id="edge187_Node000000_Node000003" title=" " alt="" coords="190,92,229,101,224,101,190,97"/>
+<area shape="rect" id="Node000002" href="$structboost_1_1accumulators_1_1feature__of_3_01tag_1_1immediate__weighted__mean_01_4.html" title=" " alt="" coords="456,5,641,64"/>
+<area shape="poly" id="edge186_Node000001_Node000002" title=" " alt="" coords="423,32,458,34,453,35,424,37"/>
+</map>

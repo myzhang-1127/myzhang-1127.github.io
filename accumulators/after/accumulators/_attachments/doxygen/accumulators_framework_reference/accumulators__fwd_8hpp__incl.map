@@ -1,0 +1,29 @@
+<map id="boost/accumulators/accumulators_fwd.hpp" name="boost/accumulators/accumulators_fwd.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1038,5,1194,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,112,123,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1035,31,835,41,575,54,320,73,215,85,135,99,105,108,103,103,134,93,214,80,319,68,574,48,835,35,1040,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="146,112,310,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1035,30,902,37,724,49,524,68,323,99,280,109,278,104,322,93,523,63,723,43,902,32,1040,29"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="334,104,476,147"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1035,31,929,40,792,53,641,71,490,99,477,102,476,97,489,93,640,66,791,47,929,35,1040,31"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="501,112,667,139"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1040,37,872,63,679,99,638,110,637,104,678,93,871,58,1035,37"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="691,112,869,139"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1047,48,839,110,838,105,1041,49"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="894,104,1026,147"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1085,48,1007,98,1006,93,1080,49"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="1050,104,1182,147"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1118,46,1118,90,1114,87,1114,50"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="1206,96,1370,155"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1154,46,1226,89,1221,88,1152,51"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="1394,96,1553,155"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="1195,44,1381,95,1376,95,1194,50"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="1578,96,1737,155"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1195,34,1360,56,1565,96,1560,95,1360,61,1194,39"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="1762,96,1913,155"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="1195,29,1438,47,1591,66,1749,96,1744,96,1590,71,1438,53,1195,34"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="1938,96,2073,155"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="1194,25,1330,29,1510,39,1714,59,1819,74,1925,96,1920,96,1818,79,1713,64,1510,44,1330,34,1195,31"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="2097,104,2255,147"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="1195,25,1358,27,1580,36,1832,57,1960,73,2086,93,2104,100,2099,99,2085,99,1960,78,1831,62,1580,42,1358,32,1195,30"/>
+</map>

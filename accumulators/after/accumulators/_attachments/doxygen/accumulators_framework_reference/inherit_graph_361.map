@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$structboost_1_1numeric_1_1functional_1_1promote__base.html" title=" " alt="" coords="5,5,184,64"/>
+<area shape="rect" id="Node000001" href="$structboost_1_1numeric_1_1functional_1_1promote_3_01bool_01const_00_01_from_00_01void_00_01std__valarray__tag_01_4.html" title=" " alt="" coords="466,5,656,64"/>
+<area shape="poly" id="edge374_Node000000_Node000001" title=" " alt="" coords="199,25,232,24,418,24,468,28,463,29,418,29,232,29,200,31"/>
+<area shape="rect" id="Node000002" href="$structboost_1_1numeric_1_1functional_1_1promote_3_01bool_00_01_from_00_01void_00_01std__valarray__tag_01_4.html" title=" " alt="" coords="232,39,418,97"/>
+<area shape="poly" id="edge375_Node000000_Node000002" title=" " alt="" coords="199,47,234,54,229,55,199,52"/>
+<area shape="poly" id="edge376_Node000002_Node000001" title=" " alt="" coords="433,50,463,48,468,48,434,55"/>
+</map>

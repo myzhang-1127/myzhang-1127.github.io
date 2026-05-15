@@ -1,0 +1,11 @@
+<map id="boost::accumulators::tag::rolling_variance" name="boost::accumulators::tag::rolling_variance">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1439,149,1584,192"/>
+<area shape="rect" id="Node000002" href="$structboost_1_1accumulators_1_1tag_1_1immediate__rolling__variance.html" title=" " alt="" coords="1234,141,1391,200"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1406,168,1441,171,1436,171,1406,173"/>
+<area shape="rect" id="Node000003" href="$structboost_1_1accumulators_1_1depends__on.html" title=" " alt="" coords="966,133,1186,208"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1202,168,1237,170,1231,171,1202,173"/>
+<area shape="rect" id="Node000004" href="$structboost_1_1accumulators_1_1detail_1_1depends__on__base.html" title=" " alt="" coords="454,37,918,304"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="933,168,968,170,963,171,934,173"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="5,5,406,336"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="421,168,456,170,451,171,422,173"/>
+</map>

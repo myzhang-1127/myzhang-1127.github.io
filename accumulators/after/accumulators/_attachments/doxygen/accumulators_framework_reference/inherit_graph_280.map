@@ -1,0 +1,47 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,713,159,740"/>
+<area shape="rect" id="Node000001" href="$structboost_1_1numeric_1_1op_1_1assign.html" title=" " alt="" coords="207,5,336,48"/>
+<area shape="poly" id="edge241_Node000000_Node000001" title=" " alt="" coords="83,698,94,565,118,375,134,277,154,187,177,112,205,58,219,46,217,51,209,62,182,114,159,188,139,278,123,376,100,565,88,698"/>
+<area shape="rect" id="Node000002" href="$structboost_1_1numeric_1_1op_1_1average.html" title="INTERNAL ONLY." alt="" coords="207,72,336,115"/>
+<area shape="poly" id="edge242_Node000000_Node000002" title=" " alt="" coords="83,698,97,577,121,407,138,320,157,240,179,173,205,125,220,113,217,117,209,128,184,175,162,241,143,321,127,408,102,578,89,699"/>
+<area shape="rect" id="Node000003" href="$structboost_1_1numeric_1_1op_1_1divides.html" title=" " alt="" coords="207,139,336,181"/>
+<area shape="poly" id="edge243_Node000000_Node000003" title=" " alt="" coords="84,698,99,589,125,439,161,292,182,233,205,192,220,179,217,184,209,195,186,235,166,294,130,440,104,590,89,699"/>
+<area shape="rect" id="Node000004" href="$structboost_1_1numeric_1_1op_1_1divides__assign.html" title=" " alt="" coords="207,205,336,248"/>
+<area shape="poly" id="edge244_Node000000_Node000004" title=" " alt="" coords="81,698,85,615,102,500,118,437,139,374,168,313,205,258,220,246,217,251,209,262,173,316,144,376,123,438,107,501,91,615,86,698"/>
+<area shape="rect" id="Node000005" href="$structboost_1_1numeric_1_1op_1_1equal__to.html" title=" " alt="" coords="207,272,336,315"/>
+<area shape="poly" id="edge245_Node000000_Node000005" title=" " alt="" coords="82,697,90,625,110,528,125,474,146,422,172,371,205,325,221,313,218,317,209,328,177,374,151,424,130,476,115,529,95,626,87,698"/>
+<area shape="rect" id="Node000006" href="$structboost_1_1numeric_1_1op_1_1fdiv.html" title=" " alt="" coords="207,339,336,381"/>
+<area shape="poly" id="edge246_Node000000_Node000006" title=" " alt="" coords="84,698,96,636,117,556,153,470,176,429,205,392,221,379,218,384,209,395,181,432,158,472,122,558,101,638,90,698"/>
+<area shape="rect" id="Node000007" href="$structboost_1_1numeric_1_1op_1_1greater.html" title=" " alt="" coords="207,405,336,448"/>
+<area shape="poly" id="edge247_Node000000_Node000007" title=" " alt="" coords="87,698,102,648,126,585,160,518,181,487,205,458,222,446,219,451,209,462,185,490,164,521,131,587,107,649,93,699"/>
+<area shape="rect" id="Node000008" href="$structboost_1_1numeric_1_1op_1_1greater__equal.html" title=" " alt="" coords="207,472,336,515"/>
+<area shape="poly" id="edge248_Node000000_Node000008" title=" " alt="" coords="92,698,135,615,167,567,205,525,223,513,220,517,208,529,171,571,140,617,97,700"/>
+<area shape="rect" id="Node000009" href="$structboost_1_1numeric_1_1op_1_1less.html" title=" " alt="" coords="207,539,336,581"/>
+<area shape="poly" id="edge249_Node000000_Node000009" title=" " alt="" coords="100,700,146,646,205,591,225,580,222,584,208,595,149,650,105,702"/>
+<area shape="rect" id="Node000010" href="$structboost_1_1numeric_1_1op_1_1less__equal.html" title=" " alt="" coords="207,605,336,648"/>
+<area shape="poly" id="edge250_Node000000_Node000010" title=" " alt="" coords="120,704,205,658,230,647,226,651,208,662,124,707"/>
+<area shape="rect" id="Node000011" href="$structboost_1_1numeric_1_1op_1_1max__assign.html" title=" " alt="" coords="207,672,336,715"/>
+<area shape="poly" id="edge251_Node000000_Node000011" title=" " alt="" coords="173,708,208,703,204,707,176,712"/>
+<area shape="rect" id="Node000012" href="$structboost_1_1numeric_1_1op_1_1min__assign.html" title=" " alt="" coords="207,739,336,781"/>
+<area shape="poly" id="edge252_Node000000_Node000012" title=" " alt="" coords="173,741,208,747,204,750,176,745"/>
+<area shape="rect" id="Node000013" href="$structboost_1_1numeric_1_1op_1_1minus.html" title=" " alt="" coords="207,805,336,848"/>
+<area shape="poly" id="edge253_Node000000_Node000013" title=" " alt="" coords="121,745,208,791,231,804,226,806,205,796,123,750"/>
+<area shape="rect" id="Node000014" href="$structboost_1_1numeric_1_1op_1_1minus__assign.html" title=" " alt="" coords="207,872,336,915"/>
+<area shape="poly" id="edge254_Node000000_Node000014" title=" " alt="" coords="102,750,149,803,208,858,226,871,221,872,205,862,146,807,103,755"/>
+<area shape="rect" id="Node000015" href="$structboost_1_1numeric_1_1op_1_1modulus.html" title=" " alt="" coords="207,939,336,981"/>
+<area shape="poly" id="edge255_Node000000_Node000015" title=" " alt="" coords="95,752,140,836,171,883,208,925,224,937,219,939,205,929,167,886,135,839,95,757"/>
+<area shape="rect" id="Node000016" href="$structboost_1_1numeric_1_1op_1_1modulus__assign.html" title=" " alt="" coords="207,1005,336,1048"/>
+<area shape="poly" id="edge256_Node000000_Node000016" title=" " alt="" coords="90,753,107,804,131,866,164,932,185,963,209,991,223,1004,218,1006,205,995,181,967,160,935,126,869,102,806,90,758"/>
+<area shape="rect" id="Node000017" href="$structboost_1_1numeric_1_1op_1_1multiplies.html" title=" " alt="" coords="207,1072,336,1115"/>
+<area shape="poly" id="edge257_Node000000_Node000017" title=" " alt="" coords="87,753,101,816,122,896,158,981,181,1022,209,1058,222,1071,217,1072,205,1062,176,1024,153,983,117,897,96,817,87,758"/>
+<area shape="rect" id="Node000018" href="$structboost_1_1numeric_1_1op_1_1multiplies__assign.html" title=" " alt="" coords="207,1139,336,1181"/>
+<area shape="poly" id="edge258_Node000000_Node000018" title=" " alt="" coords="85,753,95,827,115,925,130,977,151,1030,177,1080,209,1125,222,1138,217,1139,205,1128,172,1082,146,1032,125,979,110,926,90,828,85,758"/>
+<area shape="rect" id="Node000019" href="$structboost_1_1numeric_1_1op_1_1not__equal__to.html" title=" " alt="" coords="207,1205,336,1248"/>
+<area shape="poly" id="edge259_Node000000_Node000019" title=" " alt="" coords="83,753,91,838,107,953,123,1015,144,1078,173,1137,209,1192,221,1204,216,1205,205,1195,168,1140,139,1080,118,1017,102,954,85,838,83,758"/>
+<area shape="rect" id="Node000020" href="$structboost_1_1numeric_1_1op_1_1outer__product.html" title=" " alt="" coords="207,1272,336,1315"/>
+<area shape="poly" id="edge260_Node000000_Node000020" title=" " alt="" coords="87,752,104,864,130,1013,166,1160,186,1218,209,1258,221,1271,216,1272,205,1262,182,1220,161,1161,125,1014,99,864,87,758"/>
+<area shape="rect" id="Node000021" href="$structboost_1_1numeric_1_1op_1_1plus.html" title=" " alt="" coords="207,1339,336,1381"/>
+<area shape="poly" id="edge261_Node000000_Node000021" title=" " alt="" coords="86,752,102,876,127,1045,143,1132,162,1212,184,1279,209,1325,221,1338,216,1338,205,1328,179,1281,157,1214,138,1134,121,1046,97,876,86,758"/>
+<area shape="rect" id="Node000022" href="$structboost_1_1numeric_1_1op_1_1plus__assign.html" title=" " alt="" coords="207,1405,336,1448"/>
+<area shape="poly" id="edge262_Node000000_Node000022" title=" " alt="" coords="86,753,100,888,123,1077,139,1175,159,1265,182,1340,209,1392,221,1406,216,1404,205,1395,177,1342,154,1266,134,1176,118,1078,94,889,85,758"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="boost::numeric::functional::outer_product&lt; Left, Right, LeftTag, RightTag &gt;" name="boost::numeric::functional::outer_product&lt; Left, Right, LeftTag, RightTag &gt;">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,309,191,368"/>
+<area shape="rect" id="Node000002" href="$structboost_1_1numeric_1_1functional_1_1outer__product__base.html" title=" " alt="" coords="7,203,189,261"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,275,101,310,95,308,96,279"/>
+<area shape="rect" id="Node000003" href="$structboost_1_1numeric_1_1functional_1_1multiplies.html" title=" " alt="" coords="12,112,184,155"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="99,168,101,203,95,202,97,173"/>
+<area shape="rect" id="Node000004" href="$structboost_1_1numeric_1_1functional_1_1multiplies__base.html" title=" " alt="" coords="12,5,184,64"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="99,77,101,112,95,111,97,82"/>
+</map>

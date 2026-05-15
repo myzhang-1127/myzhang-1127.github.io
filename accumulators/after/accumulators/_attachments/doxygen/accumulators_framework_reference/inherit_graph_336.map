@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$structboost_1_1numeric_1_1functional_1_1max__assign__base.html" title=" " alt="" coords="5,88,178,147"/>
+<area shape="rect" id="Node000001" href="$structboost_1_1numeric_1_1functional_1_1max__assign_3_01_left_00_01_right_00_01std__valarray__tag_00_01std__valarray__tag_01_4.html" title=" " alt="" coords="226,5,463,64"/>
+<area shape="poly" id="edge327_Node000000_Node000001" title=" " alt="" coords="191,82,255,63,250,66,194,87"/>
+<area shape="rect" id="Node000002" href="$structboost_1_1numeric_1_1functional_1_1max__assign_3_01_left_00_01_right_00_01std__vector__tag_00_01std__vector__tag_01_4.html" title=" " alt="" coords="236,88,453,147"/>
+<area shape="poly" id="edge328_Node000000_Node000002" title=" " alt="" coords="193,115,238,116,233,118,194,120"/>
+<area shape="rect" id="Node000003" href="$structboost_1_1numeric_1_1functional_1_1max__assign.html" title=" " alt="" coords="256,171,432,229"/>
+<area shape="poly" id="edge329_Node000000_Node000003" title=" " alt="" coords="193,148,258,171,253,172,192,153"/>
+</map>

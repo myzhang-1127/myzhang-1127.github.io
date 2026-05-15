@@ -1,0 +1,13 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$structboost_1_1accumulators_1_1feature__of.html" title=" " alt="" coords="5,96,185,139"/>
+<area shape="rect" id="Node000001" href="$structboost_1_1accumulators_1_1feature__of_3_01tag_1_1weighted__median_01_4.html" title=" " alt="" coords="255,5,432,64"/>
+<area shape="poly" id="edge192_Node000000_Node000001" title=" " alt="" coords="175,88,256,63,252,66,177,93"/>
+<area shape="rect" id="Node000002" href="$structboost_1_1accumulators_1_1feature__of_3_01tag_1_1with__density__median_01_4.html" title=" " alt="" coords="269,88,418,147"/>
+<area shape="poly" id="edge193_Node000000_Node000002" title=" " alt="" coords="199,115,270,116,266,118,200,120"/>
+<area shape="rect" id="Node000004" href="$structboost_1_1accumulators_1_1feature__of_3_01tag_1_1with__p__square__cumulative__distribution__median_01_4.html" title=" " alt="" coords="233,171,454,245"/>
+<area shape="poly" id="edge195_Node000000_Node000004" title=" " alt="" coords="170,142,242,169,237,171,170,147"/>
+<area shape="rect" id="Node000003" href="$structboost_1_1accumulators_1_1feature__of_3_01tag_1_1with__density__weighted__median_01_4.html" title=" " alt="" coords="518,88,708,147"/>
+<area shape="poly" id="edge194_Node000002_Node000003" title=" " alt="" coords="433,115,520,117,515,118,434,120"/>
+<area shape="rect" id="Node000005" href="$structboost_1_1accumulators_1_1feature__of_3_01tag_1_1with__p__square__cumulative__distribution__weighted__median_01_4.html" title=" " alt="" coords="502,171,723,245"/>
+<area shape="poly" id="edge196_Node000004_Node000005" title=" " alt="" coords="469,205,504,208,499,208,470,211"/>
+</map>

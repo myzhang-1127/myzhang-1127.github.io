@@ -174,7 +174,16 @@
     <h1 class="page">User&#8217;s Guide</h1>
   <div id="preamble">
 <div class="sectionbody">
-<div id="accumulators.user_s_guide" class="sidebarblock accumulators-mini-toc">
+<style>
+/* Include-path links inside synopsis blocks (same intent as reference.adoc). */
+.doc pre.programlisting code a,
+.doc pre.programlisting a {
+  color: #0b5cad;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+</style>
+<div class="sidebarblock accumulators-mini-toc">
 <div class="content">
 <div class="ulist">
 <ul>
@@ -201,7 +210,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;iostream&gt;
+<pre class="highlight"><code class="language-c++" data-lang="c++">#include &lt;iostream&gt;
 #include &lt;boost/accumulators/accumulators.hpp&gt;
 #include &lt;boost/accumulators/statistics/stats.hpp&gt;
 #include &lt;boost/accumulators/statistics/mean.hpp&gt;
@@ -233,7 +242,7 @@ int main()
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">Mean:   2.85
+<pre class="highlight"><code class="language-text" data-lang="text">Mean:   2.85
 Moment: 9.635</code></pre>
 </div>
 </div>
@@ -277,18 +286,18 @@ Moment: 9.635</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p>Users build a computational object, called an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>, by selecting the computations in which they are interested, or authoring their own computational primitives which fit within the framework.</p>
+<p>Users build a computational object, called an <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a>, by selecting the computations in which they are interested, or authoring their own computational primitives which fit within the framework.</p>
 </li>
 <li>
-<p>Users push data into the <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> object one sample at a time.</p>
+<p>Users push data into the <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a> object one sample at a time.</p>
 </li>
 <li>
-<p>The <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> computes the requested quantities in the most efficient method possible, resolving dependencies between requested calculations, possibly caching intermediate results.</p>
+<p>The <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a> computes the requested quantities in the most efficient method possible, resolving dependencies between requested calculations, possibly caching intermediate results.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The Accumulators Framework defines the utilities needed for defining primitive computational elements, called <em>accumulators</em>. It also provides the <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> type, described above.</p>
+<p>The Accumulators Framework defines the utilities needed for defining primitive computational elements, called <em>accumulators</em>. It also provides the <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a> type, described above.</p>
 </div>
 </div>
 </div>
@@ -302,7 +311,7 @@ Moment: 9.635</code></pre>
 <dl>
 <dt class="hdlist1">Sample</dt>
 <dd>
-<p><a id="sample_type"></a> A datum that is pushed into an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>. The type of the sample is the <em>sample type</em>.</p>
+<p><a id="sample_type"></a> A datum that is pushed into an <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a>. The type of the sample is the <em>sample type</em>.</p>
 </dd>
 <dt class="hdlist1">Weight</dt>
 <dd>
@@ -310,7 +319,7 @@ Moment: 9.635</code></pre>
 </dd>
 <dt class="hdlist1">Feature</dt>
 <dd>
-<p>An abstract primitive computational entity. When defining an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>, users specify the features in which they are interested, and the <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> figures out which <em>accumulators</em> would best provide those features. Features may depend on other features. If they do, the accumulator set figures out which accumulators to add to satisfy the dependencies.</p>
+<p>An abstract primitive computational entity. When defining an <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a>, users specify the features in which they are interested, and the <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a> figures out which <em>accumulators</em> would best provide those features. Features may depend on other features. If they do, the accumulator set figures out which accumulators to add to satisfy the dependencies.</p>
 </dd>
 <dt class="hdlist1">Accumulator</dt>
 <dd>
@@ -322,7 +331,7 @@ Moment: 9.635</code></pre>
 </dd>
 <dt class="hdlist1">Extractor</dt>
 <dd>
-<p>A function or function object that can be used to extract a result from an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>.</p>
+<p>A function or function object that can be used to extract a result from an <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a>.</p>
 </dd>
 </dl>
 </div>
@@ -348,43 +357,43 @@ Moment: 9.635</code></pre>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This is the most important type in the Accumulators Framework. It is a collection of accumulators. A datum pushed into an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> is forwarded to each accumulator, in an order determined by the dependency relationships between the accumulators. Computational results can be extracted from an accumulator at any time.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This is the most important type in the Accumulators Framework. It is a collection of accumulators. A datum pushed into an <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a> is forwarded to each accumulator, in an order determined by the dependency relationships between the accumulators. Computational results can be extracted from an accumulator at any time.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="reference.html#doxygen.accumulators_framework_reference.depends__on_8hpp" class="xref page"><em><code>depends_on&lt;&gt;</code></em></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1depends__on.html" class="xref attachment"><em><code>depends_on&lt;&gt;</code></em></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Used to specify which other features a feature depends on.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="reference.html#doxygen.accumulators_framework_reference.depends__on_8hpp" class="xref page"><em><code>feature_of&lt;&gt;</code></em></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1feature__of.html" class="xref attachment"><em><code>feature_of&lt;&gt;</code></em></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Trait used to tell the Accumulators Framework that, for the purpose of feature-based dependency resolution, one feature should be treated the same as another.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="reference.html#doxygen.accumulators_framework_reference.depends__on_8hpp" class="xref page"><em><code>as_feature&lt;&gt;</code></em></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Used to create an alias for a feature. For example, if there are two features, fast_X and accurate_X, they can be mapped to X(fast) and X(accurate) with <a href="reference.html#doxygen.accumulators_framework_reference.depends__on_8hpp" class="xref page"><em><code>as_feature&lt;&gt;</code></em></a>. This is just syntactic sugar.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1as__feature.html" class="xref attachment"><em><code>as_feature&lt;&gt;</code></em></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used to create an alias for a feature. For example, if there are two features, fast_X and accurate_X, they can be mapped to X(fast) and X(accurate) with <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1as__feature.html" class="xref attachment"><em><code>as_feature&lt;&gt;</code></em></a>. This is just syntactic sugar.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="reference.html#doxygen.accumulators_framework_reference.features_8hpp" class="xref page"><em><code>features&lt;&gt;</code></em></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">An <a href="../../libs/mpl/index.html">MPL</a> sequence. We can use <a href="reference.html#doxygen.accumulators_framework_reference.features_8hpp" class="xref page"><em><code>features&lt;&gt;</code></em></a> as the second template parameter when declaring an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1features.html" class="xref attachment"><em><code>features&lt;&gt;</code></em></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An <a href="https://www.boost.org/doc/libs/latest/libs/mpl/index.html">MPL</a> sequence. We can use <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1features.html" class="xref attachment"><em><code>features&lt;&gt;</code></em></a> as the second template parameter when declaring an <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a>.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="reference.html#doxygen.accumulators_framework_reference.external__accumulator_8hpp" class="xref page"><em><code>external&lt;&gt;</code></em></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Used when declaring an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>. If the weight type is specified with <a href="reference.html#doxygen.accumulators_framework_reference.external__accumulator_8hpp" class="xref page"><em><code>external&lt;&gt;</code></em></a>, then the weight accumulators are assumed to reside in a separate accumulator set which will be passed in with a named parameter.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1external.html" class="xref attachment"><em><code>external&lt;&gt;</code></em></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used when declaring an <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a>. If the weight type is specified with <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1external.html" class="xref attachment"><em><code>external&lt;&gt;</code></em></a>, then the weight accumulators are assumed to reside in a separate accumulator set which will be passed in with a named parameter.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><code>extractor&lt;&gt;</code></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A class template useful for creating an extractor function object. It is parameterized on a feature, and it has member functions for extracting from an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> the result corresponding to that feature.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A class template useful for creating an extractor function object. It is parameterized on a feature, and it has member functions for extracting from an <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a> the result corresponding to that feature.</p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_accumulators_framework.using___accumulator_set___"><a class="anchor" href="#accumulators.user_s_guide.the_accumulators_framework.using___accumulator_set___"></a>Using <code>accumulator_set&lt;&gt;</code></h3>
 <div class="paragraph">
-<p>Our tour of the <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> class template begins with the forward declaration:</p>
+<p>Our tour of the <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a> class template begins with the forward declaration:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">template&lt; typename Sample, typename Features, typename Weight = void &gt;
+<pre class="highlight"><code class="language-c++" data-lang="c++">template&lt; typename Sample, typename Features, typename Weight = void &gt;
 struct accumulator_set;</code></pre>
 </div>
 </div>
@@ -399,7 +408,7 @@ struct accumulator_set;</code></pre>
 </dd>
 <dt class="hdlist1">Features</dt>
 <dd>
-<p>An <a href="../../libs/mpl/index.html">MPL</a> sequence of features to be calculated.</p>
+<p>An <a href="https://www.boost.org/doc/libs/latest/libs/mpl/index.html">MPL</a> sequence of features to be calculated.</p>
 </dd>
 <dt class="hdlist1">Weight</dt>
 <dd>
@@ -408,15 +417,15 @@ struct accumulator_set;</code></pre>
 </dl>
 </div>
 <div class="paragraph">
-<p>For example, the following line declares an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> that will accept a sequence of doubles one at a time and calculate the min and mean:</p>
+<p>For example, the following line declares an <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a> that will accept a sequence of doubles one at a time and calculate the min and mean:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt; double, features&lt; tag::min, tag::mean &gt; &gt; acc;</code></pre>
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt; double, features&lt; tag::min, tag::mean &gt; &gt; acc;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Notice that we use the <a href="reference.html#doxygen.accumulators_framework_reference.features_8hpp" class="xref page"><em><code>features&lt;&gt;</code></em></a> template to specify a list of features to be calculated. <a href="reference.html#doxygen.accumulators_framework_reference.features_8hpp" class="xref page"><em><code>features&lt;&gt;</code></em></a> is an MPL sequence of features.</p>
+<p>Notice that we use the <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1features.html" class="xref attachment"><em><code>features&lt;&gt;</code></em></a> template to specify a list of features to be calculated. <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1features.html" class="xref attachment"><em><code>features&lt;&gt;</code></em></a> is an MPL sequence of features.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -433,22 +442,22 @@ struct accumulator_set;</code></pre>
 </table>
 </div>
 <div class="paragraph">
-<p>Once we have defined an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>, we can then push data into it, and it will calculate the quantities you requested, as shown below.</p>
+<p>Once we have defined an <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a>, we can then push data into it, and it will calculate the quantities you requested, as shown below.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// push some data into the accumulator_set ...
+<pre class="highlight"><code class="language-text" data-lang="text">// push some data into the accumulator_set ...
 acc(1.2);
 acc(2.3);
 acc(3.4);</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Since <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> defines its accumulate function to be the function call operator, we might be tempted to use an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> as a UnaryFunction to a standard algorithm such as <code>std::for_each</code>. That&#8217;s fine as long as we keep in mind that the standard algorithms take UnaryFunction objects by value, which involves making a copy of the <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> object. Consider the following:</p>
+<p>Since <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a> defines its accumulate function to be the function call operator, we might be tempted to use an <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a> as a UnaryFunction to a standard algorithm such as <code>std::for_each</code>. That&#8217;s fine as long as we keep in mind that the standard algorithms take UnaryFunction objects by value, which involves making a copy of the <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a> object. Consider the following:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// The data for which we wish to calculate statistical properties:
+<pre class="highlight"><code class="language-text" data-lang="text">// The data for which we wish to calculate statistical properties:
 std::vector&lt; double &gt; data( /* stuff */ );
 
 // The accumulator set which will calculate the properties for us:
@@ -459,11 +468,11 @@ acc = std::for_each( data.begin(), data.end(), acc );</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Notice how we must assign the return value of <code>std::for_each</code> back to the <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>. This works, but some accumulators are not cheap to copy. For example, the <a href="reference.html#doxygen.statistics_library_reference.tail_8hpp" class="xref page"><em><code>tail</code></em></a> and <a href="reference.html#doxygen.statistics_library_reference.tail__variate_8hpp" class="xref page"><em><code>tail_variate&lt;&gt;</code></em></a> accumulators must store a <code>std::vector&lt;&gt;</code>, so copying these accumulators involves a dynamic allocation. We might be better off in this case passing the accumulator by reference, with the help of <code>boost::bind()</code> and <code>boost::ref()</code>. See below:</p>
+<p>Notice how we must assign the return value of <code>std::for_each</code> back to the <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a>. This works, but some accumulators are not cheap to copy. For example, the <a href="reference.html#doxygen.statistics_library_reference.tail_8hpp" class="xref page"><em><code>tail</code></em></a> and <a href="reference.html#doxygen.statistics_library_reference.tail__variate_8hpp" class="xref page"><em><code>tail_variate&lt;&gt;</code></em></a> accumulators must store a <code>std::vector&lt;&gt;</code>, so copying these accumulators involves a dynamic allocation. We might be better off in this case passing the accumulator by reference, with the help of <code>boost::bind()</code> and <code>boost::ref()</code>. See below:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// The data for which we wish to calculate statistical properties:
+<pre class="highlight"><code class="language-text" data-lang="text">// The data for which we wish to calculate statistical properties:
 std::vector&lt; double &gt; data( /* stuff */ );
 
 // The accumulator set which will calculate the properties for us:
@@ -495,11 +504,11 @@ std::for_each( data.begin(), data.end(), bind&lt;void&gt;( ref(acc), _1 ) );</co
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_accumulators_framework.extracting_results"><a class="anchor" href="#accumulators.user_s_guide.the_accumulators_framework.extracting_results"></a>Extracting Results</h3>
 <div class="paragraph">
-<p>Once we have declared an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> and pushed data into it, we need to be able to extract results from it. For each feature we can add to an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>, there is a corresponding extractor for fetching its result. Usually, the extractor has the same name as the feature, but in a different namespace. For example, if we accumulate the <code>tag::min</code> and <code>tag::max</code> features, we can extract the results with the <code>min</code> and <code>max</code> extractors, as follows:</p>
+<p>Once we have declared an <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a> and pushed data into it, we need to be able to extract results from it. For each feature we can add to an <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a>, there is a corresponding extractor for fetching its result. Usually, the extractor has the same name as the feature, but in a different namespace. For example, if we accumulate the <code>tag::min</code> and <code>tag::max</code> features, we can extract the results with the <code>min</code> and <code>max</code> extractors, as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// Calculate the minimum and maximum for a sequence of integers.
+<pre class="highlight"><code class="language-text" data-lang="text">// Calculate the minimum and maximum for a sequence of integers.
 accumulator_set&lt; int, features&lt; tag::min, tag::max &gt; &gt; acc;
 acc( 2 );
 acc( -1 );
@@ -527,11 +536,11 @@ std::cout &lt;&lt; '(' &lt;&lt; min( acc ) &lt;&lt; ", " &lt;&lt; max( acc ) &lt
 </table>
 </div>
 <div class="paragraph">
-<p>Another way to extract a result from an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> is with the <code>extract_result()</code> function. This can be more convenient if there isn&#8217;t an extractor object handy for a certain feature. The line above which displays results could equally be written as:</p>
+<p>Another way to extract a result from an <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a> is with the <code>extract_result()</code> function. This can be more convenient if there isn&#8217;t an extractor object handy for a certain feature. The line above which displays results could equally be written as:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// This displays "(-1, 2)"
+<pre class="highlight"><code class="language-text" data-lang="text">// This displays "(-1, 2)"
 std::cout &lt;&lt; '('  &lt;&lt; extract_result&lt; tag::min &gt;( acc )
           &lt;&lt; ", " &lt;&lt; extract_result&lt; tag::max &gt;( acc ) &lt;&lt; ")\n";</code></pre>
 </div>
@@ -541,7 +550,7 @@ std::cout &lt;&lt; '('  &lt;&lt; extract_result&lt; tag::min &gt;( acc )
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">extractor&lt; tag::min &gt; min_;
+<pre class="highlight"><code class="language-text" data-lang="text">extractor&lt; tag::min &gt; min_;
 extractor&lt; tag::min &gt; max_;
 
 // This displays "(-1, 2)"
@@ -552,14 +561,14 @@ std::cout &lt;&lt; '(' &lt;&lt; min_( acc ) &lt;&lt; ", " &lt;&lt; max_( acc ) &
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_accumulators_framework.passing_optional_parameters"><a class="anchor" href="#accumulators.user_s_guide.the_accumulators_framework.passing_optional_parameters"></a>Passing Optional Parameters</h3>
 <div class="paragraph">
-<p>Some accumulators need initialization parameters. In addition, perhaps some auxiliary information needs to be passed into the <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> along with each sample. Boost.Accumulators handles these cases with named parameters from the <a href="../../libs/parameter/index.html">Boost.Parameter</a> library.</p>
+<p>Some accumulators need initialization parameters. In addition, perhaps some auxiliary information needs to be passed into the <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a> along with each sample. Boost.Accumulators handles these cases with named parameters from the <a href="https://www.boost.org/doc/libs/latest/libs/parameter/index.html">Boost.Parameter</a> library.</p>
 </div>
 <div class="paragraph">
 <p>For example, consider the <a href="reference.html#doxygen.statistics_library_reference.tail_8hpp" class="xref page"><em><code>tail</code></em></a> and <a href="reference.html#doxygen.statistics_library_reference.tail__variate_8hpp" class="xref page"><em><code>tail_variate&lt;&gt;</code></em></a> features. <a href="reference.html#doxygen.statistics_library_reference.tail_8hpp" class="xref page"><em><code>tail</code></em></a> keeps an ordered list of the largest <code>N</code> samples, where <code>N</code> can be specified at construction time. Also, the <a href="reference.html#doxygen.statistics_library_reference.tail__variate_8hpp" class="xref page"><em><code>tail_variate&lt;&gt;</code></em></a> feature, which depends on <a href="reference.html#doxygen.statistics_library_reference.tail_8hpp" class="xref page"><em><code>tail</code></em></a>, keeps track of some data that is covariate with the <code>N</code> samples tracked by <a href="reference.html#doxygen.statistics_library_reference.tail_8hpp" class="xref page"><em><code>tail</code></em></a>. The code below shows how this all works, and is described in more detail below.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// Define a feature for tracking covariate data
+<pre class="highlight"><code class="language-text" data-lang="text">// Define a feature for tracking covariate data
 typedef tag::tail_variate&lt; int, tag::covariate1, left &gt; my_tail_variate_tag;
 
 // This will calculate the left tail and my_tail_variate_tag for N == 2
@@ -605,21 +614,21 @@ std::copy( my_tail_variate( acc ).begin(), my_tail_variate( acc ).end(), iout );
 <p>Some accumulators, statistical accumulators in particular, deal with data that are <em>weighted</em>. Each sample pushed into the accumulator has an associated weight, by which the sample is conceptually multiplied. The Statistical Accumulators Library provides an assortment of these weighted statistical accumulators. And many unweighted statistical accumulators have weighted variants. For instance, the weighted variant of the <code>sum</code> accumulator is called <code>weighted_sum</code>, and is calculated by accumulating all the samples multiplied by their weights.</p>
 </div>
 <div class="paragraph">
-<p>To declare an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> that accepts weighted samples, you must specify the type of the weight parameter as the 3rd template parameter, as follows:</p>
+<p>To declare an <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a> that accepts weighted samples, you must specify the type of the weight parameter as the 3rd template parameter, as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// 3rd template parameter 'int' means this is a weighted
+<pre class="highlight"><code class="language-text" data-lang="text">// 3rd template parameter 'int' means this is a weighted
 // accumulator set where the weights have type 'int'
 accumulator_set&lt; int, features&lt; tag::sum &gt;, int &gt; acc;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>When you specify a weight, all the accumulators in the set are replaced with their weighted equivalents. For example, the above <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> declaration is equivalent to the following:</p>
+<p>When you specify a weight, all the accumulators in the set are replaced with their weighted equivalents. For example, the above <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a> declaration is equivalent to the following:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// Since we specified a weight, tag::sum becomes tag::weighted_sum
+<pre class="highlight"><code class="language-text" data-lang="text">// Since we specified a weight, tag::sum becomes tag::weighted_sum
 accumulator_set&lt; int, features&lt; tag::weighted_sum &gt;, int &gt; acc;</code></pre>
 </div>
 </div>
@@ -628,7 +637,7 @@ accumulator_set&lt; int, features&lt; tag::weighted_sum &gt;, int &gt; acc;</cod
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">acc(1, weight = 2); //   1 * 2
+<pre class="highlight"><code class="language-text" data-lang="text">acc(1, weight = 2); //   1 * 2
 acc(2, weight = 4); //   2 * 4
 acc(3, weight = 6); // + 3 * 6
                     // -------
@@ -640,7 +649,7 @@ acc(3, weight = 6); // + 3 * 6
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// This prints "28"
+<pre class="highlight"><code class="language-text" data-lang="text">// This prints "28"
 std::cout &lt;&lt; sum(acc) &lt;&lt; std::endl;</code></pre>
 </div>
 </div>
@@ -712,7 +721,7 @@ std::cout &lt;&lt; sum(acc) &lt;&lt; std::endl;</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">#include &lt;boost/accumulators/framework/accumulator_base.hpp&gt;
+<pre class="highlight"><code class="language-c++" data-lang="c++">#include &lt;boost/accumulators/framework/accumulator_base.hpp&gt;
 #include &lt;boost/accumulators/framework/parameters/sample.hpp&gt;
 
 namespace boost {                           // Putting your accumulators in the
@@ -749,7 +758,7 @@ private:
 </div>
 </div>
 <div class="paragraph">
-<p>Much of the above should be pretty self-explanatory, except for the use of argument packs which may be confusing if you have never used the <a href="../../libs/parameter/index.html">Boost.Parameter</a> library before. An argument pack is a cluster of values, each of which can be accessed with a key. So <code>args[sample]</code> extracts from the pack the value associated with the <code>sample</code> key. And the cryptic <code>args[sample | Sample()]</code> evaluates to the value associated with the <code>sample</code> key if it exists, or a default-constructed <code>Sample</code> if it doesn&#8217;t.</p>
+<p>Much of the above should be pretty self-explanatory, except for the use of argument packs which may be confusing if you have never used the <a href="https://www.boost.org/doc/libs/latest/libs/parameter/index.html">Boost.Parameter</a> library before. An argument pack is a cluster of values, each of which can be accessed with a key. So <code>args[sample]</code> extracts from the pack the value associated with the <code>sample</code> key. And the cryptic <code>args[sample | Sample()]</code> evaluates to the value associated with the <code>sample</code> key if it exists, or a default-constructed <code>Sample</code> if it doesn&#8217;t.</p>
 </div>
 <div class="paragraph">
 <p>The example above demonstrates the most common attributes of an accumulator. There are other optional member functions that have special meaning. In particular:</p>
@@ -770,11 +779,11 @@ private:
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework.defining_a_new_accumulator.accessing_other_accumulators_in_the_set"><a class="anchor" href="#accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework.defining_a_new_accumulator.accessing_other_accumulators_in_the_set"></a>Accessing Other Accumulators in the Set</h3>
 <div class="paragraph">
-<p>Some accumulators depend on other accumulators within the same accumulator set. In those cases, it is necessary to be able to access those other accumulators. To make this possible, the <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> passes a reference to itself when invoking the member functions of its contained accumulators. It can be accessed by using the special <code>accumulator</code> key with the argument pack. Consider how we might implement <code>mean_accumulator</code>:</p>
+<p>Some accumulators depend on other accumulators within the same accumulator set. In those cases, it is necessary to be able to access those other accumulators. To make this possible, the <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a> passes a reference to itself when invoking the member functions of its contained accumulators. It can be accessed by using the special <code>accumulator</code> key with the argument pack. Consider how we might implement <code>mean_accumulator</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">// Mean == (Sum / Count)
+<pre class="highlight"><code class="language-c++" data-lang="c++">// Mean == (Sum / Count)
 template&lt;typename Sample&gt;
 struct mean_accumulator : accumulator_base
 {
@@ -790,7 +799,7 @@ struct mean_accumulator : accumulator_base
 </div>
 </div>
 <div class="paragraph">
-<p><code>mean</code> depends on the <code>sum</code> and <code>count</code> accumulators. (We&#8217;ll see in the next section how to specify these dependencies.) The result of the mean accumulator is merely the result of the sum accumulator divided by the result of the count accumulator. Consider how we write that: <code>sum(args[accumulator]) / count(args[accumulator])</code>. The expression <code>args[accumulator]</code> evaluates to a reference to the <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> that contains this <code>mean_accumulator</code>. It also contains the <code>sum</code> and <code>count</code> accumulators, and we can access their results with the extractors defined for those features: <code>sum</code> and <code>count</code>.</p>
+<p><code>mean</code> depends on the <code>sum</code> and <code>count</code> accumulators. (We&#8217;ll see in the next section how to specify these dependencies.) The result of the mean accumulator is merely the result of the sum accumulator divided by the result of the count accumulator. Consider how we write that: <code>sum(args[accumulator]) / count(args[accumulator])</code>. The expression <code>args[accumulator]</code> evaluates to a reference to the <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a> that contains this <code>mean_accumulator</code>. It also contains the <code>sum</code> and <code>count</code> accumulators, and we can access their results with the extractors defined for those features: <code>sum</code> and <code>count</code>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -807,7 +816,7 @@ struct mean_accumulator : accumulator_base
 </table>
 </div>
 <div class="paragraph">
-<p>All the member functions that accept an argument pack have access to the enclosing <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> via the <code>accumulator</code> key, including the constructor. The accumulators within the set are constructed in an order determined by their interdependencies. As a result, it is safe for an accumulator to access one on which it depends during construction.</p>
+<p>All the member functions that accept an argument pack have access to the enclosing <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a> via the <code>accumulator</code> key, including the constructor. The accumulators within the set are constructed in an order determined by their interdependencies. As a result, it is safe for an accumulator to access one on which it depends during construction.</p>
 </div>
 </div>
 <div class="sect2">
@@ -822,11 +831,11 @@ struct mean_accumulator : accumulator_base
 <div class="sect2">
 <h3 id="accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework.defining_a_new_accumulator.droppable_accumulators"><a class="anchor" href="#accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework.defining_a_new_accumulator.droppable_accumulators"></a>Droppable Accumulators</h3>
 <div class="paragraph">
-<p>The term "droppable" refers to an accumulator that can be removed from the <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>. You can request that an accumulator be made droppable by using the <a href="reference.html#doxygen.accumulators_framework_reference.droppable__accumulator_8hpp" class="xref page"><em><code>droppable&lt;&gt;</code></em></a> class template.</p>
+<p>The term "droppable" refers to an accumulator that can be removed from the <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a>. You can request that an accumulator be made droppable by using the <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1droppable.html" class="xref attachment"><em><code>droppable&lt;&gt;</code></em></a> class template.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// calculate sum and count, make sum droppable:
+<pre class="highlight"><code class="language-text" data-lang="text">// calculate sum and count, make sum droppable:
 accumulator_set&lt; double, features&lt; tag::count, droppable&lt;tag::sum&gt; &gt; &gt; acc;
 
 // add some data
@@ -848,7 +857,7 @@ std::cout &lt;&lt; count(acc) &lt;&lt; ' ' &lt;&lt; sum(acc);</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// Sum is not droppable. Mean is droppable. Count, brought in to
+<pre class="highlight"><code class="language-text" data-lang="text">// Sum is not droppable. Mean is droppable. Count, brought in to
 // satisfy mean's dependencies, is implicitly droppable, too.
 accumulator_set&lt; double, features&lt; tag::sum, droppable&lt;tag::mean&gt; &gt; &gt; acc;</code></pre>
 </div>
@@ -861,7 +870,7 @@ accumulator_set&lt; double, features&lt; tag::sum, droppable&lt;tag::mean&gt; &g
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// calculate sum and mean, make mean droppable.
+<pre class="highlight"><code class="language-text" data-lang="text">// calculate sum and mean, make mean droppable.
 accumulator_set&lt; double, features&lt; tag::sum, droppable&lt;tag::mean&gt; &gt; &gt; acc;
 
 // add some data
@@ -939,11 +948,11 @@ std::cout &lt;&lt; sum(acc) &lt;&lt; ' '
 <div class="sect3">
 <h4 id="accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework.defining_a_new_feature"><a class="anchor" href="#accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework.defining_a_new_feature"></a><em>Defining a New Feature</em></h4>
 <div class="paragraph">
-<p>Once we have implemented an accumulator, we must define a feature for it so that users can specify the feature when declaring an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>. We typically put the features into a nested namespace, so that later we can define an extractor of the same name. All features must satisfy the <a href="#accumulators.user_s_guide.the_accumulators_framework.concepts.feature_concept">Feature Concept</a>. Using <a href="reference.html#doxygen.accumulators_framework_reference.depends__on_8hpp" class="xref page"><em><code>depends_on&lt;&gt;</code></em></a> makes satisfying the concept simple. Below is an example of a feature definition.</p>
+<p>Once we have implemented an accumulator, we must define a feature for it so that users can specify the feature when declaring an <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a>. We typically put the features into a nested namespace, so that later we can define an extractor of the same name. All features must satisfy the <a href="#accumulators.user_s_guide.the_accumulators_framework.concepts.feature_concept">Feature Concept</a>. Using <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1depends__on.html" class="xref attachment"><em><code>depends_on&lt;&gt;</code></em></a> makes satisfying the concept simple. Below is an example of a feature definition.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">namespace boost { namespace accumulators { namespace tag {
+<pre class="highlight"><code class="language-text" data-lang="text">namespace boost { namespace accumulators { namespace tag {
 
 struct mean                         // Features should inherit from
   : depends_on&lt; count, sum &gt;        // depends_on&lt;&gt; to specify dependencies
@@ -957,14 +966,14 @@ struct mean                         // Features should inherit from
 </div>
 </div>
 <div class="paragraph">
-<p>The only two things we must do to define the <code>mean</code> feature is to specify the dependencies with <a href="reference.html#doxygen.accumulators_framework_reference.depends__on_8hpp" class="xref page"><em><code>depends_on&lt;&gt;</code></em></a> and define the nested <code>impl</code> typedef. Even features that have no dependencies should inherit from <a href="reference.html#doxygen.accumulators_framework_reference.depends__on_8hpp" class="xref page"><em><code>depends_on&lt;&gt;</code></em></a>. The nested <code>impl</code> type must be an <a href="../../libs/mpl/doc/refmanual/lambda-expression.html">MPL Lambda Expression</a>. The result of <code>mpl::apply&lt; impl, sample-type, weight-type &gt;::type</code> must be be the type of the accumulator that implements this feature. The use of <a href="../../libs/mpl/index.html">MPL</a> placeholders like <code>mpl::_1</code> make it especially easy to make a template such as <code>mean_accumulator&lt;&gt;</code> an <a href="../../libs/mpl/doc/refmanual/lambda-expression.html">MPL Lambda Expression</a>. Here, <code>mpl::_1</code> will be replaced with the sample type. Had we used <code>mpl::_2</code>, it would have been replaced with the weight type.</p>
+<p>The only two things we must do to define the <code>mean</code> feature is to specify the dependencies with <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1depends__on.html" class="xref attachment"><em><code>depends_on&lt;&gt;</code></em></a> and define the nested <code>impl</code> typedef. Even features that have no dependencies should inherit from <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1depends__on.html" class="xref attachment"><em><code>depends_on&lt;&gt;</code></em></a>. The nested <code>impl</code> type must be an <a href="https://www.boost.org/doc/libs/latest/libs/mpl/doc/refmanual/lambda-expression.html">MPL Lambda Expression</a>. The result of <code>mpl::apply&lt; impl, sample-type, weight-type &gt;::type</code> must be be the type of the accumulator that implements this feature. The use of <a href="https://www.boost.org/doc/libs/latest/libs/mpl/index.html">MPL</a> placeholders like <code>mpl::_1</code> make it especially easy to make a template such as <code>mean_accumulator&lt;&gt;</code> an <a href="https://www.boost.org/doc/libs/latest/libs/mpl/doc/refmanual/lambda-expression.html">MPL Lambda Expression</a>. Here, <code>mpl::_1</code> will be replaced with the sample type. Had we used <code>mpl::_2</code>, it would have been replaced with the weight type.</p>
 </div>
 <div class="paragraph">
-<p>What about accumulator types that are not templates? If you have a <code>foo_accumulator</code> which is a plain struct and not a template, you could turn it into an <a href="../../libs/mpl/doc/refmanual/lambda-expression.html">MPL Lambda Expression</a> using <code>mpl::always&lt;&gt;</code>, like this:</p>
+<p>What about accumulator types that are not templates? If you have a <code>foo_accumulator</code> which is a plain struct and not a template, you could turn it into an <a href="https://www.boost.org/doc/libs/latest/libs/mpl/doc/refmanual/lambda-expression.html">MPL Lambda Expression</a> using <code>mpl::always&lt;&gt;</code>, like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// An MPL lambda expression that always evaluates to
+<pre class="highlight"><code class="language-text" data-lang="text">// An MPL lambda expression that always evaluates to
 // foo_accumulator:
 typedef mpl::always&lt; foo_accumulator &gt; impl;</code></pre>
 </div>
@@ -974,7 +983,7 @@ typedef mpl::always&lt; foo_accumulator &gt; impl;</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">// Same as 'typedef mpl::always&lt; foo_accumulator &gt; impl;'
+<pre class="highlight"><code class="language-c++" data-lang="c++">// Same as 'typedef mpl::always&lt; foo_accumulator &gt; impl;'
 struct impl
 {
     template&lt; typename Sample, typename Weight &gt;
@@ -986,10 +995,10 @@ struct impl
 </div>
 </div>
 <div class="paragraph">
-<p>Here, <code>impl</code> is a binary <a href="../../libs/mpl/doc/refmanual/metafunction-class.html">MPL Metafunction Class</a>, which is a kind of <a href="../../libs/mpl/doc/refmanual/lambda-expression.html">MPL Lambda Expression</a>. The nested <code>apply&lt;&gt;</code> template is part of the metafunction class protocol and tells MPL how to build the accumulator type given the sample and weight types.</p>
+<p>Here, <code>impl</code> is a binary <a href="https://www.boost.org/doc/libs/latest/libs/mpl/doc/refmanual/metafunction-class.html">MPL Metafunction Class</a>, which is a kind of <a href="https://www.boost.org/doc/libs/latest/libs/mpl/doc/refmanual/lambda-expression.html">MPL Lambda Expression</a>. The nested <code>apply&lt;&gt;</code> template is part of the metafunction class protocol and tells MPL how to build the accumulator type given the sample and weight types.</p>
 </div>
 <div class="paragraph">
-<p>All features must also provide a nested <code>is_weight_accumulator</code> typedef. It must be either <code>mpl::true_</code> or <code>mpl::false_</code>. <a href="reference.html#doxygen.accumulators_framework_reference.depends__on_8hpp" class="xref page"><em><code>depends_on&lt;&gt;</code></em></a> provides a default of <code>mpl::false_</code> for all features that inherit from it, but that can be overridden (or hidden, technically speaking) in the derived type. When the feature represents an accumulation of information about the weights instead of the samples, we can mark this feature as such with <code>typedef mpl::true_ is_weight_accumulator;</code>. The weight accumulators are made external if the weight type is specified using the <a href="reference.html#doxygen.accumulators_framework_reference.external__accumulator_8hpp" class="xref page"><em><code>external&lt;&gt;</code></em></a> template.</p>
+<p>All features must also provide a nested <code>is_weight_accumulator</code> typedef. It must be either <code>mpl::true_</code> or <code>mpl::false_</code>. <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1depends__on.html" class="xref attachment"><em><code>depends_on&lt;&gt;</code></em></a> provides a default of <code>mpl::false_</code> for all features that inherit from it, but that can be overridden (or hidden, technically speaking) in the derived type. When the feature represents an accumulation of information about the weights instead of the samples, we can mark this feature as such with <code>typedef mpl::true_ is_weight_accumulator;</code>. The weight accumulators are made external if the weight type is specified using the <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1external.html" class="xref attachment"><em><code>external&lt;&gt;</code></em></a> template.</p>
 </div>
 </div>
 <div class="sect3">
@@ -999,7 +1008,7 @@ struct impl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">namespace boost {
+<pre class="highlight"><code class="language-text" data-lang="text">namespace boost {
 namespace accumulators {                // By convention, we put extractors
 namespace extract {                     // in the 'extract' namespace
 
@@ -1012,14 +1021,14 @@ using extract::mean;                    // Pull the extractor into the
 </div>
 </div>
 <div class="paragraph">
-<p>Once defined, the <code>mean</code> extractor can be used to extract the result of the <code>tag::mean</code> feature from an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a>.</p>
+<p>Once defined, the <code>mean</code> extractor can be used to extract the result of the <code>tag::mean</code> feature from an <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a>.</p>
 </div>
 <div class="paragraph">
 <p>Parameterized features complicate this simple picture. Consider the <code>moment</code> feature, for calculating the <code>N</code>-th moment, where <code>N</code> is specified as a template parameter:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// An accumulator set for calculating the N-th moment, for N == 2 ...
+<pre class="highlight"><code class="language-text" data-lang="text">// An accumulator set for calculating the N-th moment, for N == 2 ...
 accumulator_set&lt; double, features&lt; tag::moment&lt;2&gt; &gt; &gt; acc;
 
 // ... add some data ...
@@ -1033,7 +1042,7 @@ std::cout &lt;&lt; "2nd moment is " &lt;&lt; accumulators::moment&lt;2&gt;(acc) 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">namespace boost {
+<pre class="highlight"><code class="language-c++" data-lang="c++">namespace boost {
 namespace accumulators {                // By convention, we put extractors
 namespace extract {                     // in the 'extract' namespace
 
@@ -1051,7 +1060,7 @@ using extract::moment;                  // Pull the extractor into the
 </div>
 </div>
 <div class="paragraph">
-<p>The return type deserves some explanation. Every <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> type is actually a unary <a href="../../libs/mpl/doc/refmanual/metafunction-class.html">MPL Metafunction Class</a>. When you <code>mpl::apply&lt;&gt;</code> an <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>accumulator_set&lt;&gt;</code></em></a> and a feature, the result is the type of the accumulator within the set that implements that feature. And every accumulator provides a nested <code>result_type</code> typedef that tells what its return type is. The extractor simply delegates its work to the <a href="reference.html#doxygen.accumulators_framework_reference.accumulator__set_8hpp" class="xref page"><em><code>extract_result()</code></em></a> function.</p>
+<p>The return type deserves some explanation. Every <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a> type is actually a unary <a href="https://www.boost.org/doc/libs/latest/libs/mpl/doc/refmanual/metafunction-class.html">MPL Metafunction Class</a>. When you <code>mpl::apply&lt;&gt;</code> an <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>accumulator_set&lt;&gt;</code></em></a> and a feature, the result is the type of the accumulator within the set that implements that feature. And every accumulator provides a nested <code>result_type</code> typedef that tells what its return type is. The extractor simply delegates its work to the <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1accumulator__set.html" class="xref attachment"><em><code>extract_result()</code></em></a> function.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1063,11 +1072,11 @@ using extract::moment;                  // Pull the extractor into the
 <p><strong>Aliasing feature dependencies with <code>feature_of&lt;&gt;</code></strong></p>
 </div>
 <div class="paragraph">
-<p>Imagine that you would like to implement the hypothetical <em>fubar</em> statistic, and that you know two ways to calculate fubar on a bunch of samples: an accurate but slow calculation and an approximate but fast calculation. You might opt to make the accurate calculation the default, so you implement two accumulators and call them <code>impl::fubar_impl</code> and <code>impl::fast_fubar_impl</code>. You would also define the <code>tag::fubar</code> and <code>tag::fast_fubar</code> features as described <a href="#accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework.defining_a_new_feature">above</a>. Now, you would like to inform the Accumulators Framework that these two features are the same from the point of view of dependency resolution. You can do that with <a href="reference.html#doxygen.accumulators_framework_reference.depends__on_8hpp" class="xref page"><em><code>feature_of&lt;&gt;</code></em></a>, as follows:</p>
+<p>Imagine that you would like to implement the hypothetical <em>fubar</em> statistic, and that you know two ways to calculate fubar on a bunch of samples: an accurate but slow calculation and an approximate but fast calculation. You might opt to make the accurate calculation the default, so you implement two accumulators and call them <code>impl::fubar_impl</code> and <code>impl::fast_fubar_impl</code>. You would also define the <code>tag::fubar</code> and <code>tag::fast_fubar</code> features as described <a href="#accumulators.user_s_guide.the_accumulators_framework.extending_the_accumulators_framework.defining_a_new_feature">above</a>. Now, you would like to inform the Accumulators Framework that these two features are the same from the point of view of dependency resolution. You can do that with <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1feature__of.html" class="xref attachment"><em><code>feature_of&lt;&gt;</code></em></a>, as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">namespace boost { namespace accumulators
+<pre class="highlight"><code class="language-c++" data-lang="c++">namespace boost { namespace accumulators
 {
     // For the purposes of feature-based dependency resolution,
     // fast_fubar provides the same feature as fubar
@@ -1086,11 +1095,11 @@ using extract::moment;                  // Pull the extractor into the
 <p><strong>Registering feature variants with <code>as_feature&lt;&gt;</code></strong></p>
 </div>
 <div class="paragraph">
-<p>You may have noticed that some feature variants in the Accumulators Framework can be specified with a nicer syntax. For instance, instead of <code>tag::mean</code> and <code>tag::immediate_mean</code> you can specify them with <code>tag::mean(lazy)</code> and <code>tag::mean(immediate)</code> respectively. These are merely aliases, but the syntax makes the relationship between the two clearer. You can create these feature aliases with the <a href="reference.html#doxygen.accumulators_framework_reference.depends__on_8hpp" class="xref page"><em><code>as_feature&lt;&gt;</code></em></a> trait. Given the fubar example above, you might decide to alias <code>tag::fubar(accurate)</code> with <code>tag::fubar</code> and <code>tag::fubar(fast)</code> with <code>tag::fast_fubar</code>. You would do that as follows:</p>
+<p>You may have noticed that some feature variants in the Accumulators Framework can be specified with a nicer syntax. For instance, instead of <code>tag::mean</code> and <code>tag::immediate_mean</code> you can specify them with <code>tag::mean(lazy)</code> and <code>tag::mean(immediate)</code> respectively. These are merely aliases, but the syntax makes the relationship between the two clearer. You can create these feature aliases with the <a href="_attachments/doxygen/accumulators_framework_reference/structboost_1_1accumulators_1_1as__feature.html" class="xref attachment"><em><code>as_feature&lt;&gt;</code></em></a> trait. Given the fubar example above, you might decide to alias <code>tag::fubar(accurate)</code> with <code>tag::fubar</code> and <code>tag::fubar(fast)</code> with <code>tag::fast_fubar</code>. You would do that as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">namespace boost { namespace accumulators
+<pre class="highlight"><code class="language-c++" data-lang="c++">namespace boost { namespace accumulators
 {
     struct fast {};     // OK to leave these tags empty
     struct accurate {};
@@ -1135,7 +1144,7 @@ using extract::moment;                  // Pull the extractor into the
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">namespace boost { namespace numeric { namespace functional
+<pre class="highlight"><code class="language-c++" data-lang="c++">namespace boost { namespace numeric { namespace functional
 {
     // Metafunction for looking up the tag associated with
     // a given numeric type T.
@@ -1162,7 +1171,7 @@ using extract::moment;                  // Pull the extractor into the
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">namespace boost { namespace numeric { namespace functional
+<pre class="highlight"><code class="language-c++" data-lang="c++">namespace boost { namespace numeric { namespace functional
 {
     // Tag type for MyDouble
     struct MyDoubleTag {};
@@ -1205,7 +1214,7 @@ using extract::moment;                  // Pull the extractor into the
 <h2 id="accumulators.user_s_guide.the_accumulators_framework.concepts.accumulator_concept"><a class="anchor" href="#accumulators.user_s_guide.the_accumulators_framework.concepts.accumulator_concept"></a>Accumulator Concept</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In the following table, <code>Acc</code> is the type of an accumulator, <code>acc</code> and <code>acc2</code> are objects of type <code>Acc</code>, and <code>args</code> is the name of an argument pack from the <a href="../../libs/parameter/index.html">Boost.Parameter</a> library.</p>
+<p>In the following table, <code>Acc</code> is the type of an accumulator, <code>acc</code> and <code>acc2</code> are objects of type <code>Acc</code>, and <code>args</code> is the name of an argument pack from the <a href="https://www.boost.org/doc/libs/latest/libs/parameter/index.html">Boost.Parameter</a> library.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1.2. Accumulator Requirements</caption>
@@ -1290,7 +1299,7 @@ using extract::moment;                  // Pull the extractor into the
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>F::impl</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>unspecified</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">An <a href="../../libs/mpl/doc/refmanual/lambda-expression.html">MPL Lambda Expression</a> that returns the type of the accumulator that implements this feature when passed a sample type and a weight type.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An <a href="https://www.boost.org/doc/libs/latest/libs/mpl/doc/refmanual/lambda-expression.html">MPL Lambda Expression</a> that returns the type of the accumulator that implements this feature when passed a sample type and a weight type.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1462,7 +1471,7 @@ using extract::moment;                  // Pull the extractor into the
 <dd>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">std::size_t</code></pre>
+<pre class="highlight"><code class="language-text" data-lang="text">std::size_t</code></pre>
 </div>
 </div>
 </dd>
@@ -1506,7 +1515,7 @@ using extract::moment;                  // Pull the extractor into the
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt;int, features&lt;tag::count&gt; &gt; acc;
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt;int, features&lt;tag::count&gt; &gt; acc;
 acc(0);
 acc(0);
 acc(0);
@@ -1582,7 +1591,7 @@ assert(3 == count(acc));</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt;double, stats&lt;tag::covariance&lt;double, tag::covariate1&gt; &gt; &gt; acc;
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt;double, stats&lt;tag::covariance&lt;double, tag::covariate1&gt; &gt; &gt; acc;
 acc(1., covariate1 = 2.);
 acc(1., covariate1 = 4.);
 acc(2., covariate1 = 3.);
@@ -1744,7 +1753,7 @@ assert(covariance(acc) == -1.75);</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt;double, stats&lt;tag::error_of&lt;tag::mean&gt; &gt; &gt; acc;
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt;double, stats&lt;tag::error_of&lt;tag::mean&gt; &gt; &gt; acc;
 acc(1.1);
 acc(1.2);
 acc(1.3);
@@ -1822,7 +1831,7 @@ assert(0.057735 == error_of&lt;tag::mean&gt;(acc));</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">boost::array&lt;double&gt; probs = {0.001,0.01,0.1,0.25,0.5,0.75,0.9,0.99,0.999};
+<pre class="highlight"><code class="language-text" data-lang="text">boost::array&lt;double&gt; probs = {0.001,0.01,0.1,0.25,0.5,0.75,0.9,0.99,0.999};
 accumulator_set&lt;double, stats&lt;tag::extended_p_square&gt; &gt;
     acc(tag::extended_p_square::probabilities = probs);
 
@@ -1912,7 +1921,7 @@ unweighted variants depend on <code>extended_p_square</code></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">typedef accumulator_set&lt;double, stats&lt;tag::extended_p_square_quantile&gt; &gt;
+<pre class="highlight"><code class="language-text" data-lang="text">typedef accumulator_set&lt;double, stats&lt;tag::extended_p_square_quantile&gt; &gt;
     accumulator_t;
 typedef accumulator_set&lt;double, stats&lt;tag::weighted_extended_p_square_quantile&gt;, double &gt;
     accumulator_t_weighted;
@@ -2040,7 +2049,7 @@ for (std::size_t i = 0; i &lt; probs.size() - 1; ++i)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt;int, stats&lt;tag::kurtosis &gt; &gt; acc;
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt;int, stats&lt;tag::kurtosis &gt; &gt; acc;
 
 acc(2);
 acc(7);
@@ -2124,7 +2133,7 @@ BOOST_CHECK_CLOSE( kurtosis(acc), -1.39965397924, 1e-6 );</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt;int, stats&lt;tag::max&gt; &gt; acc;
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt;int, stats&lt;tag::max&gt; &gt; acc;
 
 acc(1);
 BOOST_CHECK_EQUAL(1, (max)(acc));
@@ -2207,7 +2216,7 @@ The lazy mean of variates depends on <code>sum_of_variates&lt;&gt;</code></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt;
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt;
     int
   , stats&lt;
         tag::mean
@@ -2346,7 +2355,7 @@ BOOST_CHECK_CLOSE(5., (accumulators::mean_of_variates&lt;int, tag::covariate1&gt
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// two random number generators
+<pre class="highlight"><code class="language-text" data-lang="text">// two random number generators
 double mu = 1.;
 boost::lagged_fibonacci607 rng;
 boost::normal_distribution&lt;&gt; mean_sigma(mu,1);
@@ -2450,7 +2459,7 @@ BOOST_CHECK_CLOSE(1., median(acc_cdist), 3.);</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt;int, stats&lt;tag::min&gt; &gt; acc;
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt;int, stats&lt;tag::min&gt; &gt; acc;
 
 acc(1);
 BOOST_CHECK_EQUAL(1, (min)(acc));
@@ -2525,7 +2534,7 @@ BOOST_CHECK_EQUAL(0, (min)(acc));</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt;int, stats&lt;tag::moment&lt;2&gt; &gt; &gt; acc1;
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt;int, stats&lt;tag::moment&lt;2&gt; &gt; &gt; acc1;
 
 acc1(2); //    4
 acc1(4); //   16
@@ -2618,7 +2627,7 @@ BOOST_CHECK_CLOSE(1106., accumulators::moment&lt;5&gt;(acc2), 1e-5);</code></pre
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// tolerance in %
+<pre class="highlight"><code class="language-text" data-lang="text">// tolerance in %
 double epsilon = 3;
 
 typedef accumulator_set&lt;double, stats&lt;tag::p_square_cumulative_distribution&gt; &gt; accumulator_t;
@@ -2712,7 +2721,7 @@ for (std::size_t i = 0; i &lt; histogram.size(); ++i)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">typedef accumulator_set&lt;double, stats&lt;tag::p_square_quantile&gt; &gt; accumulator_t;
+<pre class="highlight"><code class="language-text" data-lang="text">typedef accumulator_set&lt;double, stats&lt;tag::p_square_quantile&gt; &gt; accumulator_t;
 
 // tolerance in %
 double epsilon = 1;
@@ -2916,7 +2925,7 @@ In addition, <code>tag::peaks_over_threshold_prob&lt;&gt;</code> depends on <cod
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// tolerance in %
+<pre class="highlight"><code class="language-text" data-lang="text">// tolerance in %
 double epsilon = 1.;
 
 double alpha = 0.999;
@@ -3042,7 +3051,7 @@ BOOST_CHECK_CLOSE( quantile(acc4, quantile_probability = alpha), 6.908, epsilon 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// TODO</code></pre>
+<pre class="highlight"><code class="language-text" data-lang="text">// TODO</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3073,7 +3082,7 @@ BOOST_CHECK_CLOSE( quantile(acc4, quantile_probability = alpha), 6.908, epsilon 
 <dd>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">std::size_t</code></pre>
+<pre class="highlight"><code class="language-text" data-lang="text">std::size_t</code></pre>
 </div>
 </div>
 </dd>
@@ -3117,7 +3126,7 @@ BOOST_CHECK_CLOSE( quantile(acc4, quantile_probability = alpha), 6.908, epsilon 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt;int, stats&lt;tag::rolling_count&gt; &gt; acc(tag::rolling_window::window_size = 3);
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt;int, stats&lt;tag::rolling_count&gt; &gt; acc(tag::rolling_window::window_size = 3);
 
 BOOST_CHECK_EQUAL(0u, rolling_count(acc));
 
@@ -3199,7 +3208,7 @@ BOOST_CHECK_EQUAL(3u, rolling_count(acc));</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt;int, stats&lt;tag::rolling_sum&gt; &gt; acc(tag::rolling_window::window_size = 3);
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt;int, stats&lt;tag::rolling_sum&gt; &gt; acc(tag::rolling_window::window_size = 3);
 
 BOOST_CHECK_EQUAL(0, rolling_sum(acc));
 
@@ -3280,14 +3289,14 @@ BOOST_CHECK_EQUAL(12, rolling_sum(acc));</code></pre>
 <div class="paragraph">
 <p><strong>Header</strong></p>
 </div>
-<pre class="programlisting"><code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.rolling__mean_8hpp">boost/accumulators/statistics/rolling_mean.hpp</a>&gt;
+<pre class="programlisting"> <code class="language-c++">#include &lt;<a href="reference.html#doxygen.statistics_library_reference.rolling__mean_8hpp">boost/accumulators/statistics/rolling_mean.hpp</a>&gt;
 </code></pre>
 <div class="paragraph">
 <p><strong>Example</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt;int, stats&lt;tag::rolling_mean&gt; &gt; acc(tag::rolling_window::window_size = 5);
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt;int, stats&lt;tag::rolling_mean&gt; &gt; acc(tag::rolling_window::window_size = 5);
 
 acc(1);
 acc(2);
@@ -3375,7 +3384,7 @@ BOOST_CHECK_CLOSE( rolling_mean(acc), 5.0, 1e-6 );</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt;int, stats&lt;tag::rolling_moment&lt;2&gt; &gt; &gt; acc(tag::rolling_window::window_size = 3);
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt;int, stats&lt;tag::rolling_moment&lt;2&gt; &gt; &gt; acc(tag::rolling_window::window_size = 3);
 
 acc(2);
 acc(4);
@@ -3453,7 +3462,7 @@ BOOST_CHECK_CLOSE( rolling_moment&lt;2&gt;(acc), (16.0 + 25.0 + 36.0)/3, 1e-5 );
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt;double, stats&lt;tag::rolling_variance&gt; &gt; acc(tag::rolling_window::window_size = 4);
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt;double, stats&lt;tag::rolling_variance&gt; &gt; acc(tag::rolling_window::window_size = 4);
 
 acc(1.2);
 
@@ -3552,7 +3561,7 @@ BOOST_CHECK_CLOSE( rolling_variance(acc), 8.41666666666667, 1e-10 ); // variance
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt;int, stats&lt;tag::skewness &gt; &gt; acc2;
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt;int, stats&lt;tag::skewness &gt; &gt; acc2;
 
 acc2(2);
 acc2(7);
@@ -3643,7 +3652,7 @@ BOOST_CHECK_CLOSE( skewness(acc2), 0.406040288214, 1e-6 );</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt;
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt;
     int
   , stats&lt;
         tag::sum
@@ -3902,7 +3911,7 @@ BOOST_CHECK_EQUAL(1.0f, sum_kahan(acc));</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// tolerance in %
+<pre class="highlight"><code class="language-text" data-lang="text">// tolerance in %
 double epsilon = 1;
 
 std::size_t n = 100000; // number of MC steps
@@ -4019,7 +4028,7 @@ BOOST_CHECK_CLOSE( tail_mean(acc3, quantile_probability = 0.001), 0.0005, 10 );<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// tolerance in %
+<pre class="highlight"><code class="language-text" data-lang="text">// tolerance in %
 double epsilon = 1;
 
 std::size_t n = 100000; // number of MC steps
@@ -4144,7 +4153,7 @@ BOOST_CHECK_CLOSE( quantile(acc3, quantile_probability  = 0.001), -3.090232, eps
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt;int, stats&lt;tag::tail_variate&lt;int, tag::covariate1, right&gt; &gt; &gt; acc(
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt;int, stats&lt;tag::tail_variate&lt;int, tag::covariate1, right&gt; &gt; &gt; acc(
     tag::tail&lt;right&gt;::cache_size = 4
 );
 
@@ -4248,7 +4257,7 @@ CHECK_RANGE_EQUAL(tail_variate(acc), {5, 1, 4, 7});</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">std::size_t c = 5; // cache size
+<pre class="highlight"><code class="language-text" data-lang="text">std::size_t c = 5; // cache size
 
 typedef double variate_type;
 typedef std::vector&lt;variate_type&gt; variate_set_type;
@@ -4422,7 +4431,7 @@ BOOST_CHECK_EQUAL( *(tail_variate_means(acc4, quantile_probability = 0.1).begin(
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// lazy variance
+<pre class="highlight"><code class="language-text" data-lang="text">// lazy variance
 accumulator_set&lt;int, stats&lt;tag::variance(lazy)&gt; &gt; acc1;
 
 acc1(1);
@@ -4538,7 +4547,7 @@ BOOST_CHECK_CLOSE(2., variance(acc2), 1e-5);</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt;double, stats&lt;tag::weighted_covariance&lt;double, tag::covariate1&gt; &gt;, double &gt; acc;
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt;double, stats&lt;tag::weighted_covariance&lt;double, tag::covariate1&gt; &gt;, double &gt; acc;
 
 acc(1., weight = 1.1, covariate1 = 2.);
 acc(1., weight = 2.2, covariate1 = 4.);
@@ -4705,7 +4714,7 @@ BOOST_CHECK_CLOSE(weighted_covariance(acc), -2.39, epsilon);</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">typedef accumulator_set&lt;double, stats&lt;tag::weighted_extended_p_square&gt;, double&gt; accumulator_t;
+<pre class="highlight"><code class="language-text" data-lang="text">typedef accumulator_set&lt;double, stats&lt;tag::weighted_extended_p_square&gt;, double&gt; accumulator_t;
 
 // tolerance in %
 double epsilon = 1;
@@ -4837,7 +4846,7 @@ for (std::size_t i = 0; i &lt; probs_normal1.size(); ++i)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt;int, stats&lt;tag::weighted_kurtosis&gt;, int &gt; acc2;
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt;int, stats&lt;tag::weighted_kurtosis&gt;, int &gt; acc2;
 
 acc2(2, weight = 4);
 acc2(7, weight = 1);
@@ -4925,7 +4934,7 @@ The lazy mean of variates depends on <code>weighted_sum_of_variates&lt;&gt;</cod
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt;
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt;
     int
   , stats&lt;
         tag::weighted_mean
@@ -5055,7 +5064,7 @@ BOOST_CHECK_EQUAL(52./7., (accumulators::weighted_mean_of_variates&lt;int, tag::
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// Median estimation of normal distribution N(1,1) using samples from a narrow normal distribution N(1,0.01)
+<pre class="highlight"><code class="language-text" data-lang="text">// Median estimation of normal distribution N(1,1) using samples from a narrow normal distribution N(1,0.01)
 // The weights equal to the likelihood ratio of the corresponding samples
 
 // two random number generators
@@ -5167,7 +5176,7 @@ BOOST_CHECK_CLOSE(1., weighted_median(acc_cdist), 1e-1);</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt;double, stats&lt;tag::weighted_moment&lt;2&gt; &gt;, double&gt; acc2;
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt;double, stats&lt;tag::weighted_moment&lt;2&gt; &gt;, double&gt; acc2;
 accumulator_set&lt;double, stats&lt;tag::weighted_moment&lt;7&gt; &gt;, double&gt; acc7;
 
 acc2(2.1, weight = 0.7);
@@ -5210,7 +5219,7 @@ BOOST_CHECK_CLOSE(548.54182, accumulators::weighted_moment&lt;7&gt;(acc7), 1e-5)
 <dd>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">iterator_range&lt;
+<pre class="highlight"><code class="language-text" data-lang="text">iterator_range&lt;
     std::vector&lt;
         std::pair&lt;
             numeric::functional::fdiv&lt;weighted_sample, std::size_t&gt;::result_type
@@ -5265,7 +5274,7 @@ BOOST_CHECK_CLOSE(548.54182, accumulators::weighted_moment&lt;7&gt;(acc7), 1e-5)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// tolerance in %
+<pre class="highlight"><code class="language-text" data-lang="text">// tolerance in %
 double epsilon = 4;
 
 typedef accumulator_set&lt;double, stats&lt;tag::weighted_p_square_cumulative_distribution&gt;, double &gt; accumulator_t;
@@ -5388,7 +5397,7 @@ for (std::size_t i = 0; i &lt; histogram_upper.size(); ++i)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">typedef accumulator_set&lt;double, stats&lt;tag::weighted_p_square_quantile&gt;, double&gt; accumulator_t;
+<pre class="highlight"><code class="language-text" data-lang="text">typedef accumulator_set&lt;double, stats&lt;tag::weighted_p_square_quantile&gt;, double&gt; accumulator_t;
 
 // tolerance in %
 double epsilon = 1;
@@ -5608,7 +5617,7 @@ BOOST_CHECK_CLOSE( weighted_p_square_quantile(acc7),  3.090232, epsilon );</code
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt;int, stats&lt;tag::weighted_skewness&gt;, int &gt; acc2;
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt;int, stats&lt;tag::weighted_skewness&gt;, int &gt; acc2;
 
 acc2(2, weight = 4);
 acc2(7, weight = 1);
@@ -5696,7 +5705,7 @@ BOOST_CHECK_CLOSE( weighted_skewness(acc2), 1.30708406282, 1e-6 );</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">accumulator_set&lt;int, stats&lt;tag::weighted_sum, tag::weighted_sum_of_variates&lt;int, tag::covariate1&gt; &gt;, int&gt; acc;
+<pre class="highlight"><code class="language-text" data-lang="text">accumulator_set&lt;int, stats&lt;tag::weighted_sum, tag::weighted_sum_of_variates&lt;int, tag::covariate1&gt; &gt;, int&gt; acc;
 
 acc(1, weight = 2, covariate1 = 3);
 BOOST_CHECK_EQUAL(2, weighted_sum(acc));
@@ -5789,7 +5798,7 @@ BOOST_CHECK_EQUAL(1.0f, weighted_sum_kahan(acc));</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// tolerance in %
+<pre class="highlight"><code class="language-text" data-lang="text">// tolerance in %
 double epsilon = 1;
 
 std::size_t n = 100000; // number of MC steps
@@ -5896,7 +5905,7 @@ BOOST_CHECK_CLOSE( non_coherent_weighted_tail_mean(acc1, quantile_probability = 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// tolerance in %
+<pre class="highlight"><code class="language-text" data-lang="text">// tolerance in %
 double epsilon = 1;
 
 std::size_t n = 100000; // number of MC steps
@@ -6011,7 +6020,7 @@ BOOST_CHECK_CLOSE( quantile(acc2, quantile_probability  = 0.001), -3.090232, eps
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">std::size_t c = 5; // cache size
+<pre class="highlight"><code class="language-text" data-lang="text">std::size_t c = 5; // cache size
 
 typedef double variate_type;
 typedef std::vector&lt;variate_type&gt; variate_set_type;
@@ -6179,7 +6188,7 @@ BOOST_CHECK_EQUAL( *(weighted_tail_variate_means(acc4, quantile_probability = 0.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">// lazy weighted_variance
+<pre class="highlight"><code class="language-text" data-lang="text">// lazy weighted_variance
 accumulator_set&lt;int, stats&lt;tag::weighted_variance(lazy)&gt;, int&gt; acc1;
 
 acc1(1, weight = 2);    //  2

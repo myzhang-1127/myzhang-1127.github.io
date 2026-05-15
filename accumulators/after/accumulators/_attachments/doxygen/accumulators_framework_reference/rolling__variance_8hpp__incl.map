@@ -1,0 +1,29 @@
+<map id="boost/accumulators/statistics/rolling_variance.hpp" name="boost/accumulators/statistics/rolling_variance.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1096,5,1231,64"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,120,141,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1093,35,928,39,694,48,561,58,425,72,287,90,154,115,141,118,139,113,152,109,286,85,424,66,561,53,693,43,928,34,1098,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="165,120,301,163"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1093,37,952,43,757,54,536,77,423,94,314,115,301,118,300,113,312,109,422,88,535,72,757,49,952,38,1098,36"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="326,128,506,155"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1093,41,841,67,679,87,518,115,471,126,470,121,516,109,678,82,840,62,1098,40"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="530,112,691,171"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1098,44,923,73,707,114,706,109,922,67,1093,45"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="715,120,882,163"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1098,54,894,115,882,118,882,113,892,109,1093,55"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="906,120,1062,163"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1117,64,1033,114,1031,109,1112,65"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="1086,112,1241,171"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1166,62,1166,98,1162,95,1162,66"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="1266,120,1451,163"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1217,62,1309,113,1304,112,1216,67"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="1475,120,1610,163"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="1232,49,1342,75,1464,109,1475,115,1470,114,1463,115,1340,81,1231,54"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="1635,112,1770,171"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1232,41,1404,65,1511,85,1622,112,1617,111,1510,90,1404,71,1232,46"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="1795,112,1930,171"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="1232,37,1336,45,1471,58,1624,79,1782,112,1777,111,1623,84,1470,63,1336,50,1232,42"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="1954,120,2086,163"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="1232,34,1364,39,1542,51,1742,73,1844,90,1943,109,1956,115,1951,115,1942,115,1843,95,1741,79,1541,56,1364,44,1232,40"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="2110,120,2241,163"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="1231,33,1388,35,1604,45,1850,68,1976,86,2099,109,2113,115,2108,115,2098,115,1975,91,1850,73,1603,50,1387,40,1232,38"/>
+</map>

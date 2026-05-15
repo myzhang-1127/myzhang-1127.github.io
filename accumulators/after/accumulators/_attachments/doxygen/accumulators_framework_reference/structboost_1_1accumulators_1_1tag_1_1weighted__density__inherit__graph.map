@@ -1,0 +1,13 @@
+<map id="boost::accumulators::tag::weighted_density" name="boost::accumulators::tag::weighted_density">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1167,224,1324,267"/>
+<area shape="rect" id="Node000002" href="$structboost_1_1accumulators_1_1depends__on.html" title=" " alt="" coords="966,133,1119,208"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1134,201,1188,224,1183,223,1133,207"/>
+<area shape="rect" id="Node000003" href="$structboost_1_1accumulators_1_1detail_1_1depends__on__base.html" title=" " alt="" coords="454,37,918,304"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="933,168,968,170,963,171,934,173"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,5,406,336"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="421,168,456,170,451,171,422,173"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="974,232,1111,259"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1126,243,1169,245,1164,245,1126,248"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="980,283,1106,309"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1113,276,1164,265,1170,264,1114,281"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="boost::accumulators::tag::external&lt; Feature, Tag, void &gt;" name="boost::accumulators::tag::external&lt; Feature, Tag, void &gt;">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1363,141,1525,200"/>
+<area shape="rect" id="Node000002" href="$structboost_1_1accumulators_1_1depends__on.html" title="depends_on" alt="" coords="966,8,1315,195"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1331,142,1366,152,1360,152,1330,147"/>
+<area shape="rect" id="Node000003" href="$structboost_1_1accumulators_1_1detail_1_1depends__on__base.html" title=" " alt="" coords="454,37,918,304"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="933,130,968,127,963,128,934,136"/>
+<area shape="rect" id="Node000005" href="$structboost_1_1accumulators_1_1depends__on.html" title=" " alt="" coords="1071,219,1210,261"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="934,206,1073,229,1068,230,933,211"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,5,406,336"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="421,168,456,170,451,171,422,173"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1225,223,1315,204,1360,195,1365,194,1316,209,1226,228"/>
+</map>

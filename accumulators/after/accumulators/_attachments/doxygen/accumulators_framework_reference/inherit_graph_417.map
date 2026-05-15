@@ -1,0 +1,11 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,104,94,131"/>
+<area shape="rect" id="Node000001" href="$structboost_1_1accumulators_1_1detail_1_1extractor__result.html" title=" " alt="" coords="149,5,300,64"/>
+<area shape="poly" id="edge573_Node000000_Node000001" title=" " alt="" coords="92,95,163,62,160,67,95,99"/>
+<area shape="rect" id="Node000003" href="$structboost_1_1accumulators_1_1detail_1_1extractor__result.html" title=" " alt="" coords="153,88,297,147"/>
+<area shape="poly" id="edge575_Node000000_Node000003" title=" " alt="" coords="108,115,154,116,150,119,110,120"/>
+<area shape="rect" id="Node000004" href="$structboost_1_1accumulators_1_1detail_1_1insert__feature.html" title=" " alt="" coords="142,171,308,229"/>
+<area shape="poly" id="edge576_Node000000_Node000004" title=" " alt="" coords="94,135,164,169,159,171,93,140"/>
+<area shape="rect" id="Node000002" href="$structboost_1_1accumulators_1_1extractor_1_1result_3_01this__type_07_a1_08_4.html" title=" " alt="" coords="356,5,526,64"/>
+<area shape="poly" id="edge574_Node000001_Node000002" title=" " alt="" coords="315,32,358,34,353,35,317,37"/>
+</map>

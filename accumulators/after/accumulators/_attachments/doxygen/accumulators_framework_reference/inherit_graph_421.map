@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,191,92,217"/>
+<area shape="rect" id="Node000001" href="$structboost_1_1accumulators_1_1features.html" title=" " alt="" coords="140,5,489,192"/>
+<area shape="poly" id="edge592_Node000000_Node000001" title=" " alt="" coords="97,182,141,166,137,170,100,187"/>
+<area shape="rect" id="Node000002" href="$structboost_1_1accumulators_1_1stats.html" title="An MPL sequence of statistics." alt="" coords="150,216,479,403"/>
+<area shape="poly" id="edge593_Node000000_Node000002" title=" " alt="" coords="99,221,152,243,147,245,99,226"/>
+</map>

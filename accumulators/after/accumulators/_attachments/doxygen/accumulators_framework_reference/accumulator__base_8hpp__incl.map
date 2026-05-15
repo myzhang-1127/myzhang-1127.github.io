@@ -1,0 +1,17 @@
+<map id="boost/accumulators/framework/accumulator_base.hpp" name="boost/accumulators/framework/accumulator_base.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="580,5,742,64"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,128,186,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="577,47,404,76,197,115,153,126,151,121,196,109,403,70,582,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="209,128,374,155"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="582,58,387,115,348,126,347,121,385,109,577,58"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="398,128,572,155"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="615,64,520,122,518,117,610,65"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="597,128,725,155"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="663,63,663,114,659,111,659,66"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="749,128,906,155"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="707,62,797,120,792,119,706,67"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="930,128,1136,155"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="742,56,976,123,971,123,742,61"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="1160,112,1322,171"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="742,43,923,68,1147,112,1142,112,922,73,742,48"/>
+</map>
